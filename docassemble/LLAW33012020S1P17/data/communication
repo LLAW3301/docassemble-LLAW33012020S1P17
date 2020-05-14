@@ -1,0 +1,110 @@
+---
+# need progress bar, inline graphics and more help
+question: Communication
+subquestion: |
+  Please choose the option that best describes your level of communication.
+fields:
+  - Expressing what I need or want: comms_expression
+    datatype: checkboxes
+    choices:
+      - I cannot do this on my own without assistive technology
+      - I cannot do this without someone physically helping me
+      - I cannot do this even with assistive technology or someone helping me
+    help: |
+      Assistive technology includes speech generating devices, devices that project images, amplified telephone equipment, hearing aids, active listening devices, etc.
+    none of the above: |
+      I do not have a problem with this
+---
+code: |
+  if comms_expression:
+    comms_expression = True
+  else:
+    comms_expression = False
+---
+code: |
+  if comms_expression.any_true():
+    comms_expression_checkboxes = True
+  else:
+    comms_expression_checkboxes = False
+---
+question: Communication
+subquestion: |
+  Please choose the option that best describes your level of communication.
+fields:
+  - Talking to other people: comms_talking
+    datatype: checkboxes
+    choices:
+      - I cannot do this on my own without assistive technology
+      - I cannot do this without someone physically helping me
+      - I cannot do this even with assistive technology or someone helping me
+    help: |
+      Assistive technology includes speech generating devices, devices that project images, amplified telephone equipment, hearing aids, active listening devices, etc.
+    none of the above: |
+      I do not have a problem with this
+---
+code: |
+  if comms_talking:
+    comms_talking = True
+  else:
+    comms_talking = False
+---
+code: |
+  if comms_talking.any_true():
+    comms_talking_checkboxes = True
+  else:
+    comms_talking_checkboxes = False
+---
+question: Communication
+subquestion: |
+  Please choose the option that best describes your level of communication.
+fields:
+  - Understanding what other people are saying to me: comms_understanding
+    datatype: checkboxes
+    choices:
+      - I cannot do this on my own without assistive technology
+      - I cannot do this without someone physically helping me
+      - I cannot do this even with assistive technology or someone helping me
+    help: |
+        Assistive technology includes speech generating devices, devices that project images, amplified telephone equipment, hearing aids, active listening devices, etc.
+    none of the above: |
+      I do not have a problem with this
+---
+code: |
+  if comms_understanding:
+    comms_understanding = True
+  else:
+    comms_understanding = False
+---
+code: |
+  if comms_understanding.any_true():
+    comms_understanding_checkboxes = True
+  else:
+    comms_understanding_checkboxes = False
+---
+question: Communication
+subquestion: |
+  Please choose the option that best describes your level of communication.
+fields:
+  - Getting my point across to people when I am talking: comms_gettingpoint
+    datatype: checkboxes
+    choices:
+      - I cannot do this on my own without assistive technology
+      - I cannot do this without someone physically helping me
+      - I cannot do this even with assistive technology or someone helping me
+    help: |
+        Assistive technology includes speech generating devices, devices that project images, amplified telephone equipment, hearing aids, active listening devices, etc.
+    none of the above: |
+      I do not have a problem with this
+---
+code: |
+  if comms_gettingpoint:
+    comms_gettingpoint = True
+  else:
+    comms_gettingpoint = False
+---
+code: |
+  if comms_gettingpoint.any_true():
+    comms_gettingpoint_checkboxes = True
+  else:
+    comms_gettingpoint_checkboxes = False
+---
