@@ -1,0 +1,106 @@
+---
+question: Mobility
+subquestion: |
+  Please choose the option that best describes your level of mobility.
+fields:
+  - Getting around the house or anywhere I want to go: mobility_getaround
+    datatype: checkboxes
+    choices:
+      - I cannot do this on my own without assistive technology such as a wheelchair, walking stick, mobility scooter or walker.
+      - I cannot do this without someone physically helping me
+      - I cannot do this even with assistive technology or someone helping me
+    none of the above: |
+      I do not have a problem with this
+--- 
+code: |
+  if mobility_getaround:
+    mobility_getaround = True
+  else:
+    mobility_getaround = False
+---
+code: |
+  if mobility_getaround.any_true():
+    mobility_getaround_checkboxes = True
+  else:
+    mobility_getaround_checkboxes = False
+---
+question: Mobility
+subquestion: |
+  Please choose the option that best describes your level of mobility.
+fields:
+  - Getting in or out of bed or a chair: mobility_bed
+    datatype: checkboxes
+    choices:
+      - I cannot do this on my own without assistive technology such as transfer devices, stretcher, convertible chairs, sit-to-stand lifts, walking stick, or walker.
+      - I cannot do this without someone physically helping me
+      - I cannot do this even with assistive technology or someone helping me
+    none of the above: |
+      I do not have a problem with this
+--- 
+code: |
+  if mobility_bed:
+    mobility_bed = True
+  else:
+    mobility_bed = False
+---
+code: |
+  if mobility_bed.any_true():
+    mobility_bed_checkboxes = True
+  else:
+    mobility_bed_checkboxes = False
+---
+question: Mobility
+subquestion: |
+  Please choose the option that best describes your level of mobility.
+fields:
+  - Being on my feet for extended periods: mobility_onfeet
+    datatype: checkboxes
+    choices:
+      - I cannot do this on my own without assistive technology such as adaptive seating and positioning, a wheelchair, walking stick, prosthetic limbs, or a walker.
+      - I cannot do this without someone physically helping me
+      - I cannot do this even with assistive technology or someone helping me
+    none of the above: |
+      I do not have a problem with this
+--- 
+code: |
+  if mobility_onfeet:
+    mobility_onfeet = True
+  else:
+    mobility_onfeet = False
+---
+code: |
+  if mobility_onfeet.any_true():
+    mobility_onfeet_checkboxes = True
+  else:
+    mobility_onfeet_checkboxes = False
+---
+question: Mobility
+subquestion: |
+  Please choose the option that best describes your level of mobility.
+fields:
+  - Performing tasks that require the use of limbs: mobility_limbs
+    datatype: checkboxes
+    choices:
+      - I cannot do this on my own without assistive technology such as prosthetic limbs and exoskeletons.
+      - I cannot do this without someone physically helping me
+      - I cannot do this even with assistive technology or someone helping me
+    none of the above: |
+      I do not have a problem with this
+--- 
+code: |
+  if mobility_limbs:
+    mobility_limbs = True
+  else:
+    mobility_limbs = False
+---
+code: |
+  if mobility_limbs.any_true():
+    mobility_limbs_checkboxes = True
+  else:
+    mobility_limbs_checkboxes = False
+---
+mandatory: True
+question: Thanks
+subquestion: |
+  ${ mobility_onfeet } ${ mobility_bed } ${ mobility_getaround } ${ mobility_limbs }
+---
