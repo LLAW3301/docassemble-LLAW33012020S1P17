@@ -1,0 +1,92 @@
+---
+question: Learning
+subquestion: |
+  Please choose the option that best describes your level of learning.
+fields:
+  - Learning new skills: learning_new
+    datatype: checkboxes
+    choices:
+      - I cannot do this on my own without assistive technology and equipment other than commonly used items and home modifications.
+      - I cannot do this without someone physically helping me
+      - I cannot do this even with assistive technology or someone helping me
+    none of the above: |
+      I do not have a problem with this
+  - note: | 
+      Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.
+      
+      Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+---
+code: |
+  if learning_new:
+    learning_new = True
+  else:
+    learning_new = False
+---
+code: |
+  if learning_new.any_true():
+    learning_new_checkboxes = True
+  else:
+    learning_new_checkboxes = False
+---
+question: Learning
+subquestion: |
+  Please choose the option that best describes your level of learning.
+fields:
+  - Remebering information: learning_remember
+    datatype: checkboxes
+    choices:
+      - I cannot do this on my own without assistive technology and equipment other than commonly used items and home modifications.
+      - I cannot do this without someone physically helping me
+      - I cannot do this even with assistive technology or someone helping me
+    none of the above: |
+      I do not have a problem with this
+  - note: | 
+      Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.
+      
+      Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+---
+code: |
+  if learning_remember:
+    learning_remember = True
+  else:
+    learning_remember = False
+---
+code: |
+  if learning_remember.any_true():
+    learning_remember_checkboxes = True
+  else:
+    learning_remember_checkboxes = False
+---
+question: Learning
+subquestion: |
+  Please choose the option that best describes your level of learning.
+fields:
+  - Using new skills: learning_using
+    datatype: checkboxes
+    choices:
+      - I cannot do this on my own without assistive technology and equipment other than commonly used items and home modifications.
+      - I cannot do this without someone physically helping me
+      - I cannot do this even with assistive technology or someone helping me
+    none of the above: |
+      I do not have a problem with this
+  - note: | 
+      Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.
+      
+      Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+---
+code: |
+  if learning_using:
+    learning_using = True
+  else:
+    learning_using = False
+---
+code: |
+  if learning_using.any_true():
+    learning_using_checkboxes = True
+  else:
+    learning_using_checkboxes = False
+---
+# delete when running full app
+mandatory: True
+question: ${ learning_using } ${ learning_remember } ${ learning_new } 
+---

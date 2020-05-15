@@ -6,11 +6,15 @@ fields:
   - Getting around the house or anywhere I want to go: mobility_getaround
     datatype: checkboxes
     choices:
-      - I cannot do this on my own without assistive technology such as a wheelchair, walking stick, mobility scooter or walker.
+      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications.
       - I cannot do this without someone physically helping me
       - I cannot do this even with assistive technology or someone helping me
     none of the above: |
       I do not have a problem with this
+  - note: | 
+      Assistive technology includes wheelchairs, mobility scooter or walker.
+      
+      Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
 --- 
 code: |
   if mobility_getaround:
@@ -31,11 +35,15 @@ fields:
   - Getting in or out of bed or a chair: mobility_bed
     datatype: checkboxes
     choices:
-      - I cannot do this on my own without assistive technology such as transfer devices, stretcher, convertible chairs, sit-to-stand lifts, walking stick, or walker.
+      - I cannot do this on my own without assistive technology and equipment other than commonly used items.
       - I cannot do this without someone physically helping me
       - I cannot do this even with assistive technology or someone helping me
     none of the above: |
       I do not have a problem with this
+  - note: | 
+      Assistive technology includes transfer devices, stretchers, convertible chairs, sit-to-stand lifts, prosthetics and exoskeletons.
+      
+      Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
 --- 
 code: |
   if mobility_bed:
@@ -56,11 +64,15 @@ fields:
   - Being on my feet for extended periods: mobility_onfeet
     datatype: checkboxes
     choices:
-      - I cannot do this on my own without assistive technology such as adaptive seating and positioning, a wheelchair, walking stick, prosthetic limbs, or a walker.
+      - I cannot do this on my own without assistive technology and equipment other than commonly used items.
       - I cannot do this without someone physically helping me
       - I cannot do this even with assistive technology or someone helping me
     none of the above: |
       I do not have a problem with this
+  - note: | 
+      Assistive technology includes adaptive seating and positioning, wheelchair, transfer devices, stretchers, convertible chairs, sit-to-stand lifts, prosthetics and exoskeletons.
+      
+      Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
 --- 
 code: |
   if mobility_onfeet:
@@ -81,11 +93,15 @@ fields:
   - Performing tasks that require the use of limbs: mobility_limbs
     datatype: checkboxes
     choices:
-      - I cannot do this on my own without assistive technology such as prosthetic limbs and exoskeletons.
+      - I cannot do this on my own without assistive technology and equipment other than commonly used items.
       - I cannot do this without someone physically helping me
       - I cannot do this even with assistive technology or someone helping me
     none of the above: |
       I do not have a problem with this
+  - note: | 
+      Assistive technology includes adaptive seating and positioning, wheelchair, transfer devices, stretchers, convertible chairs, sit-to-stand lifts, prosthetics and exoskeletons.
+      
+      Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils.
 --- 
 code: |
   if mobility_limbs:

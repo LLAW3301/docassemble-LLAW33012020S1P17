@@ -1,0 +1,153 @@
+---
+question: Self-Care
+subquestion: |
+  Please choose the option that best describes your level of self-care.
+fields:
+  - Showering and cleaning/brushing my teeth: self_shower
+    datatype: checkboxes
+    choices:
+      - I cannot do this on my own without assistive technology and equipment other than commonly used items and home modifications.
+      - I cannot do this without someone physically helping me
+      - I cannot do this even with assistive technology or someone helping me
+    none of the above: |
+      I do not have a problem with this
+  - note: | 
+      Assistive technology includes transfer devices, stretchers, convertible chairs, sit-to-stand lifts, prosthetics and exoskeletons.
+      
+      Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, shower chair, age appropriate child safety locks, simple adapted kitchen utensils. 
+---
+code: |
+  if self_shower:
+    self_shower = True
+  else:
+    self_shower = False
+---
+code: |
+  if self_shower.any_true():
+    self_shower_checkboxes = True
+  else:
+    self_shower_checkboxes = False
+---
+question: Self-Care
+subquestion: |
+  Please choose the option that best describes your level of self-care.
+fields:
+  - Feeding myself: self_feed
+    datatype: checkboxes
+    choices:
+      - I cannot do this on my own without assistive technology and equipment other than commonly used items and home modifications.
+      - I cannot do this without someone physically helping me
+      - I cannot do this even with assistive technology or someone helping me
+    none of the above: |
+      I do not have a problem with this
+  - note: | 
+      Assistive technology includes transfer devices, stretchers, convertible chairs, sit-to-stand lifts, prosthetics and exoskeletons.
+      
+      Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, shower chair, age appropriate child safety locks, simple adapted kitchen utensils. 
+---
+code: |
+  if self_feed:
+    self_feed = True
+  else:
+    self_feed = False
+---
+code: |
+  if self_feed.any_true():
+    self_feed_checkboxes = True
+  else:
+    self_feed_checkboxes = False
+---
+question: Self-Care
+subquestion: |
+  Please choose the option that best describes your level of self-care.
+fields:
+  - Dressing myself: self_dress
+    datatype: checkboxes
+    choices:
+      - I cannot do this on my own without assistive technology and equipment other than commonly used items and home modifications.
+      - I cannot do this without someone physically helping me
+      - I cannot do this even with assistive technology or someone helping me
+    none of the above: |
+      I do not have a problem with this
+  - note: | 
+      Assistive technology includes transfer devices, stretchers, convertible chairs, sit-to-stand lifts, prosthetics and exoskeletons.
+      
+      Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, shower chair, age appropriate child safety locks, simple adapted kitchen utensils. 
+---
+code: |
+  if self_dress:
+    self_dress = True
+  else:
+    self_dress = False
+---
+code: |
+  if self_dress.any_true():
+    self_dress_checkboxes = True
+  else:
+    self_dress_checkboxes = False
+---
+question: Self-Care
+subquestion: |
+  Please choose the option that best describes your level of self-care.
+fields:
+  - Using the toilet: self_toilet
+    datatype: checkboxes
+    choices:
+      - I cannot do this on my own without assistive technology and equipment other than commonly used items and home modifications.
+      - I cannot do this without someone physically helping me
+      - I cannot do this even with assistive technology or someone helping me
+    none of the above: |
+      I do not have a problem with this
+  - note: | 
+      Assistive technology includes transfer devices, stretchers, convertible chairs, sit-to-stand lifts, prosthetics and exoskeletons.
+      
+      Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, shower chair, age appropriate child safety locks, simple adapted kitchen utensils. 
+---
+code: |
+  if self_toilet:
+    self_toilet = True
+  else:
+    self_toilet = False
+---
+code: |
+  if self_toilet.any_true():
+    self_toilet_checkboxes = True
+  else:
+    self_toilet_checkboxes = False
+---
+question: Self-Care
+subquestion: |
+  Please choose the option that best describes your level of self-care.
+fields:
+  - Looking after my own healthcare needs: self_healthneeds
+    datatype: checkboxes
+    choices:
+      - I cannot do this on my own without assistive technology and equipment other than commonly used items and home modifications.
+      - I cannot do this without someone physically helping me
+      - I cannot do this even with assistive technology or someone helping me
+    none of the above: |
+      I do not have a problem with this
+  - note: | 
+      Assistive technology includes speech generating devices, devices that project images, amplified telephone equipment, hearing aids, active listening devices, prosthetics, exoskeletons.
+      
+      Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, shower chair, age appropriate child safety locks, simple adapted kitchen utensils. 
+      
+      Healthcare needs includes...
+# need definition for healthcare needs
+---
+code: |
+  if self_healthneeds:
+    self_healthneeds = True
+  else:
+    self_healthneeds = False
+---
+code: |
+  if self_healthneeds.any_true():
+    self_healthneeds_checkboxes = True
+  else:
+    self_healthneeds_checkboxes = False
+---
+# delete when running full app
+mandatory: True
+question: ${ self_healthneeds } ${ self_toilet } ${ self_feed } ${ self_shower } ${ self_dress } 
+---
