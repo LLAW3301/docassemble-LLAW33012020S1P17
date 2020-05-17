@@ -1,0 +1,44 @@
+---
+objects:
+  - endpoint: DADict
+---
+include:
+  - P17_mobility.yml
+  - P17_selfcare.yml
+  - P17_selfmanagement.yml
+  - P17_learning.yml
+  - P17_socialinteraction.yml
+---
+code: |
+  if satisfy_mobility or satisfy_selfcare or satisfy_selfmgmt or satisfy_learning or satisfy_social:
+    satisfy_disreq2 = True
+  else:
+    satisfy_disreq2 = False
+---
+mandatory: True
+code: |
+  if satisfy_disreq2:
+    endpoint['eligible_disreq2']
+  else:
+    endpoint['ineligible_disreq2']
+---
+event: endpoint['eligible_disreq2']
+question: Results
+subquestion: |
+  # Congratulations, you may be eligible for the NDIS!
+  
+  Here is a copy of your results:
+buttons:
+  - Exit: exit
+---
+event: endpoint['ineligible_disreq2']
+question: Results
+subquestion: |
+  # Sorry, you may *not* be eligible for the NDIS.
+  You may still attempt to submit an application via ...
+  
+  Here is a copy of your results:
+ 
+buttons:
+  - Exit: exit
+---

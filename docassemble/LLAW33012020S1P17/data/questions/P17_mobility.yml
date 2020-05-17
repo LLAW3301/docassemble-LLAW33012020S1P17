@@ -1,4 +1,5 @@
 ---
+mandatory: True
 question: Mobility
 subquestion: |
   Please choose the option that best describes your level of mobility.
@@ -28,6 +29,7 @@ code: |
   else:
     mobility_getaround_checkboxes = False
 ---
+mandatory: True
 question: Mobility
 subquestion: |
   Please choose the option that best describes your level of mobility.
@@ -57,6 +59,7 @@ code: |
   else:
     mobility_bed_checkboxes = False
 ---
+mandatory: True
 question: Mobility
 subquestion: |
   Please choose the option that best describes your level of mobility.
@@ -86,6 +89,7 @@ code: |
   else:
     mobility_onfeet_checkboxes = False
 ---
+mandatory: True
 question: Mobility
 subquestion: |
   Please choose the option that best describes your level of mobility.
@@ -115,8 +119,9 @@ code: |
   else:
     mobility_limbs_checkboxes = False
 ---
-mandatory: True
-question: Thanks
-subquestion: |
-  ${ mobility_onfeet } ${ mobility_bed } ${ mobility_getaround } ${ mobility_limbs }
+code: |
+  if mobility_onfeet or mobility_bed or mobility_getaround or mobility_limbs:
+    satisfy_mobility = True
+  else:
+    satisfy_mobility = False
 ---
