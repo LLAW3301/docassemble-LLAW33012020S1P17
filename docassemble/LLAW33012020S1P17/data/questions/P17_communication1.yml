@@ -115,7 +115,9 @@ code: |
   else:
     comms_gettingpoint_checkboxes = False
 ---
-# delete when running full app
-mandatory: True
-question: ${ comms_expression } ${ comms_talking } ${ comms_understanding } ${ comms_gettingpoint }
+code: |
+  if comms_understanding and comms_talking and comms_gettingpoint and comms_expression:
+    satisfy_comms = True
+  else:
+    satisfy_comms = False
 ---
