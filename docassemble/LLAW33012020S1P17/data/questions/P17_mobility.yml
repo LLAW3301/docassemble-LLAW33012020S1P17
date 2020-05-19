@@ -1,5 +1,4 @@
 ---
-mandatory: True
 question: Mobility
 subquestion: |
   Please choose the option that best describes your level of mobility.
@@ -16,12 +15,6 @@ fields:
       Assistive technology includes wheelchairs, mobility scooter or walker.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
---- 
-code: |
-  if mobility_getaround:
-    mobility_getaround = True
-  else:
-    mobility_getaround = False
 ---
 code: |
   if mobility_getaround.any_true():
@@ -29,7 +22,6 @@ code: |
   else:
     mobility_getaround_checkboxes = False
 ---
-mandatory: True
 question: Mobility
 subquestion: |
   Please choose the option that best describes your level of mobility.
@@ -46,12 +38,6 @@ fields:
       Assistive technology includes transfer devices, stretchers, convertible chairs, sit-to-stand lifts, prosthetics and exoskeletons.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
---- 
-code: |
-  if mobility_bed:
-    mobility_bed = True
-  else:
-    mobility_bed = False
 ---
 code: |
   if mobility_bed.any_true():
@@ -59,7 +45,6 @@ code: |
   else:
     mobility_bed_checkboxes = False
 ---
-mandatory: True
 question: Mobility
 subquestion: |
   Please choose the option that best describes your level of mobility.
@@ -76,12 +61,6 @@ fields:
       Assistive technology includes adaptive seating and positioning, wheelchair, transfer devices, stretchers, convertible chairs, sit-to-stand lifts, prosthetics and exoskeletons.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
---- 
-code: |
-  if mobility_onfeet:
-    mobility_onfeet = True
-  else:
-    mobility_onfeet = False
 ---
 code: |
   if mobility_onfeet.any_true():
@@ -106,12 +85,6 @@ fields:
       Assistive technology includes adaptive seating and positioning, wheelchair, transfer devices, stretchers, convertible chairs, sit-to-stand lifts, prosthetics and exoskeletons.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils.
---- 
-code: |
-  if mobility_limbs:
-    mobility_limbs = True
-  else:
-    mobility_limbs = False
 ---
 code: |
   if mobility_limbs.any_true():
