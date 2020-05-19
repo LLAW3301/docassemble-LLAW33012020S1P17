@@ -1,0 +1,322 @@
+---
+objects:
+  - endpoint: DADict
+---
+# Introduction Screen + Disclaimer
+mandatory: True
+question: Welcome to our NDIS Advisor!
+subquestion: |
+  The purpose of this application is to decide whether you are likely eligible for the National Disability Insurance Scheme (NDIS) and to give you tips for the next steps in applying.
+  
+  **This application currently only applies for people with Autism Sprectrum Disorder (ASD).**
+  
+  
+  *Disclaimer*
+  
+  This application is **not** legal advice. 
+  
+  This application does not guarantee you will receive funding for NDIS, nor does it guarantee ineligibility. 
+  
+  This application also does not provide comprehensive information on the NDIS. It will simply assist in assessing whether you are likely to be eligible, and give you some tips on the next steps.
+  
+  **The National Disability Insurance Agency (NDIA) reserves the right to make any final decisions.**
+ 
+ 
+  We advise you to have a support person while filling out the questions. If you are under 16, you must have a parent or caregiver present while filling out the questions. 
+ 
+  Please answer all questions honestly and as accurately as possible.
+ 
+  By clicking **CONTINUE**, you accept these terms.
+  
+buttons:
+  - CONTINUE: continue
+  - EXIT: exit
+    url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
+---
+#Introduction to NDIS access plan and eligibility + videos
+mandatory: True
+question: Introduction to the National Disability Insurance Scheme (NDIS)
+subquestion: |
+  **Information about the NDIS access plan**
+video: "[YOUTUBE oKxzePCoRis]"
+buttons:
+ - CONTINUE: continue
+ - EXIT: exit
+   url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
+---
+mandatory: True
+question: Requirements for NDIS Application
+subquestion: |
+  **Accessing the NDIS - requirements**
+video: "[YOUTUBE aF3gGRNRnkk]"
+buttons:
+ - CONTINUE: continue
+ - EXIT: exit
+   url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
+---
+mandatory: True
+code: |
+  if ( user_canuse == False ):
+    endpoint['austismcondition']
+  elif ( user_age_ok == False ):
+    endpoint['ineligibleduetoage']
+  elif ( user_residency == False ):
+    endpoint['ineligibleduetoresidency']
+---
+# Application Usage Requirement
+mandatory: true
+question: Are you using this application because you believe you have *Autism Spectrum Disorder (ASD)*?
+fields:
+  - no label: user_useasd
+    datatype: yesnoradio
+---
+code: |
+  if user_useasd:
+    user_canuse = True
+  else:
+    user_canuse = False
+---
+# Endpoint: Autism Condition
+event: endpoint['austismcondition']
+question: Unfortunately, you cannot use this application.
+subquestion: |
+  
+  **This NDIS Advisor is solely for people who believe they have Autism Spectrum Disorder.**
+  
+  
+  If you want to check if you are eligible due to other disability, then you should
+  contact the National Disability Insurance Agency (NDIA) and make an 
+  Access Request with them. 
+  
+buttons:
+  - Contact NDIS: exit
+    url: https://communitybridgingservices.org.au/
+  - Restart: restart
+---
+# Age Requirement Page
+question: What is your age?
+fields:
+  - no label: user_age
+    datatype: number
+---
+code: |
+  if ( (user_age >= 7) and
+       (user_age < 65) ):
+    user_age_ok = True
+  else:
+    user_age_ok = False
+---
+# ENDPOINT: Ineligibility due to AGE
+event: endpoint['ineligibleduetoage']
+question: Unfortunately, you may not be eligible for the NDIS.
+subquestion: |
+  
+  To access the NDIS, you must be between 7 and 65 years old.
+  
+  You have indicated that you are **${ user_age }** years old. 
+  
+  According to **section 22** of the [*National Disability Insurance Scheme Act 2013* (Cth)](https://www.legislation.gov.au/Details/C2013A00020)
+  your answers indicate that you do not meet this requirement.
+  
+  **This means you may not be eligible to access the NDIS.**
+  
+  The National Disability Insurance Agency (NDIA) makes the final decision
+  about who gets to receive support under the NDIS. If you would still like to 
+  check if you are eligible you should contact them to discuss your eligibility. 
+ 
+  
+  Thank you for using the NDIS Advisor.
+  
+buttons:
+  - Contact NDIS: exit
+    url: https://communitybridgingservices.org.au/
+  - Restart: restart
+---
+# Residency Requirement Page
+mandatory: true
+question: Do you currently live in Australia?
+fields:  
+  - no label: user_australianresident
+    datatype: yesnoradio
+---
+mandatory: true
+question: Are you an {Australian citizen}?
+fields:
+  - no label: user_citizen
+    datatype: yesnoradio
+terms:
+  Australian citizen: |
+    Were you born in Australia, or have you received official citizenship?
+---
+mandatory: true
+question: Are you a {permanent visa holder}?
+fields:
+  - no label: user_permanentvisa
+    datatype: yesnoradio
+terms:
+  permanent visa holder: |
+    A **permanent visa** gives the person to whom it was granted
+    permission to remain in Australia indefinitely.
+---
+mandatory: true
+question: Are you a {protected special category visa holder}?
+fields:
+  - no label: user_specialvisa
+    datatype: yesnoradio
+terms:
+  protected special category visa holder: |
+    A special category visa (SCV) is a temporary visa granted to New Zealand 
+    citizens subject to satisfying certain character and health requirements. 
+    
+    An SCV holder will be a protected SCV holder if:
+    
+    - The person was in Australia 
+    on 26 February 2001, and was a special category visa holder on that day; or 
+    
+    - The person had been in Australia for a period of, or for periods totaling, 
+    12 months during the 2 years immediately before 26 February 2001, and 
+    returned to Australia after that day (section 9).
+---
+code: |
+  if user_australianresident and user_citizen:
+    user_residency = True
+  elif user_australianresident and user_permanentvisa:
+    user_residency = True
+  elif user_australianresident and user_specialvisa:
+    user_residency = True
+  else:
+    user_residency = False
+---
+# Ineligible due to Residency Page
+event: endpoint['ineligibleduetoresidency']
+question: Eligibility requirements not met
+subquestion: |
+
+  **Unfortunately, you are *not* eligible for the NDIS.**
+ 
+ 
+  
+  To access the NDIS, you must be between 7 and 65 years old. 
+  
+  **You must also live in Australia and be either an 
+  Australian citizen or holder of a protected or special category Visa.**
+  
+  
+  *Based on what you told us, you do not meet one of these residency requirements, therefore
+  you are unable to access the NDIS.*
+  
+  
+  The National Disability Insurance Agency (NDIA) makes the final decision
+  about who gets to receive support under the NDIS. If you would still like to 
+  check if you are eligible you should contact them to discuss your eligibility. 
+ 
+  
+  Thank you for using the NDIS Advisor.
+buttons:
+  - Contact NDIS: exit
+    url: https://www.ndis.gov.au/contact
+  - Restart: restart
+---
+#Disability Requirements I: Diagnosis 
+mandatory: true
+question: Have you been diagnosed with autism spectrum disorder?
+fields:
+  - no label: user_diagnosedautism
+    datatype: yesnoradio
+  - Who diagnosed you?: user_medicalprof
+    datatype: checkboxes
+    choices:
+      - Clinical Psychologist
+      - Psychiatrist
+      - Paediatrician
+      - Specialist multi-disciplinary team
+    show if: user_diagnosedautism
+  - What level of autism spectrum disorder have you been diagnosed with?: user_levelofautism
+    datatype: radio
+    choices:
+      - Level 1
+      - Level 2
+      - Level 3
+    show if: user_diagnosedautism
+---
+code: |
+  if user_diagnosedautism and user_medicalprof and user_levelofautism:
+    user_diagnosedautism = True
+  else:
+    user_diagnosedautism = False
+---
+mandatory: true
+question: |
+  Please tick all that apply.
+subquestion: |
+  > This section of the questionnaire will ask you questions relating to **permanence**.
+field: dr_permanence1
+choices:
+  - There are no clinical, medical or other types of treatments that exist that may be available to help my impairment/s: treatment
+    help: |
+      Insert assistance here
+  - I do not think my impairment will improve over time: improve
+    help: |
+      Insert assistance here
+  - My impairment fluctuates over time: fluctuates
+    help: |
+      Fluctuates means rise and fall irregularly
+  - None of the above/Unsure: none
+---
+mandatory: true
+question: |
+  Please tick all that apply.
+subquestion: |
+  > A medical professional is able to confirm that my impairment cannot be improved from treatments available or appropriate to my impairment.
+fields:
+  - no label: notreatment
+    datatype: radio
+    choices:
+      - Yes
+      - No
+  - I will seek evidence from a medical professional to confirm this: confirmation
+    datatype: yesno
+    show if: 
+      variable: notreatment
+      is: Yes
+---
+include:
+  - P17_mobility.yml
+  - P17_selfcare.yml
+  - P17_selfmanagement.yml
+  - P17_learning.yml
+  - P17_socialinteraction.yml
+---
+code: |
+  if satisfy_mobility or satisfy_selfcare or satisfy_selfmgmt or satisfy_learning or satisfy_social:
+    satisfy_disreq2 = True
+  else:
+    satisfy_disreq2 = False
+---
+mandatory: True
+code: |
+  if satisfy_disreq2:
+    endpoint['eligible_disreq2']
+  else:
+    endpoint['ineligible_disreq2']
+---
+event: endpoint['eligible_disreq2']
+question: Results
+subquestion: |
+  # Congratulations, you may be eligible for the NDIS!
+  
+  Here is a copy of your results:
+buttons:
+  - Exit: exit
+---
+event: endpoint['ineligible_disreq2']
+question: Results
+subquestion: |
+  # Sorry, you may *not* be eligible for the NDIS.
+  You may still attempt to submit an application via ...
+  
+  Here is a copy of your results:
+ 
+buttons:
+  - Exit: exit
+---
