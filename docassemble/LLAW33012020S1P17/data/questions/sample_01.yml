@@ -56,12 +56,45 @@ buttons:
 ---
 mandatory: True
 code: |
+  # Initial eligibility checks
   if ( user_canuse == False ):
     endpoint['austismcondition']
   elif ( user_age_ok == False ):
     endpoint['ineligibleduetoage']
   elif ( user_residency == False ):
     endpoint['ineligibleduetoresidency']
+  
+  # Ask for diagnosis but proceed regardless
+  user_diagnosedautism
+  
+  # Mobility
+  mobility_getaround
+  mobility_bed
+  mobility_onfeet
+  mobility_limbs
+  
+  # Mobility eligibility
+  if not satisfy_disreq2:
+    endpoint['ineligible_disreq2']
+  else:
+    # Variables for disability requirement 3
+    var1
+    var2
+    var3
+    if not satisfy_disreq3:
+      endpoint['ie3']
+    else:
+      # No 4
+  
+---
+code: |
+  if user_australianresident:
+    if user_citizen or user_permanentvisa or user_specialvisa:
+      user_residency = True
+    else:
+      user_residency = False
+  else:
+    user_residency = False
 ---
 # Application Usage Requirement
 mandatory: true
@@ -133,13 +166,11 @@ buttons:
   - Restart: restart
 ---
 # Residency Requirement Page
-mandatory: true
 question: Do you currently live in Australia?
 fields:  
   - no label: user_australianresident
     datatype: yesnoradio
 ---
-mandatory: true
 question: Are you an {Australian citizen}?
 fields:
   - no label: user_citizen
@@ -148,7 +179,6 @@ terms:
   Australian citizen: |
     Were you born in Australia, or have you received official citizenship?
 ---
-mandatory: true
 question: Are you a {permanent visa holder}?
 fields:
   - no label: user_permanentvisa
@@ -158,7 +188,6 @@ terms:
     A **permanent visa** gives the person to whom it was granted
     permission to remain in Australia indefinitely.
 ---
-mandatory: true
 question: Are you a {protected special category visa holder}?
 fields:
   - no label: user_specialvisa
@@ -176,16 +205,6 @@ terms:
     - The person had been in Australia for a period of, or for periods totaling, 
     12 months during the 2 years immediately before 26 February 2001, and 
     returned to Australia after that day (section 9).
----
-code: |
-  if user_australianresident and user_citizen:
-    user_residency = True
-  elif user_australianresident and user_permanentvisa:
-    user_residency = True
-  elif user_australianresident and user_specialvisa:
-    user_residency = True
-  else:
-    user_residency = False
 ---
 # Ineligible due to Residency Page
 event: endpoint['ineligibleduetoresidency']
@@ -218,7 +237,6 @@ buttons:
   - Restart: restart
 ---
 #Disability Requirements I: Diagnosis 
-mandatory: true
 question: Have you been diagnosed with autism spectrum disorder?
 fields:
   - no label: user_diagnosedautism
@@ -239,13 +257,6 @@ fields:
       - Level 3
     show if: user_diagnosedautism
 ---
-code: |
-  if user_diagnosedautism and user_medicalprof and user_levelofautism:
-    user_diagnosedautism = True
-  else:
-    user_diagnosedautism = False
----
-mandatory: true
 question: |
   Please tick all that apply.
 subquestion: |
@@ -292,13 +303,6 @@ code: |
     satisfy_disreq2 = True
   else:
     satisfy_disreq2 = False
----
-mandatory: True
-code: |
-  if satisfy_disreq2:
-    endpoint['eligible_disreq2']
-  else:
-    endpoint['ineligible_disreq2']
 ---
 event: endpoint['eligible_disreq2']
 question: Results
