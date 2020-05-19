@@ -45,7 +45,7 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
 setup(name='docassemble.LLAW33012020S1P17',
       version='0.0.1',
       description=('Disability Requirements II'),
-      long_description="# P17\r\n\r\nThis is Nicole's part of the app: disability requirements II.\r\n\r\n## Author\r\n\r\nNicole Catabran, cata0036@flinders.edu.au",
+      long_description="# P17\r\n\r\nThis is Nicole's part of the app: disability requirements II.\r\n\r\n## Author\r\n\r\nNicole Catabran, cata0036@flinders.edu.au\r\n\r\n# Edited code",
       long_description_content_type='text/markdown',
       author='Nicole Catabran',
       author_email='cata0036@flinders.edu.au',
