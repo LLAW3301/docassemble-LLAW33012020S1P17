@@ -1,8 +1,10 @@
 ---
 mandatory: True
 question: Social Interaction
+subquestion: |
+  > **Please tick the choices that best describe you.**
 fields:
-  - Please tick the choices that best describe you: socialinteraction
+  - no label: socialinteraction
     datatype: checkboxes
     choices:
       - I have trouble making or keeping friends

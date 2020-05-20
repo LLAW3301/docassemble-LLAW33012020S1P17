@@ -4,16 +4,17 @@ mandatory: True
 question: Self-Management
 subquestion: |
   Please choose the option that best describes your level of self-management.
+  
+  > **Making plans and decisions**
 fields:
-  - Making decisions: mgmt_decisions
-    datatype: checkboxes
+  - no label: mgmt_plans
+    datatype: radio
     choices:
-      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications.
-      - I cannot do this without someone physically helping me or guiding me.
-      - I cannot do this even with assistive technology or someone helping me.
-    none of the above: |
-      I do not have a problem with this
-  - note: | 
+      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
+      - I cannot do this without someone physically helping me or guiding me
+      - I cannot do this even with assistive technology or someone helping me
+      - I do not have a problem with this
+help: | 
       Decision-making skills involve decisions you might make when completing tasks. E.g. deciding what to eat today, deciding what to do tomorrow, choosing what to wear, etc.
       
       Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.  
@@ -21,31 +22,30 @@ fields:
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
 --- 
 code: |
-  if mgmt_decisions:
-    mgmt_decisions = True
+  if mgmt_plans == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
+    mgmt_plan = True
+  elif mgmt_plans == 'I cannot do this without someone physically helping me or guiding me':
+    mgmt_plan = True
+  elif mgmt_plans == 'I cannot do this even with assistive technology or someone helping me':
+    mgmt_plan = True
   else:
-    mgmt_decisions = False
----
-code: |
-  if mgmt_decisions.any_true():
-    mgmt_decisions_checkboxes = True
-  else:
-    mgmt_decisions_checkboxes = False
+    mgmt_plan = False
 ---
 mandatory: True
 question: Self-Management
 subquestion: |
   Please choose the option that best describes your level of self-management.
+  
+  > **Solving problems**
 fields:
-  - Solving problems: mgmt_problem
-    datatype: checkboxes
+  - no label: mgmt_problem
+    datatype: radio
     choices:
-      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications.
-      - I cannot do this without someone physically helping me or guiding me.
-      - I cannot do this even with assistive technology or someone helping me.
-    none of the above: |
-      I do not have a problem with this
-  - note: | 
+      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
+      - I cannot do this without someone physically helping me or guiding me
+      - I cannot do this even with assistive technology or someone helping me
+      - I do not have a problem with this
+help: |
       Problem-solving involves being able to manage and resolve issues or conflicts that may arise throughout the day, whether you are by yourself or with other people.
       
       Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.  
@@ -53,31 +53,29 @@ fields:
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
 --- 
 code: |
-  if mgmt_problem:
+  if mgmt_problem == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
+    mgmt_problem = True
+  elif mgmt_problem == 'I cannot do this without someone physically helping me or guiding me':
+    mgmt_problem = True
+  elif mgmt_problem == 'I cannot do this even with assistive technology or someone helping me':
     mgmt_problem = True
   else:
     mgmt_problem = False
 ---
-code: |
-  if mgmt_problem.any_true():
-    mgmt_problem_checkboxes = True
-  else:
-    mgmt_problem_checkboxes = False
----
-mandatory: True
 question: Self-Management
 subquestion: |
   Please choose the option that best describes your level of self-management.
+  
+  > **Managing my finances**
 fields:
-  - Managing my finances: mgmt_finance
-    datatype: checkboxes
+  - no label: mgmt_finance
+    datatype: radio
     choices:
-      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications.
-      - I cannot do this without someone physically helping me or guiding me.
-      - I cannot do this even with assistive technology or someone helping me.
-    none of the above: |
-      I do not have a problem with this
-  - note: | 
+      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
+      - I cannot do this without someone physically helping me or guiding me
+      - I cannot do this even with assistive technology or someone helping me
+      - I do not have a problem with this
+help: |
       Examples of managing your own finances include budgeting weekly expenses, managing your savings, etc.
       
       Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.  
@@ -85,51 +83,75 @@ fields:
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
 --- 
 code: |
-  if mgmt_finance:
+  if mgmt_finance == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
+    mgmt_finance = True
+  elif mgmt_finance == 'I cannot do this without someone physically helping me or guiding me':
+    mgmt_finance = True
+  elif mgmt_finance == 'I cannot do this even with assistive technology or someone helping me':
     mgmt_finance = True
   else:
     mgmt_finance = False
 ---
-code: |
-  if mgmt_finance.any_true():
-    mgmt_finance_checkboxes = True
-  else:
-    mgmt_finance_checkboxes = False
----
-mandatory: True
 question: Self-Management
 subquestion: |
   Please choose the option that best describes your level of self-management.
+  
+  > **Completing daily tasks**
 fields:
-  - Completing daily tasks: mgmt_tasks
-    datatype: checkboxes
+  - no label: mgmt_tasks
+    datatype: radio
     choices:
-      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications.
-      - I cannot do this without someone physically helping me or guiding me.
-      - I cannot do this even with assistive technology or someone helping me.
-    none of the above: |
-      I do not have a problem with this
+      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
+      - I cannot do this without someone physically helping me or guiding me
+      - I cannot do this even with assistive technology or someone helping me
+      - I do not have a problem with this
   - note: | 
       Daily tasks might include things that make up a routine such as preparing food, showering/using the toilet throughout the day, running errands, etc.
       
-      Assistive technology includes transfer devices, stretchers, convertible chairs, sit-to-stand lifts, speech generating devices, memory aids, educational software, or other assistive technology for cognition.  
+      Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.  
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
 --- 
 code: |
-  if mgmt_tasks:
+  if mgmt_tasks == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
+    mgmt_tasks = True
+  elif mgmt_tasks == 'I cannot do this without someone physically helping me or guiding me':
+    mgmt_tasks = True
+  elif mgmt_tasks == 'I cannot do this even with assistive technology or someone helping me':
     mgmt_tasks = True
   else:
     mgmt_tasks = False
 ---
+question: Self-Management
+subquestion: |
+  Please choose the option that best describes your level of self-management.
+  
+  > **Organising my schedule**
+fields:
+  - no label: mgmt_schedule
+    datatype: radio
+    choices:
+      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
+      - I cannot do this without someone physically helping me or guiding me
+      - I cannot do this even with assistive technology or someone helping me
+      - I do not have a problem with this
+help: | 
+      Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.  
+      
+      Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+--- 
 code: |
-  if mgmt_tasks.any_true():
-    mgmt_tasks_checkboxes = True
+  if mgmt_schedule == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
+    mgmt_schedule = True
+  elif mgmt_schedule == 'I cannot do this without someone physically helping me or guiding me':
+    mgmt_schedule = True
+  elif mgmt_schedule == 'I cannot do this even with assistive technology or someone helping me':
+    mgmt_schedule = True
   else:
-    mgmt_tasks_checkboxes = False
+    mgmt_schedule = False
 ---
 code: |
-  if mgmt_problem or mgmt_decisions or mgmt_tasks or mgmt_finance:
+  if mgmt_problem or mgmt_plans or mgmt_tasks or mgmt_finance or mgmt_schedule:
     satisfy_selfmgmt = True
   else:
     satisfy_selfmgmt = False
