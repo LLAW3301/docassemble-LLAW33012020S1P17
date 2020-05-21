@@ -89,7 +89,7 @@ question: Mobility
 subquestion: |
   Please choose the option that best describes your level of mobility.
   
-  > **Performing tasks that require the use of limbs**
+  > **Doing tasks that require the use of limbs**
 fields:
   - no label: mobility_limbs
     datatype: radio

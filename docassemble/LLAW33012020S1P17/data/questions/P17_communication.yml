@@ -32,7 +32,7 @@ question: Communication
 subquestion: |
   Please choose the option that best describes your level of communication.
   
-  > **Talking to other people**
+  > **Having a general conversation/talking to other people**
 fields:
   - no label: comms_talking
     datatype: radio
