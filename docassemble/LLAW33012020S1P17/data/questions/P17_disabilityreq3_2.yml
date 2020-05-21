@@ -1,6 +1,5 @@
 # Disability Requirement III: Permanence
 ---
-mandatory: true
 question: |
   Please tick all that apply.
 subquestion: |
@@ -24,7 +23,6 @@ code: |
   else:
     dr_permanence1 = False
 ---
-mandatory: true
 question: |
   Please tick all that apply.
 subquestion: |
@@ -39,5 +37,5 @@ fields:
     datatype: yesno
     show if: 
       variable: notreatment
-      is: Yes
+      is: No
 ---

@@ -1,5 +1,4 @@
 ---
-mandatory: True
 question: Mobility
 subquestion: |
   Please choose the option that best describes your level of mobility.
@@ -56,7 +55,6 @@ code: |
   else:
     mobility_bed = False
 ---
-mandatory: True
 question: Mobility
 subquestion: |
   Please choose the option that best describes your level of mobility.

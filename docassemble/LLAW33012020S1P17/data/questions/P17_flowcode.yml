@@ -34,7 +34,6 @@ buttons:
     url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
 ---
 # User information
-mandatory: true
 question: Welcome to the NDIS Advisor!
 fields:
   - What is your name?: user_fullname  
@@ -66,12 +65,12 @@ buttons:
    url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
 ---
 include:
-  - endpoint_asd.yml
-  - endpoint_residency.yml
-  - endpoint_age.yml
   - P17_appusage.yml
+  - endpoint_asd.yml
   - P17_agereq.yml
+  - endpoint_age.yml
   - P17_residencyreq.yml
+  - endpoint_residency.yml
   - P17_disabilityreq1.yml
   - P17_disabilityreq3_1.yml
   - P17_disabilityreq3_2.yml

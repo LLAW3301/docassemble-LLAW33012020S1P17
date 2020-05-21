@@ -10,7 +10,7 @@ subquestion: |
     --------|------------
     **Age** | ${ user_age }
     **Residency** | ${ user_citizen } or ${ user_permanentvisa } or ${ user_specialvisa }
-    **Diagnosed by professional** | ${  }
+    **Diagnosed by professional** | ${ user_medicalprof }
     **By whom** | ${  }
     **Level of ASD** | ${  }
     **Communication**

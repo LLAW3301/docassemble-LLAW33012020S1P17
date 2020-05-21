@@ -1,6 +1,5 @@
 #Disability Requirements I: Diagnosis 
 ---
-mandatory: true
 question: Have you been diagnosed with autism spectrum disorder?
 fields:
   - no label: user_diagnosedautism

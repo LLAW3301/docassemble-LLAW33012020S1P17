@@ -2,26 +2,67 @@
 objects:
   - endpoint: DADict
 ---
-include:
-  - endpoint_asd.yml
-  - endpoint_residency.yml
-  - endpoint_age.yml
-  - P17_flowcode.yml
-  - P17_appusage.yml
-  - P17_agereq.yml
-  - P17_residencyreq.yml
-  - P17_disabilityreq1.yml
-  - P17_disabilityreq3_1.yml
-  - P17_disabilityreq3_2.yml
-  - P17_disabilityreq4.yml
-  - P17_communication.yml
-  - P17_mobility.yml
-  - P17_selfcare.yml
-  - P17_selfmanagement.yml
-  - P17_learning.yml
-  - P17_socialinteraction.yml
-  - endpoint_eligible.yml
-  - endpoint_ineligible.yml
+# Introduction Screen + Disclaimer
+mandatory: True
+question: Welcome to our NDIS Advisor!
+subquestion: |
+  The purpose of this application is to decide whether you are likely eligible for the National Disability Insurance Scheme (NDIS) and to give you tips for the next steps in applying.
+  
+  **This application currently only applies for people with Autism Spectrum Disorder (ASD).**
+  
+  
+  *Disclaimer*
+  
+  This application is **not** legal advice. 
+  
+  This application does not guarantee you will receive funding for NDIS, nor does it guarantee ineligibility. 
+  
+  This application also does not provide comprehensive information on the NDIS. It will simply assist in assessing whether you are likely to be eligible, and give you some tips on the next steps.
+  
+  **The National Disability Insurance Agency (NDIA) reserves the right to make any final decisions.**
+ 
+ 
+  We advise you to have a support person while filling out the questions. If you are under 16, you must have a parent or caregiver present while filling out the questions. 
+ 
+  Please answer all questions honestly and as accurately as possible.
+ 
+  By clicking **CONTINUE**, you accept these terms.
+  
+buttons:
+  - CONTINUE: continue
+  - EXIT: exit
+    url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
+---
+# User information
+question: Welcome to the NDIS Advisor!
+fields:
+  - What is your name?: user_fullname  
+  - Are you using this app with the presence of a {carer}?: user_carer
+    datatype: yesnoradio
+terms:
+  carer: |
+    Someone who gives care and support to a relative or friend who has disability.
+---
+#Introduction to NDIS access plan and eligibility + videos
+mandatory: True
+question: Introduction to the National Disability Insurance Scheme (NDIS)
+subquestion: |
+  **Information about the NDIS access plan**
+video: "[YOUTUBE oKxzePCoRis]"
+buttons:
+ - CONTINUE: continue
+ - EXIT: exit
+   url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
+---
+mandatory: True
+question: Requirements for NDIS Application
+subquestion: |
+  **Accessing the NDIS - requirements**
+video: "[YOUTUBE aF3gGRNRnkk]"
+buttons:
+ - CONTINUE: continue
+ - EXIT: exit
+   url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
 ---
 mandatory: True
 code: |
@@ -89,4 +130,24 @@ code: |
     endpoint['eligible']
   else:
     endpoint['ineligible']
+---
+include:
+  - P17_appusage.yml
+  - endpoint_asd.yml
+  - P17_agereq.yml
+  - endpoint_age.yml
+  - P17_residencyreq.yml
+  - endpoint_residency.yml
+  - P17_disabilityreq1.yml
+  - P17_disabilityreq3_1.yml
+  - P17_disabilityreq3_2.yml
+  - P17_disabilityreq4.yml
+  - P17_communication.yml
+  - P17_mobility.yml
+  - P17_selfcare.yml
+  - P17_selfmanagement.yml
+  - P17_learning.yml
+  - P17_socialinteraction.yml
+  - endpoint_eligible.yml
+  - endpoint_ineligible.yml
 ---

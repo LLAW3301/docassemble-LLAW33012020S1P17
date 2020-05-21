@@ -1,7 +1,6 @@
 # Disability Requirements III: Social and Economic Participation
 # If user selects any one of these, user is ineligible only for socecopart
 ---
-mandatory: true
 question: |
   Please tick all that apply.
 subquestion: |
@@ -34,7 +33,6 @@ code: |
   else:
     satisfy_socecon = False
 ---
-mandatory: true
 question: |
   Please tick all that apply.
 subquestion: |

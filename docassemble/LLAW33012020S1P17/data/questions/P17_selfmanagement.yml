@@ -1,6 +1,5 @@
 ---
 # definition/examples of making decisions?
-mandatory: True
 question: Self-Management
 subquestion: |
   Please choose the option that best describes your level of self-management.
@@ -31,7 +30,6 @@ code: |
   else:
     mgmt_plan = False
 ---
-mandatory: True
 question: Self-Management
 subquestion: |
   Please choose the option that best describes your level of self-management.

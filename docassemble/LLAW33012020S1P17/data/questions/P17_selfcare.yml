@@ -1,5 +1,4 @@
 ---
-mandatory: True
 question: Self-Care
 subquestion: |
   Please choose the option that best describes your level of self-care.
@@ -28,7 +27,6 @@ code: |
   else:
     self_shower = False
 ---
-mandatory: True
 question: Self-Care
 subquestion: |
   Please choose the option that best describes your level of self-care.

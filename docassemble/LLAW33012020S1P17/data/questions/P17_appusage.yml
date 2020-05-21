@@ -1,6 +1,5 @@
 # Application Usage Requirement
 ---
-mandatory: true
 question: Are you using this application because you believe you have *Autism Spectrum Disorder (ASD)*?
 fields:
   - no label: user_useasd
