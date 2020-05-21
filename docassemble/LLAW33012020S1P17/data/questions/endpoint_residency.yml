@@ -1,0 +1,31 @@
+# Ineligible due to Residency Page
+---
+event: endpoint['ineligibleduetoresidency']
+question: Eligibility requirements not met
+subquestion: |
+
+  **Unfortunately, you are *not* eligible for the NDIS.**
+ 
+ 
+  
+  To access the NDIS, you must be between 7 and 65 years old. 
+  
+  **You must also live in Australia and be either an 
+  Australian citizen or holder of a protected or special category Visa.**
+  
+  
+  *Based on what you told us, you do not meet one of these residency requirements, therefore
+  you are unable to access the NDIS.*
+  
+  
+  The National Disability Insurance Agency (NDIA) makes the final decision
+  about who gets to receive support under the NDIS. If you would still like to 
+  check if you are eligible you should contact them to discuss your eligibility. 
+ 
+  
+  Thank you for using the NDIS Advisor.
+buttons:
+  - Contact NDIS: exit
+    url: https://www.ndis.gov.au/contact
+  - Restart: restart
+---
