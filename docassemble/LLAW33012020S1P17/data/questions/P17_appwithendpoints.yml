@@ -3,6 +3,9 @@ objects:
   - endpoint: DADict
 ---
 include:
+  - endpoint_asd.yml
+  - endpoint_residency.yml
+  - endpoint_age.yml
   - P17_flowcode.yml
   - P17_appusage.yml
   - P17_agereq.yml
@@ -18,13 +21,68 @@ include:
   - P17_learning.yml
   - P17_socialinteraction.yml
 ---
+mandatory: True
+code: |
+  # Initial eligibility checks
+  if ( user_canuse == False ):
+    endpoint['austismcondition']
+  elif ( user_age_ok == False ):
+    endpoint['ineligibleduetoage']
+  elif ( user_residency == False ):
+    endpoint['ineligibleduetoresidency']
+  
+  # Ask for diagnosis but proceed regardless
+  user_diagnosedautism
+  
+  # Disability Requirements II: Functional Capacity questionnaires
+  # If one or more does not apply, user is ineligible
+  # Communication
+  comms_expression
+  comms_talking
+  comms_understanding
+  comms_gettingpoint
+  # Learning
+  learning_new
+  learning_using
+  learning_remember
+  # Mobility
+  mobility_getaround
+  mobility_bed
+  mobility_onfeet
+  mobility_bed
+  # Social Interaction
+  socialinteraction
+  # Self care
+  self_feed
+  self_shower
+  self_toilet
+  self_dress
+  # Self Management
+  mgmt_plans
+  mgmt_finance
+  mgmt_problem
+  mgmt_tasks
+  
+  # Disability Requirements III: Social and Economic Participation
+  # If user select any, user is ineligible
+  dr_socioecopart1
+  dr_socioecopart2
+  
+  # Disability Requirements III: Permanence
+  # If none apply, user is ineligible
+  dr_permanence1
+  
+  # Disability Requirements IV: Lifetime Support
+  # If first choice is not selected, user is ineligible
+  dr_lifetimesupport
+---
+---
 code: |
   if satisfy_mobility or satisfy_selfcare or satisfy_selfmgmt or satisfy_learning or satisfy_social:
     satisfy_disreq2 = True
   else:
     satisfy_disreq2 = False
 ---
-mandatory: True
 code: |
   if satisfy_disreq2 and user_age_ok and user_residency and dr_socioecopart1 and dr_permanence1 and dr_lifetimesupport and user_diagnosedautism:
     endpoint['eligible']
