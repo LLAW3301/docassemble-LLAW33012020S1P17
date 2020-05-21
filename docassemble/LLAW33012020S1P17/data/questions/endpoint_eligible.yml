@@ -1,0 +1,50 @@
+---
+event: endpoint['eligible']
+question: Results
+subquestion: |
+  # Congratulations, you may be eligible for the NDIS!
+  
+  Here is a copy of your results:
+  
+    Category|Your Answers
+    --------|------------
+    **Age** | ${ user_age }
+    **Residency** | ${ user_citizen } or ${ user_permanentvisa } or ${ user_specialvisa }
+    **Diagnosed by professional** | ${  }
+    **By whom** | ${  }
+    **Level of ASD** | ${  }
+    **Communication**
+    Expressing my needs and wants | ${ comms_expression }
+    Getting my point across when talking to others | ${ comms_gettingpoint }
+    Having a general conversation or talking to someone | ${ comms_talking }
+    Understanding what other people are saying to me| ${ comms_understanding }
+    **Learning**
+    Learning new skills | ${ learning_new }
+    Remembering information | ${ learning_remember }
+    Using newly learned skills | ${ learning_using }
+    **Mobility**
+    Getting around the house or anywhere I want to go | ${ mobility_getaround }
+    Getting in or out of bed or a chair | ${ mobility_bed }
+    Being on my feet for extended periods of time | ${ mobility_onfeet }
+    Doing tasks that requires the use of limbs | ${ mobility_limbs }
+    **Self-Care**
+    Showering or cleaning/brushing my teeth | ${ self_shower }
+    Feeding myself | ${ self_feed }
+    Dressing myself | ${ self_dress }
+    Using the toilet| ${ self_toilet }
+    **Self-Management**
+    Making plans and decisions | ${ mgmt_plans}
+    Solving everyday problems | ${ mgmt_problem }
+    Managing my finances | ${ mgmt_finance }
+    Completing daily tasks | ${ mgmt_tasks }
+    Organising my schedule | ${ mgmt_schedule }
+    Social Interaction | ${ socialinteraction.true_values() if socialinteraction.true_values() else 'Not Answered' }
+    **Social and Economic Participation I** | ${ dr_socioecopart1 }
+    **Social and Economic Participation II** | ${ dr_socioecopart2 }
+    Permanence | ${ dr_permanence1 }
+    Evidence for Permanence | ${ notreatment } ${ confirmation }
+    Lifetime Support | ${ dr_lifetimesupport }
+
+buttons:
+  - Exit: exit
+---
