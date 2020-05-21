@@ -1,0 +1,34 @@
+---
+mandatory: True
+question: Social Interaction
+subquestion: |
+  > **Please tick the choices that best describe you.**
+fields:
+  - no label: socialinteraction
+    datatype: checkboxes
+    choices:
+      - I have trouble making or keeping friends
+      - I do not know how to act in social situations/I have trouble behaving within limits accepted by others
+      - I have trouble coping with feelings and emotions when I am around others
+      - I have difficulty understanding what others expect of me
+      - When my senses feel overwhelmed, I feel the need to isolate myself
+      - When talking in a group, I find it difficult to know when it is my turn to talk
+---
+code: |
+  if socialinteraction:
+    socialinteraction = True
+  else:
+    socialinteraction = False
+---
+code: |
+  if socialinteraction.any_true():
+    socialinteraction_checkboxes = True
+  else:
+    socialinteraction_checkboxes = False
+---
+code: |
+  if socialinteraction:
+    satisfy_social = True
+  else:
+    satisfy_social = False
+---

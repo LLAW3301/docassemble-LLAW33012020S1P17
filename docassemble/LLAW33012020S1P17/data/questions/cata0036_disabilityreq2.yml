@@ -1,0 +1,89 @@
+---
+objects:
+  - endpoint: DADict
+---
+include:
+  - P17_communication.yml
+  - P17_mobility.yml
+  - P17_selfcare.yml
+  - P17_selfmanagement.yml
+  - P17_learning.yml
+  - P17_socialinteraction.yml
+---
+code: |
+  if satisfy_mobility or satisfy_selfcare or satisfy_selfmgmt or satisfy_learning or satisfy_social:
+    satisfy_disreq2 = True
+  else:
+    satisfy_disreq2 = False
+---
+mandatory: True
+code: |
+  if satisfy_disreq2:
+    endpoint['eligible_disreq2']
+  else:
+    endpoint['ineligible_disreq2']
+---
+event: endpoint['eligible_disreq2']
+question: Results
+subquestion: |
+  # Congratulations, you may be eligible for the NDIS!
+  
+  Here is a copy of your results:
+buttons:
+  - Exit: exit
+---
+event: endpoint['ineligible_disreq2']
+question: Results
+subquestion: |
+  # Sorry, you may *not* be eligible for the NDIS, per the requirements of section 24(1)(c) of the NDIS Act 2013 (Cth). 
+  
+  You may still attempt to submit an application directly to the NDIA, and take the copy of your results below as part your evidence. To check if you are eligible regardless, then you should contact the National Disability Insurance Agency (NDIA) and make an Access Request with them. You can make this request by calling the NDIA on 1800 800 119. 
+  
+  Here is a copy of your results:
+  
+  Category|Your Answers
+  ---------------------
+  Age| ${ user_age }
+  Residency| ${ PDF_residency_text }
+  Diagnosed by professional| ${ pdf_diagonsedautism_text }
+  By whom| ${ pdf_medicalprof_text }
+  Level of ASD| ${ pdf_levelofautism_text }
+  Functional Capacity
+  Communication
+  Expressing my needs and wants|
+  Getting my point across when talking to others|
+  Having a general conversation or talking to someone|
+  Understanding what other people are saying to me|
+  Learning
+  Learning new skills|
+  Remembering information|
+  Using newly learned skills|
+  Mobility
+  Getting around the house or anywhere I want to go|
+  Getting in or out of bed or a chair|
+  Being on my feet for extended periods of time|
+  Doing tasks that requires the use of limbs|
+  Self-Care
+  Showering or cleaning/brushing my teeth|
+  Feeding myself|
+  Dressing myself|
+  Using the toilet|
+  Self-Management
+  Making plans and decisions|
+  Solving everyday problems|
+  Managing my finances|
+  Completing daily tasks|
+  Organising my schedule|
+  Social Interaction | ${ socialinteraction.true_values() if socialinteraction.true_values() else 'Not Answered' }
+    Social and Economic Participation
+    Participating in sporting activities |
+    Performing voluntary/paid work |
+    Engaging in social activities/functions |
+    I have a job |
+    I have trouble keeping any form of employment |
+  Permanence | ${ pdf_dr_permanence1_text }, ${ pdf_notreatment_text } or ${ pdf_confirmation_text }
+  Lifetime Support | ${ pdf_dr_lifetimesupport }
+  Social and Economic Participation
+buttons:
+  - Exit: exit
+---
