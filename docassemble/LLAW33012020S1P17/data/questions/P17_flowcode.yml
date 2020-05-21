@@ -1,0 +1,122 @@
+---
+objects:
+  - endpoint: DADict
+---
+# Introduction Screen + Disclaimer
+mandatory: True
+question: Welcome to our NDIS Advisor!
+subquestion: |
+  The purpose of this application is to decide whether you are likely eligible for the National Disability Insurance Scheme (NDIS) and to give you tips for the next steps in applying.
+  
+  **This application currently only applies for people with Autism Spectrum Disorder (ASD).**
+  
+  
+  *Disclaimer*
+  
+  This application is **not** legal advice. 
+  
+  This application does not guarantee you will receive funding for NDIS, nor does it guarantee ineligibility. 
+  
+  This application also does not provide comprehensive information on the NDIS. It will simply assist in assessing whether you are likely to be eligible, and give you some tips on the next steps.
+  
+  **The National Disability Insurance Agency (NDIA) reserves the right to make any final decisions.**
+ 
+ 
+  We advise you to have a support person while filling out the questions. If you are under 16, you must have a parent or caregiver present while filling out the questions. 
+ 
+  Please answer all questions honestly and as accurately as possible.
+ 
+  By clicking **CONTINUE**, you accept these terms.
+  
+buttons:
+  - CONTINUE: continue
+  - EXIT: exit
+    url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
+---
+# User information
+mandatory: true
+question: Welcome to the NDIS Advisor!
+fields:
+  - What is your name?: user_fullname  
+  - Are you using this app with the presence of a {carer}?: user_carer
+    datatype: yesnoradio
+terms:
+  carer: |
+    Someone who gives care and support to a relative or friend who has disability.
+---
+#Introduction to NDIS access plan and eligibility + videos
+mandatory: True
+question: Introduction to the National Disability Insurance Scheme (NDIS)
+subquestion: |
+  **Information about the NDIS access plan**
+video: "[YOUTUBE oKxzePCoRis]"
+buttons:
+ - CONTINUE: continue
+ - EXIT: exit
+   url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
+---
+mandatory: True
+question: Requirements for NDIS Application
+subquestion: |
+  **Accessing the NDIS - requirements**
+video: "[YOUTUBE aF3gGRNRnkk]"
+buttons:
+ - CONTINUE: continue
+ - EXIT: exit
+   url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
+---
+mandatory: True
+code: |
+  # Initial eligibility checks
+  if ( user_canuse == False ):
+    endpoint['austismcondition']
+  elif ( user_age_ok == False ):
+    endpoint['ineligibleduetoage']
+  elif ( user_residency == False ):
+    endpoint['ineligibleduetoresidency']
+  
+  # Ask for diagnosis but proceed regardless
+  user_diagnosedautism
+  
+  # Disability Requirements II: Functional Capacity questionnaires
+  # If one or more does not apply, user is ineligible
+  # Communication
+  comms_expression
+  comms_talking
+  comms_understanding
+  comms_gettingpoint
+  # Learning
+  learning_new
+  learning_using
+  learning_remember
+  # Mobility
+  mobility_getaround
+  mobility_bed
+  mobility_onfeet
+  mobility_bed
+  # Social Interaction
+  socialinteraction
+  # Self care
+  self_feed
+  self_shower
+  self_toilet
+  self_dress
+  # Self Management
+  mgmt_plans
+  mgmt_finance
+  mgmt_problem
+  mgmt_tasks
+  
+  # Disability Requirements III: Social and Economic Participation
+  # If user select any, user is ineligible
+  dr_socioecopart1
+  dr_socioecopart2
+  
+  # Disability Requirements III: Permanence
+  # If none apply, user is ineligible
+  dr_permanence1
+  
+  # Disability Requirements IV: Lifetime Support
+  # If first choice is not selected, user is ineligible
+  dr_lifetimesupport
+---

@@ -1,0 +1,14 @@
+# Age Requirement Page
+---
+question: What is your age?
+fields:
+  - no label: user_age
+    datatype: integer
+---
+code: |
+  if ( (user_age >= 7) and
+       (user_age < 65) ):
+    user_age_ok = True
+  else:
+    user_age_ok = False
+---
