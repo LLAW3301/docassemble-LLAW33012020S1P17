@@ -1,0 +1,18 @@
+# Endpoint: Autism Condition
+---
+event: endpoint['austismcondition']
+question: Unfortunately, you cannot use this application.
+subquestion: |
+  
+  **This NDIS Advisor is solely for people who believe they have Autism Spectrum Disorder.**
+  
+  
+  If you want to check if you are eligible due to other disability, then you should
+  contact the National Disability Insurance Agency (NDIA) and make an 
+  Access Request with them. 
+  
+buttons:
+  - Contact NDIS: exit
+    url: https://communitybridgingservices.org.au/
+  - Restart: restart
+---

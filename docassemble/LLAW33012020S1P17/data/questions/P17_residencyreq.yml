@@ -1,0 +1,60 @@
+# Residency Requirement Page
+---
+question: Do you currently live in Australia?
+fields:  
+  - no label: user_australianresident
+    datatype: yesnoradio
+---
+question: Are you an {Australian citizen}?
+fields:
+  - no label: user_citizen
+    datatype: yesnoradio
+terms:
+  Australian citizen: |
+    Were you born in Australia, or have you received official citizenship?
+---
+question: Are you a {permanent visa holder}?
+fields:
+  - no label: user_permanentvisa
+    datatype: yesnoradio
+terms:
+  permanent visa holder: |
+    A **permanent visa** gives the person to whom it was granted
+    permission to remain in Australia indefinitely.
+---
+question: Are you a {protected special category visa holder}?
+fields:
+  - no label: user_specialvisa
+    datatype: yesnoradio
+terms:
+  protected special category visa holder: |
+    A special category visa (SCV) is a temporary visa granted to New Zealand 
+    citizens subject to satisfying certain character and health requirements. 
+    
+    An SCV holder will be a protected SCV holder if:
+    
+    - The person was in Australia 
+    on 26 February 2001, and was a special category visa holder on that day; or 
+    
+    - The person had been in Australia for a period of, or for periods totaling, 
+    12 months during the 2 years immediately before 26 February 2001, and 
+    returned to Australia after that day (section 9).
+---
+code: |
+  if user_australianresident:
+    if user_citizen or user_permanentvisa or user_specialvisa:
+      user_residency = True
+    else:
+      user_residency = False
+  else:
+    user_residency = False
+---
+code: |
+  if user_citizen:
+    pdf_residency_text = 'Is Australian citizen'
+  elif user_permanentvisa:
+    pdf_residency_text = 'Has Permanent Residency Visa'
+  elif user_specialvisa:
+    pdf_residency_text = 'Has Special Visa'
+---
+    

@@ -1,5 +1,4 @@
 ---
-mandatory: True
 question: Self-Care
 subquestion: |
   Please choose the option that best describes your level of self-care.
@@ -13,7 +12,7 @@ fields:
       - I cannot do this without someone physically helping me or guiding me
       - I cannot do this even with assistive technology or someone helping me
       - I do not have a problem with this
-help: |
+    note: |
       Assistive technology includes transfer devices, stretchers, convertible chairs, sit-to-stand lifts, prosthetics and exoskeletons.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, shower chair, age appropriate child safety locks, simple adapted kitchen utensils. 
@@ -28,7 +27,6 @@ code: |
   else:
     self_shower = False
 ---
-mandatory: True
 question: Self-Care
 subquestion: |
   Please choose the option that best describes your level of self-care.
@@ -42,7 +40,7 @@ fields:
       - I cannot do this without someone physically helping me or guiding me
       - I cannot do this even with assistive technology or someone helping me
       - I do not have a problem with this
-help: |
+    note: |
       Assistive technology includes transfer devices, stretchers, convertible chairs, sit-to-stand lifts, prosthetics and exoskeletons.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, shower chair, age appropriate child safety locks, simple adapted kitchen utensils. 
@@ -70,7 +68,7 @@ fields:
       - I cannot do this without someone physically helping me or guiding me
       - I cannot do this even with assistive technology or someone helping me
       - I do not have a problem with this
-help: |
+    note: |
       Assistive technology includes transfer devices, stretchers, convertible chairs, sit-to-stand lifts, prosthetics and exoskeletons.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, shower chair, age appropriate child safety locks, simple adapted kitchen utensils. 
@@ -98,7 +96,7 @@ fields:
       - I cannot do this without someone physically helping me or guiding me
       - I cannot do this even with assistive technology or someone helping me
       - I do not have a problem with this
-help: |
+    note: |
       Assistive technology includes transfer devices, stretchers, convertible chairs, sit-to-stand lifts, prosthetics and exoskeletons.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, shower chair, age appropriate child safety locks, simple adapted kitchen utensils. 

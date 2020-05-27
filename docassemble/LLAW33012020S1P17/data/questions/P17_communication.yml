@@ -1,5 +1,4 @@
 ---
-mandatory: True
 question: Communication
 subquestion: |
   Please choose the option that best describes your level of communication.
@@ -13,7 +12,7 @@ fields:
       - I cannot do this without someone physically helping me or guiding me
       - I cannot do this even with assistive technology or someone helping me
       - I do not have a problem with this
-help: |
+    note: |
       Assistive technology includes speech generating devices, devices that project images, amplified telephone equipment, hearing aids, active listening devices, etc.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
@@ -41,7 +40,7 @@ fields:
       - I cannot do this without someone physically helping me or guiding me
       - I cannot do this even with assistive technology or someone helping me
       - I do not have a problem with this
-help: |
+    note: |
       Assistive technology includes speech generating devices, devices that project images, amplified telephone equipment, hearing aids, active listening devices, etc.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
@@ -69,7 +68,7 @@ fields:
       - I cannot do this without someone physically helping me or guiding me
       - I cannot do this even with assistive technology or someone helping me
       - I do not have a problem with this
-help: |
+    note: |
       Assistive technology includes speech generating devices, devices that project images, amplified telephone equipment, hearing aids, active listening devices, etc.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
@@ -97,7 +96,7 @@ fields:
       - I cannot do this without someone physically helping me or guiding me
       - I cannot do this even with assistive technology or someone helping me
       - I do not have a problem with this
-help: |
+    note: |
       Assistive technology includes speech generating devices, devices that project images, amplified telephone equipment, hearing aids, active listening devices, etc.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
