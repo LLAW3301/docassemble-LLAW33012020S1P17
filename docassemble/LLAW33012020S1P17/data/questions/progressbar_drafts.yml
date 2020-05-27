@@ -1,0 +1,74 @@
+features:
+  progress bar: True
+---
+question: Are you enjoying the interview so far?
+yesno: user_is_enjoying_interview
+progress: 20
+---
+question: Done with the interview.
+subquestion: |
+  % if user_is_enjoying_interview:
+  I am glad you are enjoying the interview.
+  % else:
+  We are sorry to hear that!
+  % endif
+progress: 20
+mandatory: True
+buttons: 
+  next: next
+---
+features:
+  progress bar: True
+---
+question: You are half way there! 
+yesno: user_is_half_way_there
+progress: 50
+---
+question: Done with the interview.
+subquestion: |
+  % if user_is_half_there:
+  Your interview is halfway to being completed. 
+  % else:
+  Thank for continuing with your interview
+  % endif
+progress: 50
+mandatory: True
+buttons: 
+  next: next
+---
+features:
+  progress bar: True
+---
+question: Are you enjoying the interview so far?
+yesno: user_is_enjoying_interview
+progress: 70
+---
+question: Almost done with your interview.
+subquestion: |
+  % if user_is_almost_done_with_interview:
+  you are 70% done.
+  % else:
+  We are sorry to hear that!
+  % endif
+progress: 70
+mandatory: True
+buttons: 
+  next: next
+---
+features:
+  progress bar: True
+---
+question: Thank you for successfully completing your interview.
+yesno: user_is_done_with_interview
+progress: 100
+---
+question: Done with the interview.
+subquestion: |
+  % if user_is_enjoying_interview:
+  Thank you for successfully completing your interview. 
+  % else:
+  We are sorry to hear that!
+  % endif
+progress: 100
+mandatory: True
+---

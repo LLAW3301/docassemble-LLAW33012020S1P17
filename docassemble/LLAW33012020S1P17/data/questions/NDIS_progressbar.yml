@@ -1,0 +1,20 @@
+features:
+  progress bar: True
+---
+question: Are you enjoying the interview so far?
+yesno: user_is_enjoying_interview
+progress: 20
+---
+question: Done with the interview.
+subquestion: |
+  % if user_is_enjoying_interview:
+  I am glad you are enjoying the interview.
+  % else:
+  We are sorry to hear that!
+  % endif
+progress: 100
+mandatory: True
+---
+features:
+  progress bar: True
+---
