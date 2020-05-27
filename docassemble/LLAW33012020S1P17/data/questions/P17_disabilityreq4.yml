@@ -18,3 +18,9 @@ code: |
   else:
     dr_lifetimesupport = False
 ---
+code: |
+  if dr_lifetimesupport:
+    satisfy_lifetimesupport = True
+  else:
+    satisfy_lifetimesupport = False
+---

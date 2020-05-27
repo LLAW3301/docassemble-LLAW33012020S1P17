@@ -5,7 +5,7 @@ fields:
   - no label: user_diagnosedautism
     datatype: yesnoradio
   - Who diagnosed you?: user_medicalprof
-    datatype: checkboxes
+    datatype: radio
     choices:
       - Clinical Psychologist
       - Psychiatrist

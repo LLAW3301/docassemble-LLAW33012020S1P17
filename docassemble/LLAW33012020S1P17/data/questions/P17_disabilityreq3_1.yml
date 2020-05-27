@@ -16,20 +16,16 @@ fields:
       - I have difficulty keeping any form of employment
 ---
 code: |
-  if dr_socioecopart1:
-    dr_socioecopart1 = True
-  else:
-    dr_socioecopart1 = False
----
-code: |
   if dr_socioecopart1.any_true():
-    socialinteraction_checkboxes = True
+    dr_socioecopart1_checkboxes = True
   else:
     dr_socioecopart1_checkboxes = False
 ---
 code: |
-  if dr_socioecopart1:
+  if dr_socioecopart1_checkboxes:
     satisfy_socecon = True
+  elif dr_socioecopart2_checkboxes:
+    satisfy_socecon = False
   else:
     satisfy_socecon = False
 ---
@@ -48,20 +44,8 @@ fields:
       - I have a circle of friends that I can talk to and support me
 ---
 code: |
-  if dr_socioecopart2:
-    dr_socioecopart2 = True
-  else:
-    dr_socioecopart2 = False
----
-code: |
   if dr_socioecopart2.any_true():
-    socialinteraction_checkboxes = True
+    dr_socioecopart2_checkboxes = True
   else:
     dr_socioecopart2_checkboxes = False
----
-code: |
-  if dr_socioecopart2:
-    satisfy_socecon = False
-  else:
-    satisfy_socecon = True
 ---

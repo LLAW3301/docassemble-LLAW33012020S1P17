@@ -14,19 +14,13 @@ fields:
       - When talking in a group, I find it difficult to know when it is my turn to talk
 ---
 code: |
-  if socialinteraction:
-    socialinteraction = True
-  else:
-    socialinteraction = False
----
-code: |
   if socialinteraction.any_true():
     socialinteraction_checkboxes = True
   else:
     socialinteraction_checkboxes = False
 ---
 code: |
-  if socialinteraction:
+  if socialinteraction_checkboxes:
     satisfy_social = True
   else:
     satisfy_social = False

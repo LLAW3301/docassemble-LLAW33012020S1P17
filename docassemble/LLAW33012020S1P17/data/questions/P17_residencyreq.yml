@@ -55,6 +55,6 @@ code: |
   elif user_permanentvisa:
     pdf_residency_text = 'Has Permanent Residency Visa'
   elif user_specialvisa:
-    pdf_residency_text = 'dkkddk'
+    pdf_residency_text = 'Has Special Visa'
 ---
     
