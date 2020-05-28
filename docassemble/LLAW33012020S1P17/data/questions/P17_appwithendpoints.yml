@@ -2,6 +2,33 @@
 objects:
   - endpoint: DADict
 ---
+metadata: 
+  title: |
+    CBS Inc NDIS Advisor
+---
+objects:
+  - CBSLogo: DAStaticFile.using(filename='CBS-logo-small-white.png')
+---
+mandatory: True
+code: |
+  metadata = all_variables(special='metadata')
+  
+  logostring = '<div class="media"><img src="'
+  
+  logostring += CBSLogo.url_for()
+ 
+  logostring += '" class="mr-3" height="80">'
+  logostring += '<div class="media-body">'
+  logostring += '<h5 class="mt-0">&nbsp; <b>' + metadata['title'] + '</b></h5>'
+  logostring += '</div></div>'
+  
+  set_parts(logo=logostring)
+---
+features:
+  css: CBSInc.css
+  debug: false
+  hide standard menu: false
+---
 # Introduction Screen + Disclaimer
 mandatory: True
 question: Welcome to our NDIS Advisor!
@@ -129,14 +156,10 @@ code: |
     endpoint['eligible']
   elif dr_socioecopart2_checkboxes == True:
     endpoint['ineligible']
-  elif satisfy_disreq2 == False:
+  elif satisfy_disreq2 or satisfy_permanence or satisfy_lifetimesupport or satisfy_socecon == False:
     endpoint['ineligible']
-  elif satisfy_permanence == False:
-    endpoint['ineligible']
-  elif satisfy_lifetimesupport == False:
-    endpoint['ineligible']
-  elif satisfy_socecon == False:
-    endpoint['ineligible']
+  else:
+    endpoint ['ineligible']
 ---
 code: |
   if satisfy_comms or satisfy_mobility or satisfy_selfcare or satisfy_selfmgmt or satisfy_learning or satisfy_social:
