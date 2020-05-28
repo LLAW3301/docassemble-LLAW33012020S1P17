@@ -1,4 +1,14 @@
 ---
+image sets:
+  freepik:
+    attribution: |
+      Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
+    images:
+      learning: Learning.png
+      learning2: Learning2.png
+      remember: Remembering.png
+---
+decoration: learning
 question: Learning
 subquestion: |
   Please choose the option that best describes your level of learning.
@@ -27,6 +37,7 @@ code: |
   else:
     learning_new = False
 ---
+decoration: remember
 question: Learning
 subquestion: |
   Please choose the option that best describes your level of learning.
@@ -55,6 +66,7 @@ code: |
   else:
     learning_remember = False
 ---
+decoration: learning2
 question: Learning
 subquestion: |
   Please choose the option that best describes your level of learning.
