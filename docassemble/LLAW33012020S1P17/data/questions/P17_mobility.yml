@@ -1,4 +1,14 @@
 ---
+image sets:
+  freepik:
+    attribution: |
+      Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
+    images:
+      feet: Feet.png
+      wheelchair: disability.png
+      prosthetic: prosthesis.png
+---
+decoration: wheelchair
 question: Mobility
 subquestion: |
   Please choose the option that best describes your level of mobility.
@@ -27,6 +37,7 @@ code: |
   else:
     mobility_getaround = False
 ---
+decoration: prosthetic
 question: Mobility
 subquestion: |
   Please choose the option that best describes your level of mobility.
@@ -55,6 +66,7 @@ code: |
   else:
     mobility_bed = False
 ---
+decoration: feet
 question: Mobility
 subquestion: |
   Please choose the option that best describes your level of mobility.
@@ -83,6 +95,7 @@ code: |
   else:
     mobility_onfeet = False
 ---
+decoration: prosthetic
 question: Mobility
 subquestion: |
   Please choose the option that best describes your level of mobility.

@@ -1,4 +1,12 @@
 ---
+image sets:
+  freepik:
+    attribution: |
+      Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
+    images:
+      social: hug.png
+---
+decoration: social
 question: Social Interaction
 subquestion: |
   > **Please tick the choices that best describe you.**

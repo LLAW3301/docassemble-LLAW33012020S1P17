@@ -4,11 +4,11 @@ image sets:
     attribution: |
       Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
     images:
-      learning: Learning.png
+      book: book-2.png
       learning2: Learning2.png
       remember: Remembering.png
 ---
-decoration: learning
+decoration: book
 question: Learning
 subquestion: |
   Please choose the option that best describes your level of learning.
