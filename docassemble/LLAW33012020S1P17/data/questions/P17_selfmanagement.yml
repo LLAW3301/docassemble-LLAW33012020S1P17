@@ -4,10 +4,13 @@ image sets:
     attribution: |
       Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
     images:
-      talking: Conversation.png
-      group: Group_Convo.png
+      calendar: calendar.png
+      problem: problem.png
+      money: money.png
+      tasks: list.png
 ---
 # definition/examples of making decisions?
+decoration: calendar
 question: Self-Management
 subquestion: |
   Please choose the option that best describes your level of self-management.
@@ -38,6 +41,7 @@ code: |
   else:
     mgmt_plans = False
 ---
+decoration: problem
 question: Self-Management
 subquestion: |
   Please choose the option that best describes your level of self-management.
@@ -68,6 +72,7 @@ code: |
   else:
     mgmt_problem = False
 ---
+decoration: money
 question: Self-Management
 subquestion: |
   Please choose the option that best describes your level of self-management.
@@ -98,6 +103,7 @@ code: |
   else:
     mgmt_finance = False
 ---
+decoration: tasks
 question: Self-Management
 subquestion: |
   Please choose the option that best describes your level of self-management.
@@ -128,6 +134,7 @@ code: |
   else:
     mgmt_tasks = False
 ---
+decoration: calendar
 question: Self-Management
 subquestion: |
   Please choose the option that best describes your level of self-management.

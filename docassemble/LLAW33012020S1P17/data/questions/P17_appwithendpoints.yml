@@ -7,7 +7,7 @@ metadata:
     CBS Inc NDIS Advisor
 ---
 objects:
-  - CBSLogo: DAStaticFile.using(filename='CBS-logo-small-white.png')
+  - CBSLogo: DAStaticFile.using(filename='CBS_logo.png')
 ---
 mandatory: True
 code: |
@@ -17,7 +17,7 @@ code: |
   
   logostring += CBSLogo.url_for()
  
-  logostring += '" class="mr-3" height="80">'
+  logostring += '" class="mr-3" height="50">'
   logostring += '<div class="media-body">'
   logostring += '<h5 class="mt-0">&nbsp; <b>' + metadata['title'] + '</b></h5>'
   logostring += '</div></div>'
@@ -124,8 +124,6 @@ code: |
   mobility_bed
   mobility_onfeet
   mobility_limbs
-  # Social Interaction
-  socialinteraction
   # Self care
   self_feed
   self_shower
@@ -137,6 +135,8 @@ code: |
   mgmt_problem
   mgmt_tasks
   mgmt_schedule
+  # Social Interaction
+  socialinteraction
   
   # Disability Requirements III: Social and Economic Participation
   # If user select any, user is eligible

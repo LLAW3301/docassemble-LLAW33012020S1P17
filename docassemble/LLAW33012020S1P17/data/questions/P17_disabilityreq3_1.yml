@@ -1,6 +1,15 @@
 # Disability Requirements III: Social and Economic Participation
 # If user selects any one of these, user is ineligible only for socecopart
 ---
+image sets:
+  freepik:
+    attribution: |
+      Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
+    images:
+      social1: employment.png
+      social2: fitness-forever.png
+---
+decoration: social1
 question: |
   Please tick all that apply.
 subquestion: |
@@ -29,6 +38,7 @@ code: |
   else:
     satisfy_socecon = False
 ---
+decoration: social2
 question: |
   Please tick all that apply.
 subquestion: |

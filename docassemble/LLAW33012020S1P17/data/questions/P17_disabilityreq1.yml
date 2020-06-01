@@ -1,5 +1,13 @@
 #Disability Requirements I: Diagnosis 
 ---
+image sets:
+  freepik:
+    attribution: |
+      Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
+    images:
+      diagnosis: diagnosis.png
+---
+decoration: diagnosis
 question: Have you been diagnosed with autism spectrum disorder?
 fields:
   - no label: user_diagnosedautism

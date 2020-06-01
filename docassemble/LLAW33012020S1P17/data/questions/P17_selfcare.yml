@@ -4,9 +4,12 @@ image sets:
     attribution: |
       Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
     images:
-      talking: Conversation.png
-      group: Group_Convo.png
+      shower: bathroom.png
+      feed: eat.png
+      dress: clothing.png
+      toilet: Toilet.png
 ---
+decoration: shower
 question: Self-Care
 subquestion: |
   Please choose the option that best describes your level of self-care.
@@ -35,6 +38,7 @@ code: |
   else:
     self_shower = False
 ---
+decoration: feed
 question: Self-Care
 subquestion: |
   Please choose the option that best describes your level of self-care.
@@ -63,6 +67,7 @@ code: |
   else:
     self_feed = False
 ---
+decoration: dress
 question: Self-Care
 subquestion: |
   Please choose the option that best describes your level of self-care.
@@ -91,6 +96,7 @@ code: |
   else:
     self_dress = False
 ---
+decoration: toilet
 question: Self-Care
 subquestion: |
   Please choose the option that best describes your level of self-care.
