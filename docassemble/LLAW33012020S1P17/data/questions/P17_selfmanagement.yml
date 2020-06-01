@@ -1,5 +1,6 @@
 ---
 # definition/examples of making decisions?
+prevent going back: True
 question: Self-Management
 subquestion: |
   Please choose the option that best describes your level of self-management.
@@ -19,6 +20,7 @@ fields:
       Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.  
       
       Commonly used items examples can be mobile apps, electronic calendar, glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+section: Self-Management
 --- 
 code: |
   if mgmt_plans == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
@@ -30,6 +32,7 @@ code: |
   else:
     mgmt_plans = False
 ---
+prevent going back: True
 question: Self-Management
 subquestion: |
   Please choose the option that best describes your level of self-management.
@@ -49,6 +52,7 @@ fields:
       Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.  
       
       Commonly used items examples can be mobile apps, glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+section: Self-Management
 --- 
 code: |
   if mgmt_problem == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
@@ -60,6 +64,7 @@ code: |
   else:
     mgmt_problem = False
 ---
+prevent going back: True
 question: Self-Management
 subquestion: |
   Please choose the option that best describes your level of self-management.
@@ -79,6 +84,7 @@ fields:
       Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.  
       
       Commonly used items examples can be mobile apps, online banking, glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+section: Self-Management
 --- 
 code: |
   if mgmt_finance == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
@@ -90,6 +96,7 @@ code: |
   else:
     mgmt_finance = False
 ---
+prevent going back: True
 question: Self-Management
 subquestion: |
   Please choose the option that best describes your level of self-management.
@@ -109,6 +116,7 @@ fields:
       Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.  
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+section: Self-Management
 --- 
 code: |
   if mgmt_tasks == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
@@ -120,6 +128,7 @@ code: |
   else:
     mgmt_tasks = False
 ---
+prevent going back: True
 question: Self-Management
 subquestion: |
   Please choose the option that best describes your level of self-management.
@@ -137,6 +146,7 @@ fields:
       Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.  
       
       Commonly used items examples can be mobile apps, electronic calendar, glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+section: Self-Management
 --- 
 code: |
   if mgmt_schedule == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':

@@ -1,9 +1,12 @@
 # Ineligible due to Residency Page
 ---
+prevent going back: True
+progress: 100
 event: endpoint['ineligibleduetoresidency']
 question: Eligibility requirements not met
 subquestion: |
-
+  ${ nav_hidden }
+  
   **Unfortunately, you are *not* eligible for the NDIS.**
  
  
@@ -28,4 +31,8 @@ buttons:
   - Contact NDIS: exit
     url: https://www.ndis.gov.au/contact
   - Restart: restart
+---
+code: |
+  nav.hide()
+  nav_hidden=''
 ---

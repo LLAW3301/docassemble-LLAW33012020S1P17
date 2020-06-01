@@ -1,5 +1,6 @@
 # Disability Requirement III: Permanence
 ---
+prevent going back: True
 question: |
   Please tick all that apply.
 subquestion: |
@@ -22,6 +23,7 @@ fields:
     show if: 
       variable: notreatment
       is: No
+section: Permanence
 ---
 code: |
   if dr_permanence1 == 'There are no clinical, medical or other types of treatments that exist that may be available to help my impairment/s':
@@ -39,6 +41,7 @@ code: |
   else:
     satisfy_permanence = False
 ---
+prevent going back: True
 question: |
   Please tick all that apply.
 subquestion: |
@@ -54,6 +57,7 @@ fields:
     show if: 
       variable: notreatment
       is: No
+section: Permanence
 ---
 code: |
   if notreatment == 'Yes':

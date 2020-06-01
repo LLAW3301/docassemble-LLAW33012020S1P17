@@ -1,4 +1,5 @@
 ---
+prevent going back: True
 question: Social Interaction
 subquestion: |
   > **Please tick the choices that best describe you.**
@@ -12,6 +13,7 @@ fields:
       - I have difficulty understanding what others expect of me
       - When my senses feel overwhelmed, I feel the need to isolate myself
       - When talking in a group, I find it difficult to know when it is my turn to talk
+section: Social Interaction
 ---
 code: |
   if socialinteraction.any_true():

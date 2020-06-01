@@ -19,6 +19,7 @@ fields:
       - Level 2
       - Level 3
     show if: user_diagnosedautism
+section: Disability Requirement I
 ---
 code: |
   if user_diagnosedautism and user_medicalprof and user_levelofautism:

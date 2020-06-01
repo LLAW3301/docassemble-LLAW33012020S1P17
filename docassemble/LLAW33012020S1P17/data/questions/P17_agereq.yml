@@ -1,9 +1,13 @@
 # Age Requirement Page
 ---
+hide navbar: True
 question: What is your age?
 fields:
   - no label: user_age
     datatype: integer
+    min: 0
+    max: 100
+section: Age
 ---
 code: |
   if ( (user_age >= 7) and
@@ -11,4 +15,11 @@ code: |
     user_age_ok = True
   else:
     user_age_ok = False
+---
+image sets:
+  freepik:
+    attribution: |
+      Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
+    images:
+      age: register.png
 ---
