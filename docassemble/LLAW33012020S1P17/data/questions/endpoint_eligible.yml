@@ -9,10 +9,10 @@ subquestion: |
     Category|Your Answers
     --------|------------
     **Age** | ${ user_age }
-    **Residency** | ${ user_citizen } or ${ user_permanentvisa } or ${ user_specialvisa }
-    **Diagnosed by professional** | ${ user_medicalprof }
-    **By whom** | ${  }
-    **Level of ASD** | ${  }
+    **Residency** | ${ pdf_residency_text }
+    **Diagnosed by professional** | ${ user_diagnosedautism }
+    **By whom** | ${ user_medicalprof }
+    **Level of ASD** | ${ user_levelofautism }
     **Communication**
     Expressing my needs and wants | ${ comms_expression }
     Getting my point across when talking to others | ${ comms_gettingpoint }
@@ -38,12 +38,14 @@ subquestion: |
     Managing my finances | ${ mgmt_finance }
     Completing daily tasks | ${ mgmt_tasks }
     Organising my schedule | ${ mgmt_schedule }
-    Social Interaction | ${ socialinteraction.true_values() if socialinteraction.true_values() else 'Not Answered' }
-    **Social and Economic Participation I** | ${ dr_socioecopart1 }
-    **Social and Economic Participation II** | ${ dr_socioecopart2 }
-    Permanence | ${ dr_permanence1 }
-    Evidence for Permanence | ${ notreatment } ${ confirmation }
-    Lifetime Support | ${ dr_lifetimesupport }
+    **Social Interaction** | ${ socialinteraction.true_values() if socialinteraction.true_values() else 'None applicable' }
+    **Social and Economic Participation I** | ${ dr_socioecopart1.true_values() if dr_socioecopart1.true_values() else 'None applicable' }
+    % if dr_socioecopart2_checkboxes:
+    **Social and Economic Participation II** | ${ dr_socioecopart2.true_values() if dr_socioecopart2.true_values() else 'None applicable' }
+    % endif
+    **Lifetime Support** | ${ dr_lifetimesupport }
+    **Permanence** | ${ dr_permanence1 }
+    **Evidence for Permanence** | ${ pdf_permanence_text }
 
 buttons:
   - Exit: exit

@@ -2,8 +2,61 @@
 objects:
   - endpoint: DADict
 ---
+sections:
+  - Introduction to NDIS Advisor
+  - Information about NDIS Access Plan
+  - Preliminary Requirements:
+    - Application Usage
+    - Age
+    - Residency
+  - Disability Requirement I
+  - Disability Requirement II:
+    - Communication
+    - Learning
+    - Mobility
+    - Social Interaction
+    - Self-Care
+    - Self-Management
+  - Disability Requirement III:
+    - Socio-Economic Participation
+    - Permanence
+  - Disability Requirement IV
+  - Results
+---
+features:
+  navigation: horizontal
+  progress bar: True
+  show progress bar percentage: True
+  debug: false
+  hide standard menu: false
+  css: CBSInc.css
+---
+metadata: 
+  title: |
+    NDIS Advisor
+  authors:
+    - name: Corina Catsiavas
+    - name: Nicole Catabran
+    - name: Gale del Pilar
+    - name: Samara Shute
+  organisation:  Flinders University
+---
+mandatory: True
+code: |
+  metadata = all_variables(special='metadata')
+  
+  logostring = '<div class="media"><img src="https://i.ibb.co/BBW4Gtz/CBS-logo-small-white.png" height="80" width="190"'
+ 
+  logostring += '" class="mr-3" height="30">'
+  logostring += '<div class="center">'
+  logostring += '<h3 class="mt-4"> <b>' + metadata['title'] + '</b></h3>'
+  logostring += '</div></div>'
+  
+  set_parts(logo=logostring)
+---
 # Introduction Screen + Disclaimer
 mandatory: True
+progress: 0
 question: Welcome to our NDIS Advisor!
 subquestion: |
   The purpose of this application is to decide whether you are likely eligible for the National Disability Insurance Scheme (NDIS) and to give you tips for the next steps in applying.
@@ -28,12 +81,83 @@ subquestion: |
  
   By clicking **CONTINUE**, you accept these terms.
   
+
 buttons:
-  - CONTINUE: continue
-  - EXIT: exit
+  - Continue: continue
+  - Exit: exit
     url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
 ---
+# This page tells the user approximately how much time is required for completing the survey
+mandatory: True
+progress: 0
+question: NDIS Advisor
+subquestion: |
+  Please make sure that you are with a {carer} before you start answering any questions. 
+
+  Please answer the questions as accurately as possible.
+  
+  This NDIS Advisor will take approximately **30 minutes** to complete. 
+  
+  
+  The next couple of slides will display information and videos about the NDIS Access Plan and Requirements for an NDIS Application.
+  
+  *You may skip the videos if you wish.*
+
+terms:
+  carer: |
+    A carer is an individual who provides personal care, support and assistance to other individual who needs it because that individual has a disability, mental condition, mental illness or is frail and aged. (section 5, Carer Recognition Act 2010)
+
+buttons:
+ - Continue: continue
+ - Exit: exit
+   url: https://communitybridgingservices.org.au/
+---
+#Introduction to NDIS access plan and eligibility + videos
+mandatory: True
+progress: 0
+question: Introduction to the National Disability Insurance Scheme (NDIS)
+subquestion: |
+  This video is an introduction to the NDIS.  The NDIS provides support for those who are under the age of 65 who have a permanent or significant disability.  The Video also outlines what NDIS achieves to make a person with a disability to enjoy an ordinary life.  NDIS wants to help people with a disability achieve their goals, including; independence, community involvement, education, employment and health and wellbeing. 
+
+
+  As NDIS is an insurance scheme, it provides a lifetime approach to those who need it. They also provide individuals and their families with referrals within the community. 
+
+
+  NDIS wants to give everyone and opportunity to have choice and control over their life, by providing the appropriate support.
+video: "[YOUTUBE oKxzePCoRis]"
+buttons:
+ - Continue: continue
+ - Exit: exit
+   url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
+---
+mandatory: True
+progress: 0
+question: Requirements for NDIS Application
+subquestion: |
+ **This video provides answers to FAQs.** 
+
+
+ In order to be eligible for the NIDS you must meet the following requirements:
+
+ * Have a permanent or significant disability or developmental delay
+ * Be a certain age
+ * Live in Australia
+ * Be an Australian citizen or hold a relevant visa
+
+
+ Your medical practitioner can assist you in filling out the form and assessing you whether you could be eligible for the NDIS. 
+
+ 
+  Once you have met the eligibility criteria, NDIS will contact to begin your planning conversation.
+video: "[YOUTUBE aF3gGRNRnkk]"
+buttons:
+ - Continue: continue
+ - Exit: exit
+   url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
+---
 # User information
+# Starting point for progress bar
+progress: 1
 question: Welcome to the NDIS Advisor!
 fields:
   - What is your name?: user_fullname  
@@ -41,28 +165,7 @@ fields:
     datatype: yesnoradio
 terms:
   carer: |
-    Someone who gives care and support to a relative or friend who has disability.
----
-#Introduction to NDIS access plan and eligibility + videos
-mandatory: True
-question: Introduction to the National Disability Insurance Scheme (NDIS)
-subquestion: |
-  **Information about the NDIS access plan**
-video: "[YOUTUBE oKxzePCoRis]"
-buttons:
- - CONTINUE: continue
- - EXIT: exit
-   url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
----
-mandatory: True
-question: Requirements for NDIS Application
-subquestion: |
-  **Accessing the NDIS - requirements**
-video: "[YOUTUBE aF3gGRNRnkk]"
-buttons:
- - CONTINUE: continue
- - EXIT: exit
-   url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
+    A carer is an individual who provides personal care, support and assistance to other individual who needs it because that individual has a disability, mental condition, mental illness or is frail and aged. (section 5 of the Carer Recognition Act 2010 (Cth))
 ---
 mandatory: True
 code: |
@@ -137,7 +240,7 @@ code: |
     endpoint['ineligible']
   elif satisfy_socecon == False:
     endpoint['ineligible']
----
+---  
 code: |
   if satisfy_comms or satisfy_mobility or satisfy_selfcare or satisfy_selfmgmt or satisfy_learning or satisfy_social:
     satisfy_disreq2 = True
@@ -161,6 +264,6 @@ include:
   - P17_selfmanagement.yml
   - P17_learning.yml
   - P17_socialinteraction.yml
-  - endpoint_eligible.yml
-  - endpoint_ineligible.yml
+  - endpoint_test_eligible.yml
+  - endpoint_test_ineligible.yml
 ---

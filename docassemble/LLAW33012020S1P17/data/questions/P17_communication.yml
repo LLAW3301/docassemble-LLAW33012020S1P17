@@ -1,4 +1,14 @@
 ---
+image sets:
+  freepik:
+    attribution: |
+      Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
+    images:
+      talking: Conversation.png
+      group: Group_Convo.png
+---
+prevent going back: True
+decoration: talking
 question: Communication
 subquestion: |
   Please choose the option that best describes your level of communication.
@@ -11,11 +21,12 @@ fields:
       - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
       - I cannot do this without someone physically helping me or guiding me
       - I cannot do this even with assistive technology or someone helping me
-      - I do not have a problem with this
-help: |
+      - I can do this independently
+    note: |
       Assistive technology includes speech generating devices, devices that project images, amplified telephone equipment, hearing aids, active listening devices, etc.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+section: Communication
 ---
 code: |
   if comms_expression == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
@@ -27,6 +38,8 @@ code: |
   else:
     comms_expression = False
 ---
+prevent going back: True
+decoration: group
 question: Communication
 subquestion: |
   Please choose the option that best describes your level of communication.
@@ -39,11 +52,12 @@ fields:
       - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
       - I cannot do this without someone physically helping me or guiding me
       - I cannot do this even with assistive technology or someone helping me
-      - I do not have a problem with this
-help: |
+      - I can do this independently
+    note: |
       Assistive technology includes speech generating devices, devices that project images, amplified telephone equipment, hearing aids, active listening devices, etc.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+section: Communication
 ---
 code: |
   if comms_talking == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
@@ -55,6 +69,8 @@ code: |
   else:
     comms_talking = False
 ---
+prevent going back: True
+decoration: group
 question: Communication
 subquestion: |
   Please choose the option that best describes your level of communication.
@@ -67,11 +83,12 @@ fields:
       - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
       - I cannot do this without someone physically helping me or guiding me
       - I cannot do this even with assistive technology or someone helping me
-      - I do not have a problem with this
-help: |
+      - I can do this independently
+    note: |
       Assistive technology includes speech generating devices, devices that project images, amplified telephone equipment, hearing aids, active listening devices, etc.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+section: Communication
 ---
 code: |
   if comms_understanding == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
@@ -83,6 +100,8 @@ code: |
   else:
     comms_understanding = False
 ---
+prevent going back: True
+decoration: talking
 question: Communication
 subquestion: |
   Please choose the option that best describes your level of communication.
@@ -95,11 +114,12 @@ fields:
       - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
       - I cannot do this without someone physically helping me or guiding me
       - I cannot do this even with assistive technology or someone helping me
-      - I do not have a problem with this
-help: |
+      - I can do this independently
+    note: |
       Assistive technology includes speech generating devices, devices that project images, amplified telephone equipment, hearing aids, active listening devices, etc.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+section: Communication
 ---
 code: |
   if comms_gettingpoint == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':

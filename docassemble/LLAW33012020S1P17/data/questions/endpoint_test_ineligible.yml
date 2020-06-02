@@ -1,0 +1,96 @@
+---
+progress: 100
+mandatory: True
+prevent going back: True
+event: endpoint['ineligible']
+question: Results
+subquestion: |
+  ${ nav_hidden }
+ 
+  You have completed the NDIS Advisor. Thank you for answering our questions. 
+ 
+  Unfortunately, **${ user_fullname }** you may not be eligible for NDIS support.
+  
+  Although you have satisfied the preliminary requirements, there are further disability requirements necessary in able to be eligible for NDIS support. 
+ 
+  Please see your results below.
+ 
+  %if user_diagnosedautism != 'Yes':
+  From what you have told us, you have ${ user_levelofautism } Austism Spectrum Disorder (ASD) diagnosed by ${ user_medicalprof }.
+  %endif
+  
+  > To be eligible for the NDIS your autism spectrum disorder **must** cause you a 
+  very high level of difficulty in *one* of the following areas:
+    
+    - Communication
+    - Social interaction
+    - Learning
+    - Mobility
+    - Self-care
+    - Self-management
+  
+    **Communication**|Your Answers
+    --------|------------
+    Expressing my needs and wants | ${ comms_expression }
+    Getting my point across when talking to others | ${ comms_gettingpoint }
+    Having a general conversation or talking to someone | ${ comms_talking }
+    Understanding what other people are saying to me| ${ comms_understanding }
+    **Learning**
+    Learning new skills | ${ learning_new }
+    Remembering information | ${ learning_remember }
+    Using newly learned skills | ${ learning_using }
+    **Mobility**
+    Getting around the house or anywhere I want to go | ${ mobility_getaround }
+    Getting in or out of bed or a chair | ${ mobility_bed }
+    Being on my feet for extended periods of time | ${ mobility_onfeet }
+    Doing tasks that requires the use of limbs | ${ mobility_limbs }
+    **Self-Care**
+    Showering or cleaning/brushing my teeth | ${ self_shower }
+    Feeding myself | ${ self_feed }
+    Dressing myself | ${ self_dress }
+    Using the toilet| ${ self_toilet }
+    **Self-Management**
+    Making plans and decisions | ${ mgmt_plans}
+    Solving everyday problems | ${ mgmt_problem }
+    Managing my finances | ${ mgmt_finance }
+    Completing daily tasks | ${ mgmt_tasks }
+    Organising my schedule | ${ mgmt_schedule }
+    **Social Interaction** | ${ socialinteraction.true_values() if socialinteraction.true_values() else 'None applicable' }
+    
+  > Your autism spectrum disorder **must** also cause you a very high level 
+  of impairment in either economic or social participation.
+    
+    **Social and Economic Participation**|Your Answers
+    --------|------------
+    Part I | ${ dr_socioecopart1.true_values() if dr_socioecopart1.true_values() else 'None applicable' }
+    % if dr_socioecopart2_checkboxes:
+    
+    Part II | ${ dr_socioecopart2.true_values() if dr_socioecopart2.true_values() else 'None applicable' }
+    % endif
+    
+  > Your autism spectrum disorder **must** also require you to have lifetime support.
+   
+    **Lifetime Support** | ${ dr_lifetimesupport }
+     --------|--------
+   
+  > A certain degree of permanence should also be fulfilled before being considered eligible.
+  
+    **Permanence** | ${ dr_permanence1 }
+    --------|------------
+    **Evidence for Permanence** | ${ pdf_permanence_text }
+
+  
+  Please keep in mind that the NDIA makes the final decision about who gets to
+  receive support under the NDIS.
+  
+  You can still contact the National Disability Insurance Agency (NDIA) if you wish to
+  confirm your eligibility. You can do this by calling the NDIA on 1800 800 119.
+  
+buttons:
+  - Exit: exit
+section: Results
+---
+code: |
+  nav.hide()
+  nav_hidden=''
+---

@@ -1,5 +1,17 @@
 ---
+image sets:
+  freepik:
+    attribution: |
+      Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
+    images:
+      calendar: calendar.png
+      problem: problem.png
+      money: money.png
+      tasks: list.png
+---
 # definition/examples of making decisions?
+prevent going back: True
+decoration: calendar
 question: Self-Management
 subquestion: |
   Please choose the option that best describes your level of self-management.
@@ -12,24 +24,27 @@ fields:
       - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
       - I cannot do this without someone physically helping me or guiding me
       - I cannot do this even with assistive technology or someone helping me
-      - I do not have a problem with this
-help: | 
+      - I can do this independently
+    note: |
       Decision-making skills involve decisions you might make when completing tasks. E.g. deciding what to eat today, deciding what to do tomorrow, choosing what to wear, etc.
       
       Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.  
       
       Commonly used items examples can be mobile apps, electronic calendar, glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+section: Self-Management
 --- 
 code: |
   if mgmt_plans == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
-    mgmt_plan = True
+    mgmt_plans = True
   elif mgmt_plans == 'I cannot do this without someone physically helping me or guiding me':
-    mgmt_plan = True
+    mgmt_plans = True
   elif mgmt_plans == 'I cannot do this even with assistive technology or someone helping me':
-    mgmt_plan = True
+    mgmt_plans = True
   else:
-    mgmt_plan = False
+    mgmt_plans = False
 ---
+prevent going back: True
+decoration: problem
 question: Self-Management
 subquestion: |
   Please choose the option that best describes your level of self-management.
@@ -42,13 +57,14 @@ fields:
       - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
       - I cannot do this without someone physically helping me or guiding me
       - I cannot do this even with assistive technology or someone helping me
-      - I do not have a problem with this
-help: |
+      - I can do this independently
+    note: |
       Problem-solving involves being able to manage and resolve issues or conflicts that may arise throughout the day, whether you are by yourself or with other people.
       
       Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.  
       
       Commonly used items examples can be mobile apps, glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+section: Self-Management
 --- 
 code: |
   if mgmt_problem == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
@@ -60,6 +76,8 @@ code: |
   else:
     mgmt_problem = False
 ---
+prevent going back: True
+decoration: money
 question: Self-Management
 subquestion: |
   Please choose the option that best describes your level of self-management.
@@ -72,13 +90,14 @@ fields:
       - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
       - I cannot do this without someone physically helping me or guiding me
       - I cannot do this even with assistive technology or someone helping me
-      - I do not have a problem with this
-help: |
+      - I can do this independently
+    note: |
       Examples of managing your own finances include budgeting weekly expenses, managing your savings, etc.
       
       Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.  
       
       Commonly used items examples can be mobile apps, online banking, glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+section: Self-Management
 --- 
 code: |
   if mgmt_finance == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
@@ -90,6 +109,8 @@ code: |
   else:
     mgmt_finance = False
 ---
+prevent going back: True
+decoration: tasks
 question: Self-Management
 subquestion: |
   Please choose the option that best describes your level of self-management.
@@ -102,13 +123,14 @@ fields:
       - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
       - I cannot do this without someone physically helping me or guiding me
       - I cannot do this even with assistive technology or someone helping me
-      - I do not have a problem with this
-  - note: | 
+      - I can do this independently
+    note: |
       Daily tasks might include things that make up a routine such as preparing food, showering/using the toilet throughout the day, running errands, etc.
       
       Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.  
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+section: Self-Management
 --- 
 code: |
   if mgmt_tasks == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
@@ -120,6 +142,8 @@ code: |
   else:
     mgmt_tasks = False
 ---
+prevent going back: True
+decoration: calendar
 question: Self-Management
 subquestion: |
   Please choose the option that best describes your level of self-management.
@@ -132,11 +156,12 @@ fields:
       - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
       - I cannot do this without someone physically helping me or guiding me
       - I cannot do this even with assistive technology or someone helping me
-      - I do not have a problem with this
-help: | 
+      - I can do this independently
+    note: | 
       Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.  
       
       Commonly used items examples can be mobile apps, electronic calendar, glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+section: Self-Management
 --- 
 code: |
   if mgmt_schedule == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':

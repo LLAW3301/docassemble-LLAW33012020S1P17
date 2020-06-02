@@ -1,5 +1,6 @@
 # Disability Requirement IV: Lifetime Support
 ---
+prevent going back: True
 question: |
   Please tick all that apply.
 subquestion: |
@@ -8,13 +9,20 @@ fields:
   - no label: dr_lifetimesupport
     datatype: radio
     choices:
-      - I am confident that I will need support for the rest of my life
-      - I am confident that I will need support for most of my life, but not forever
+      - I believe that I will need support for the rest of my life
+      - I believe that I will need support for most of my life, but not forever
       - I only need temporary support
+section: Disability Requirement IV
 ---
 code: |
   if dr_lifetimesupport == 'I am confident that I will need support for the rest of my life':
     dr_lifetimesupport = True
   else:
     dr_lifetimesupport = False
+---
+code: |
+  if dr_lifetimesupport:
+    satisfy_lifetimesupport = True
+  else:
+    satisfy_lifetimesupport = False
 ---

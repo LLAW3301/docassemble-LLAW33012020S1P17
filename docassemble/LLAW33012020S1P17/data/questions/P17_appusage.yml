@@ -4,6 +4,7 @@ question: Are you using this application because you believe you have *Autism Sp
 fields:
   - no label: user_useasd
     datatype: yesnoradio
+section: Application Usage
 ---
 code: |
   if user_useasd:
