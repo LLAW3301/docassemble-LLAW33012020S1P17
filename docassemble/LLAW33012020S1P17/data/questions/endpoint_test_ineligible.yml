@@ -15,8 +15,10 @@ subquestion: |
  
   Please see your results below.
  
+  %if user_diagnosedautism != 'Yes':
   From what you have told us, you have ${ user_levelofautism } Austism Spectrum Disorder (ASD) diagnosed by ${ user_medicalprof }.
- 
+  %endif
+  
   > To be eligible for the NDIS your autism spectrum disorder **must** cause you a 
   very high level of difficulty in *one* of the following areas:
     
