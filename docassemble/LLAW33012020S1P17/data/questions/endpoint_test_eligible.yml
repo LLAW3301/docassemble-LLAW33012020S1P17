@@ -66,9 +66,9 @@ subquestion: |
     **Social and Economic Participation**|Your Answers
     --------|------------
     Part I | ${ dr_socioecopart1.true_values() if dr_socioecopart1.true_values() else 'None applicable' }
-    % if dr_socioecopart2_checkboxes:
     
-    Part II | ${ dr_socioecopart2.true_values() if dr_socioecopart2.true_values() else 'None applicable' }
+     % if dr_socioecopart2_checkboxes:
+    Part II || ${ dr_socioecopart2.true_values() if dr_socioecopart2.true_values() else 'None applicable' }
     % endif
     
     

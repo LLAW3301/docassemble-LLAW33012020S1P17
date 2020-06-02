@@ -1,5 +1,15 @@
 ---
+image sets:
+  freepik:
+    attribution: |
+      Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
+    images:
+      book: book-2.png
+      learning2: Learning2.png
+      remember: Remembering.png
+---
 prevent going back: True
+decoration: book
 question: Learning
 subquestion: |
   Please choose the option that best describes your level of learning.
@@ -30,6 +40,7 @@ code: |
     learning_new = False
 ---
 prevent going back: True
+decoration: remember
 question: Learning
 subquestion: |
   Please choose the option that best describes your level of learning.
@@ -60,6 +71,7 @@ code: |
     learning_remember = False
 ---
 prevent going back: True
+decoration: learning2
 question: Learning
 subquestion: |
   Please choose the option that best describes your level of learning.

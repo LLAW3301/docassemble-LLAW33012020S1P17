@@ -1,5 +1,16 @@
 ---
+image sets:
+  freepik:
+    attribution: |
+      Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
+    images:
+      shower: bathroom.png
+      feed: eat.png
+      dress: clothing.png
+      toilet: Toilet.png
+---
 prevent going back: True
+decoration: shower
 question: Self-Care
 subquestion: |
   Please choose the option that best describes your level of self-care.
@@ -30,6 +41,7 @@ code: |
     self_shower = False
 ---
 prevent going back: True
+decoration: feed
 question: Self-Care
 subquestion: |
   Please choose the option that best describes your level of self-care.
@@ -60,6 +72,7 @@ code: |
     self_feed = False
 ---
 prevent going back: True
+decoration: dress
 question: Self-Care
 subquestion: |
   Please choose the option that best describes your level of self-care.
@@ -90,6 +103,7 @@ code: |
     self_dress = False
 ---
 prevent going back: True
+decoration: toilet
 question: Self-Care
 subquestion: |
   Please choose the option that best describes your level of self-care.

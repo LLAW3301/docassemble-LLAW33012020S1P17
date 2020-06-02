@@ -83,8 +83,8 @@ subquestion: |
   
 
 buttons:
-  - CONTINUE: continue
-  - EXIT: exit
+  - Continue: continue
+  - Exit: exit
     url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
 ---
 # This page tells the user approximately how much time is required for completing the survey
@@ -108,8 +108,8 @@ terms:
     A carer is an individual who provides personal care, support and assistance to other individual who needs it because that individual has a disability, mental condition, mental illness or is frail and aged. (section 5, Carer Recognition Act 2010)
 
 buttons:
- - CONTINUE: continue
- - EXIT: exit
+ - Continue: continue
+ - Exit: exit
    url: https://communitybridgingservices.org.au/
 ---
 #Introduction to NDIS access plan and eligibility + videos
@@ -126,8 +126,8 @@ subquestion: |
   NDIS wants to give everyone and opportunity to have choice and control over their life, by providing the appropriate support.
 video: "[YOUTUBE oKxzePCoRis]"
 buttons:
- - CONTINUE: continue
- - EXIT: exit
+ - Continue: continue
+ - Exit: exit
    url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
 ---
 mandatory: True
@@ -151,8 +151,8 @@ subquestion: |
   Once you have met the eligibility criteria, NDIS will contact to begin your planning conversation.
 video: "[YOUTUBE aF3gGRNRnkk]"
 buttons:
- - CONTINUE: continue
- - EXIT: exit
+ - Continue: continue
+ - Exit: exit
    url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
 ---
 # User information

@@ -1,5 +1,14 @@
 ---
+image sets:
+  freepik:
+    attribution: |
+      Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
+    images:
+      talking: Conversation.png
+      group: Group_Convo.png
+---
 prevent going back: True
+decoration: talking
 question: Communication
 subquestion: |
   Please choose the option that best describes your level of communication.
@@ -30,6 +39,7 @@ code: |
     comms_expression = False
 ---
 prevent going back: True
+decoration: group
 question: Communication
 subquestion: |
   Please choose the option that best describes your level of communication.
@@ -60,6 +70,7 @@ code: |
     comms_talking = False
 ---
 prevent going back: True
+decoration: group
 question: Communication
 subquestion: |
   Please choose the option that best describes your level of communication.
@@ -90,6 +101,7 @@ code: |
     comms_understanding = False
 ---
 prevent going back: True
+decoration: talking
 question: Communication
 subquestion: |
   Please choose the option that best describes your level of communication.

@@ -1,6 +1,14 @@
 # Age Requirement Page
 ---
+image sets:
+  freepik:
+    attribution: |
+      Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
+    images:
+      age: register.png
+---
 hide navbar: True
+decoration: age
 question: What is your age?
 fields:
   - no label: user_age
