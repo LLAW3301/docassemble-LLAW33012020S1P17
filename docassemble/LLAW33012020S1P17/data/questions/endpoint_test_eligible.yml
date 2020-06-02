@@ -10,8 +10,12 @@ subquestion: |
  
   You have completed the NDIS Advisor. Thank you for answering our questions. 
   
+  %if user_diagnosedautism != 'Yes':
   You have satisfied the preliminary requirements and from what you have told us, you have ${ user_levelofautism } Austism Spectrum Disorder (ASD) diagnosed by ${ user_medicalprof }.
    That might mean you can get support under the NDIS. 
+  %else:
+  You have satisfied the preliminary requirements and from what you have told us you have not been diagnosed by a medical professional.
+  %endif
   
   There are further disability requirements necessary in able to be eligible for NDIS support. 
   Please see your results below.

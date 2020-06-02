@@ -45,9 +45,9 @@ mandatory: True
 code: |
   metadata = all_variables(special='metadata')
   
-  logostring = '<div class="media"><img src="https://i.ibb.co/BBW4Gtz/CBS-logo-small-white.png" height="70" width="160"'
+  logostring = '<div class="media"><img src="https://i.ibb.co/BBW4Gtz/CBS-logo-small-white.png" height="80" width="190"'
  
-  logostring += '" class="mr-3" height="50">'
+  logostring += '" class="mr-3" height="30">'
   logostring += '<div class="center">'
   logostring += '<h3 class="mt-4"> <b>' + metadata['title'] + '</b></h3>'
   logostring += '</div></div>'
@@ -61,9 +61,8 @@ question: Welcome to our NDIS Advisor!
 subquestion: |
   The purpose of this application is to decide whether you are likely eligible for the National Disability Insurance Scheme (NDIS) and to give you tips for the next steps in applying.
   
-  **This application currently only applies for people with Autism Spectrum Disorder (ASD).** 
+  **This application currently only applies for people with Autism Spectrum Disorder (ASD).**
   
-  This application also does not provide comprehensive information on the NDIS. It will simply assist in assessing whether you are likely to be eligible, and give you some tips on the next steps.
   
   *Disclaimer*
   
@@ -82,6 +81,7 @@ subquestion: |
  
   By clicking **CONTINUE**, you accept these terms.
   
+
 buttons:
   - CONTINUE: continue
   - EXIT: exit
