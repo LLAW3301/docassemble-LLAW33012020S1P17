@@ -31,6 +31,9 @@ features:
   hide standard menu: false
   css: CBSInc.css
 ---
+objects:
+  - NDISlogo: DAStaticFile.using(filename='ndisadvisor_logo.png')
+---
 metadata: 
   title: |
     NDIS Advisor
@@ -43,29 +46,38 @@ metadata:
 ---
 mandatory: True
 code: |
-  metadata = all_variables(special='metadata')
-  
-  logostring = '<div class="media"><img src="https://i.ibb.co/BBW4Gtz/CBS-logo-small-white.png" height="80" width="190"'
- 
-  logostring += '" class="mr-3" height="30">'
-  logostring += '<div class="center">'
-  logostring += '<h3 class="mt-4"> <b>' + metadata['title'] + '</b></h3>'
-  logostring += '</div></div>'
-  
-  set_parts(logo=logostring)
+  set_parts(logo='<img src="' + NDISlogo.url_for() + '" style="height: 100px;">')
+---
+default screen parts:
+  post: |
+    <div style="display: flex; height: 200px; align-items: flex-end; flex-direction: row-reverse">
+    <div style="margin: 5px"><img src="https://staff.flinders.edu.au/etc.clientlibs/flinders/clientlibs/clientlib-site/resources/images/flinderuni_main_logo_black.png" height="40">
+    </div>
+    <div style="margin: 5px; text-align: right">
+    <cite><small><i>
+    Developed by Flinders University in collaboration with Community Bridging Services (CBS) Inc 
+    </i></small></cite>
+    </div>
+    </div>
 ---
 # Introduction Screen + Disclaimer
 mandatory: True
 progress: 0
 question: Welcome to our NDIS Advisor!
 subquestion: |
-  The purpose of this application is to decide whether you are likely eligible for the National Disability Insurance Scheme (NDIS) and to give you tips for the next steps in applying.
+   The purpose of this application is to decide whether you are likely eligible for the National Disability Insurance Scheme (NDIS) and to give you tips for the next steps in applying.
+   
+    **This application currently only applies for people with Autism Spectrum Disorder (ASD).**
   
-  **This application currently only applies for people with Autism Spectrum Disorder (ASD).**
-  
-  
-  *Disclaimer*
-  
+buttons:
+  - Continue: continue
+  - Exit: exit
+    url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
+---  
+mandatory: True
+progress: 0
+question: Disclaimer
+subquestion: |
   This application is **not** legal advice. 
   
   This application does not guarantee you will receive funding for NDIS, nor does it guarantee ineligibility. 
@@ -77,14 +89,13 @@ subquestion: |
  
   We advise you to have a support person while filling out the questions. If you are under 16, you must have a parent or caregiver present while filling out the questions. 
  
-  Please answer all questions honestly and as accurately as possible.
+  **Please answer all questions honestly and as accurately as possible.**
  
   By clicking **CONTINUE**, you accept these terms.
-  
-
+ 
 buttons:
-  - CONTINUE: continue
-  - EXIT: exit
+  - Continue: continue
+  - Exit: exit
     url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
 ---
 # This page tells the user approximately how much time is required for completing the survey
@@ -108,8 +119,8 @@ terms:
     A carer is an individual who provides personal care, support and assistance to other individual who needs it because that individual has a disability, mental condition, mental illness or is frail and aged. (section 5, Carer Recognition Act 2010)
 
 buttons:
- - CONTINUE: continue
- - EXIT: exit
+ - Continue: continue
+ - Exit: exit
    url: https://communitybridgingservices.org.au/
 ---
 #Introduction to NDIS access plan and eligibility + videos
@@ -126,8 +137,8 @@ subquestion: |
   NDIS wants to give everyone and opportunity to have choice and control over their life, by providing the appropriate support.
 video: "[YOUTUBE oKxzePCoRis]"
 buttons:
- - CONTINUE: continue
- - EXIT: exit
+ - Continue: continue
+ - Exit: exit
    url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
 ---
 mandatory: True
@@ -151,8 +162,8 @@ subquestion: |
   Once you have met the eligibility criteria, NDIS will contact to begin your planning conversation.
 video: "[YOUTUBE aF3gGRNRnkk]"
 buttons:
- - CONTINUE: continue
- - EXIT: exit
+ - Continue: continue
+ - Exit: exit
    url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
 ---
 # User information
