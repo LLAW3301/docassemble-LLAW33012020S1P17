@@ -1,3 +1,6 @@
+.body {
+    font-family: "Calibri" !important;
+}
 .navbar{
     /* All colours in IT are set using RGB (ie: Red, Green, Blue) values.
        Each value of red, green and blue is a number between 0 and 255.
@@ -21,7 +24,7 @@
     color : rgb(0,0,0);
     font-weight: bolder;
     font-size: 1.3em;
-    text-shadow: 2px 4px 10px orange;
+    
 }
 .navbar .navbar-brand:hover{
     color: rgb(0,0,0);
@@ -90,7 +93,4 @@
 .btn-primary:hover span:after {
   opacity: 1;
   right: 0;
-}
-body {
-    font-family: "Times New Roman" !important;
 }
