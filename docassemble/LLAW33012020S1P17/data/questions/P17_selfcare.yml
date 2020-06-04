@@ -16,19 +16,30 @@ subquestion: |
   Please choose the option that best describes your level of self-care.
   
   > **Showering and cleaning/brushing my teeth**
-fields:
-  - no label: self_shower
-    datatype: radio
-    choices:
-      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
-      - I cannot do this without someone physically helping me or guiding me
-      - I cannot do this even with assistive technology or someone helping me
-      - I can do this independently
-    note: |
+field: self_shower
+choices:
+  - I can do this independently: choice1
+    default: True
+  - I cannot do this without someone physically helping me or guiding me: choice2
+  - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications: choice3
+    help: |
       Assistive technology includes transfer devices, stretchers, convertible chairs, sit-to-stand lifts, prosthetics and exoskeletons.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, shower chair, age appropriate child safety locks, simple adapted kitchen utensils. 
+  - I cannot do this even with assistive technology or someone helping me: choice4
 section: Self-Care
+---
+code: |
+  if self_shower == 'choice1':
+    self_shower_text = 'I can do this independently'
+  elif self_shower == 'choice2':
+    self_shower_text = 'I cannot do this without someone physically helping me or guiding me'
+  elif self_shower == 'choice4':
+    self_shower_text = 'I cannot do this even with assistive technology or someone helping me'
+  elif self_shower == 'choice3':
+    self_shower_text = 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications'
+  else:
+    self_shower_text = 'Error'
 ---
 code: |
   if self_shower == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
@@ -47,19 +58,30 @@ subquestion: |
   Please choose the option that best describes your level of self-care.
   
   > **Feeding myself**
-fields:
-  - no label: self_feed
-    datatype: radio
-    choices:
-      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
-      - I cannot do this without someone physically helping me or guiding me
-      - I cannot do this even with assistive technology or someone helping me
-      - I can do this independently
-    note: |
+field: self_feed
+choices:
+  - I can do this independently: choice1
+    default: True
+  - I cannot do this without someone physically helping me or guiding me: choice2
+  - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications: choice3
+    help: |
       Assistive technology includes transfer devices, stretchers, convertible chairs, sit-to-stand lifts, prosthetics and exoskeletons.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, shower chair, age appropriate child safety locks, simple adapted kitchen utensils. 
+  - I cannot do this even with assistive technology or someone helping me: choice4
 section: Self-Care
+---
+code: |
+  if self_feed == 'choice1':
+    self_feed_text = 'I can do this independently'
+  elif self_feed == 'choice2':
+    self_feed_text = 'I cannot do this without someone physically helping me or guiding me'
+  elif self_feed == 'choice4':
+    self_feed_text = 'I cannot do this even with assistive technology or someone helping me'
+  elif self_feed == 'choice3':
+    self_feed_text = 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications'
+  else:
+    self_feed_text = 'Error'
 ---
 code: |
   if self_feed == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
@@ -78,19 +100,30 @@ subquestion: |
   Please choose the option that best describes your level of self-care.
   
   > **Dressing myself**
-fields:
-  - no label: self_dress
-    datatype: radio
-    choices:
-      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
-      - I cannot do this without someone physically helping me or guiding me
-      - I cannot do this even with assistive technology or someone helping me
-      - I can do this independently
-    note: |
+field: self_dress
+choices:
+  - I can do this independently: choice1
+    default: True
+  - I cannot do this without someone physically helping me or guiding me: choice2
+  - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications: choice3
+    help: |
       Assistive technology includes transfer devices, stretchers, convertible chairs, sit-to-stand lifts, prosthetics and exoskeletons.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, shower chair, age appropriate child safety locks, simple adapted kitchen utensils. 
+  - I cannot do this even with assistive technology or someone helping me: choice4
 section: Self-Care
+---
+code: |
+  if self_dress == 'choice1':
+    self_dress_text = 'I can do this independently'
+  elif self_dress == 'choice2':
+    self_dress_text = 'I cannot do this without someone physically helping me or guiding me'
+  elif self_dress == 'choice4':
+    self_dress_text = 'I cannot do this even with assistive technology or someone helping me'
+  elif self_dress == 'choice3':
+    self_dress_text = 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications'
+  else:
+    self_dress_text = 'Error'
 ---
 code: |
   if self_dress == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
@@ -109,19 +142,30 @@ subquestion: |
   Please choose the option that best describes your level of self-care.
   
   > **Using the toilet**
-fields:
-  - no label: self_toilet
-    datatype: radio
-    choices:
-      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
-      - I cannot do this without someone physically helping me or guiding me
-      - I cannot do this even with assistive technology or someone helping me
-      - I can do this independently
-    note: |
+field: self_toilet
+choices:
+  - I can do this independently: choice1
+    default: True
+  - I cannot do this without someone physically helping me or guiding me: choice2
+  - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications: choice3
+    help: |
       Assistive technology includes transfer devices, stretchers, convertible chairs, sit-to-stand lifts, prosthetics and exoskeletons.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, shower chair, age appropriate child safety locks, simple adapted kitchen utensils. 
+  - I cannot do this even with assistive technology or someone helping me: choice4
 section: Self-Care
+---
+code: |
+  if self_toilet == 'choice1':
+    self_toilet_text = 'I can do this independently'
+  elif self_toilet == 'choice2':
+    self_toilet_text = 'I cannot do this without someone physically helping me or guiding me'
+  elif self_toilet == 'choice4':
+    self_toilet_text = 'I cannot do this even with assistive technology or someone helping me'
+  elif self_toilet == 'choice3':
+    self_toilet_text = 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications'
+  else:
+    self_toilet_text = 'Error'
 ---
 code: |
   if self_toilet == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':

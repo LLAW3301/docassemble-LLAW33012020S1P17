@@ -21,6 +21,7 @@ sections:
     - Socio-Economic Participation
     - Permanence
   - Disability Requirement IV
+  - Goals
   - Results
 ---
 features:
@@ -30,6 +31,9 @@ features:
   debug: false
   hide standard menu: false
   css: CBSInc.css
+---
+objects:
+  - NDISlogo: DAStaticFile.using(filename='ndisadvisor_logo.png')
 ---
 metadata: 
   title: |
@@ -43,29 +47,38 @@ metadata:
 ---
 mandatory: True
 code: |
-  metadata = all_variables(special='metadata')
-  
-  logostring = '<div class="media"><img src="https://i.ibb.co/BBW4Gtz/CBS-logo-small-white.png" height="80" width="190"'
- 
-  logostring += '" class="mr-3" height="30">'
-  logostring += '<div class="center">'
-  logostring += '<h3 class="mt-4"> <b>' + metadata['title'] + '</b></h3>'
-  logostring += '</div></div>'
-  
-  set_parts(logo=logostring)
+  set_parts(logo='<img src="' + NDISlogo.url_for() + '" style="height: 200px;">')
+---
+default screen parts:
+  post: |
+    <div style="display: flex; height: 200px; align-items: flex-end; flex-direction: row-reverse">
+    <div style="margin: 5px"><img src="https://staff.flinders.edu.au/etc.clientlibs/flinders/clientlibs/clientlib-site/resources/images/flinderuni_main_logo_black.png" height="40">
+    </div>
+    <div style="margin: 5px; text-align: right">
+    <cite><small><i>
+    Developed by Flinders University in collaboration with Community Bridging Services (CBS) Inc 
+    </i></small></cite>
+    </div>
+    </div>
 ---
 # Introduction Screen + Disclaimer
 mandatory: True
 progress: 0
 question: Welcome to our NDIS Advisor!
 subquestion: |
-  The purpose of this application is to decide whether you are likely eligible for the National Disability Insurance Scheme (NDIS) and to give you tips for the next steps in applying.
+   The purpose of this application is to decide whether you are likely eligible for the National Disability Insurance Scheme (NDIS) and to give you tips for the next steps in applying.
+   
+    **This application currently only applies for people with Autism Spectrum Disorder (ASD).**
   
-  **This application currently only applies for people with Autism Spectrum Disorder (ASD).**
-  
-  
-  *Disclaimer*
-  
+buttons:
+  - Continue: continue
+  - Exit: exit
+    url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
+---  
+mandatory: True
+progress: 0
+question: Disclaimer
+subquestion: |
   This application is **not** legal advice. 
   
   This application does not guarantee you will receive funding for NDIS, nor does it guarantee ineligibility. 
@@ -77,11 +90,10 @@ subquestion: |
  
   We advise you to have a support person while filling out the questions. If you are under 16, you must have a parent or caregiver present while filling out the questions. 
  
-  Please answer all questions honestly and as accurately as possible.
+  **Please answer all questions honestly and as accurately as possible.**
  
   By clicking **CONTINUE**, you accept these terms.
-  
-
+ 
 buttons:
   - Continue: continue
   - Exit: exit
@@ -93,7 +105,6 @@ progress: 0
 question: NDIS Advisor
 subquestion: |
   Please make sure that you are with a {carer} before you start answering any questions. 
-
   Please answer the questions as accurately as possible.
   
   This NDIS Advisor will take approximately **30 minutes** to complete. 
@@ -102,11 +113,9 @@ subquestion: |
   The next couple of slides will display information and videos about the NDIS Access Plan and Requirements for an NDIS Application.
   
   *You may skip the videos if you wish.*
-
 terms:
   carer: |
     A carer is an individual who provides personal care, support and assistance to other individual who needs it because that individual has a disability, mental condition, mental illness or is frail and aged. (section 5, Carer Recognition Act 2010)
-
 buttons:
  - Continue: continue
  - Exit: exit
@@ -234,6 +243,9 @@ code: |
   # If first choice is not selected, user is ineligible
   dr_lifetimesupport
   
+  # Goals and Aspirations
+  hasgoals
+  
   if satisfy_disreq2 and satisfy_socecon and satisfy_lifetimesupport and satisfy_permanence:
     endpoint['eligible']
   elif dr_socioecopart2_checkboxes == True:
@@ -260,16 +272,17 @@ include:
   - endpoint_age.yml
   - P17_residencyreq.yml
   - endpoint_residency.yml
-  - P17_disabilityreq1.yml
-  - P17_disabilityreq3_1.yml
-  - P17_disabilityreq3_2.yml
-  - P17_disabilityreq4.yml
+  - P17_diagnosis.yml
+  - P17_socioeconomic.yml
+  - P17_permanence.yml
+  - P17_lifesupport.yml
   - P17_communication.yml
   - P17_mobility.yml
   - P17_selfcare.yml
   - P17_selfmanagement.yml
   - P17_learning.yml
   - P17_socialinteraction.yml
+  - P17_goals.yml
   - endpoint_test_eligible.yml
   - endpoint_test_ineligible.yml
 ---

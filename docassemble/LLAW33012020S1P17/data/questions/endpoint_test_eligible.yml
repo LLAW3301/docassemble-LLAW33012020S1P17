@@ -33,30 +33,30 @@ subquestion: |
   
     **Communication**|Your Answers
     --------|------------
-    Expressing my needs and wants | ${ comms_expression }
-    Getting my point across when talking to others | ${ comms_gettingpoint }
-    Having a general conversation or talking to someone | ${ comms_talking }
-    Understanding what other people are saying to me| ${ comms_understanding }
+    Expressing my needs and wants | ${ comms_exp_text }
+    Getting my point across when talking to others | ${ comms_point_text }
+    Having a general conversation or talking to someone | ${ comms_talk_text }
+    Understanding what other people are saying to me| ${ comms_under_text }
     **Learning**
-    Learning new skills | ${ learning_new }
-    Remembering information | ${ learning_remember }
-    Using newly learned skills | ${ learning_using }
+    Learning new skills | ${ learn_new_text }
+    Remembering information | ${ learn_remem_text }
+    Using newly learned skills | ${ learn_use_text }
     **Mobility**
-    Getting around the house or anywhere I want to go | ${ mobility_getaround }
-    Getting in or out of bed or a chair | ${ mobility_bed }
-    Being on my feet for extended periods of time | ${ mobility_onfeet }
-    Doing tasks that requires the use of limbs | ${ mobility_limbs }
+    Getting around the house or anywhere I want to go | ${ mob_get_text }
+    Getting in or out of bed or a chair | ${ mob_bed_text }
+    Being on my feet for extended periods of time | ${ mob_feet_text }
+    Doing tasks that requires the use of limbs | ${ mob_limbs_text }
     **Self-Care**
-    Showering or cleaning/brushing my teeth | ${ self_shower }
-    Feeding myself | ${ self_feed }
-    Dressing myself | ${ self_dress }
-    Using the toilet| ${ self_toilet }
+    Showering or cleaning/brushing my teeth | ${ self_shower_text }
+    Feeding myself | ${ self_feed_text }
+    Dressing myself | ${ self_dress_text }
+    Using the toilet| ${ self_toilet_text }
     **Self-Management**
-    Making plans and decisions | ${ mgmt_plans}
-    Solving everyday problems | ${ mgmt_problem }
-    Managing my finances | ${ mgmt_finance }
-    Completing daily tasks | ${ mgmt_tasks }
-    Organising my schedule | ${ mgmt_schedule }
+    Making plans and decisions | ${ mgmt_plans_text }
+    Solving everyday problems | ${ mgmt_prob_text }
+    Managing my finances | ${ mgmt_fin_text }
+    Completing daily tasks | ${ mgmt_tasks_text }
+    Organising my schedule | ${ mgmt_sched_text }
     **Social Interaction** | ${ socialinteraction.true_values() if socialinteraction.true_values() else 'None applicable' }
     
     
@@ -66,7 +66,6 @@ subquestion: |
     **Social and Economic Participation**|Your Answers
     --------|------------
     Part I | ${ dr_socioecopart1.true_values() if dr_socioecopart1.true_values() else 'None applicable' }
-    
      % if dr_socioecopart2_checkboxes:
     Part II || ${ dr_socioecopart2.true_values() if dr_socioecopart2.true_values() else 'None applicable' }
     % endif
@@ -80,10 +79,20 @@ subquestion: |
    
   > A certain degree of permanence should also be fulfilled before being considered eligible.
   
-    **Permanence** | ${ dr_permanence1 }
+    **Permanence** | Your Answers
     --------|------------
+    **Permanence** | ${ dr_permanence1 }
     **Evidence for Permanence** | ${ pdf_permanence_text }
 
+  > Goals and Aspirations
+  
+    **Goals**|
+    --------|---------
+    **Do you have any goals?** | ${ hasgoals }
+    % if hasgoals:
+    **Short-Term Goals** | ${ shorttermgoals }
+    **Long-Term Goals** | ${ longtermgoals }
+    % endif
   
   You can apply to the National Disability Insurance Agency (NDIA) in order to get
   support. You can do this by calling the NDIA on 1800 800 119.
@@ -93,7 +102,8 @@ subquestion: |
   should be prepared for this.
   
   For information on how to apply for the NDIS or click [here](https://www.ndis.gov.au/applying-access-ndis/how-apply) for more information.**
-
+  
+  This app was completed on ${ today() } at ${ format_time(current_datetime()) }.
 attachment:
   docx template file: Summary_Eligible.docx
   name: NDIS Advisor Results Summary - Eligible

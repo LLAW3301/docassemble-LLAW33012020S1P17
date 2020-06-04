@@ -1,3 +1,6 @@
+.body {
+    font-family: "Calibri" !important;
+}
 .navbar{
     /* All colours in IT are set using RGB (ie: Red, Green, Blue) values.
        Each value of red, green and blue is a number between 0 and 255.
@@ -21,7 +24,7 @@
     color : rgb(0,0,0);
     font-weight: bolder;
     font-size: 1.3em;
-    text-shadow: 2px 4px 10px orange;
+    
 }
 .navbar .navbar-brand:hover{
     color: rgb(0,0,0);
@@ -53,13 +56,13 @@
 }
 .nav {
     border-bottom: 2px solid orange;
-    margin-top: 70px;
+    margin-top: 170px;
     
 }
 .btn-primary{
   color: rgb(0,0,0);
-  background-color: rgb(242, 139, 49);
-  border-color: rgb(0,0,0);
+  background-color: rgb(245, 136, 48);
+  border-color: rgb(255, 255, 255);
 }
 
 .btn-primary span {
@@ -81,7 +84,7 @@
 .btn-primary:hover{
   color: rgb(0,0,0);
   background-color: rgba(242,139,49,0.3);
-  border-color: rgb(0,0,0);
+  border-color: rgb(255,255,255);
 }
 .btn-primary:hover span {
   padding-right: 25px;
@@ -90,7 +93,4 @@
 .btn-primary:hover span:after {
   opacity: 1;
   right: 0;
-}
-body {
-    font-family: "Times New Roman" !important;
 }

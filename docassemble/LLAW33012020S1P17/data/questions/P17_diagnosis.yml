@@ -1,0 +1,37 @@
+#Disability Requirements I: Diagnosis 
+---
+image sets:
+  freepik:
+    attribution: |
+      Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
+    images:
+      diagnosis: diagnosis.png
+---
+decoration: diagnosis
+question: Have you been diagnosed with autism spectrum disorder?
+fields:
+  - no label: user_diagnosedautism
+    datatype: yesnoradio
+  - Who diagnosed you?: user_medicalprof
+    datatype: radio
+    choices:
+      - Clinical Psychologist
+      - Psychiatrist
+      - Paediatrician
+      - Specialist multi-disciplinary team
+    show if: user_diagnosedautism
+  - What level of autism spectrum disorder have you been diagnosed with?: user_levelofautism
+    datatype: radio
+    choices:
+      - Level 1
+      - Level 2
+      - Level 3
+    show if: user_diagnosedautism
+section: Disability Requirement I
+---
+code: |
+  if user_diagnosedautism and user_medicalprof and user_levelofautism:
+    user_diagnosedautism = True
+  else:
+    user_diagnosedautism = False
+---
