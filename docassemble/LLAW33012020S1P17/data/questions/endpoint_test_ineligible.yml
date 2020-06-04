@@ -84,9 +84,9 @@ subquestion: |
 
   > Goals and Aspirations
   
-    **Goals**|
+    **Goals**|Your Response
     --------|---------
-    **Do you have any goals?** | ${ hasgoals }
+    **Do you have any goals?** | ${ pdf_goals_text }
     % if hasgoals:
     **Short-Term Goals** | ${ shorttermgoals }
     **Long-Term Goals** | ${ longtermgoals }

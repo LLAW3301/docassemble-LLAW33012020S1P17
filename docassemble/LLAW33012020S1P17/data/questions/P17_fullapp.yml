@@ -25,12 +25,11 @@ sections:
   - Results
 ---
 features:
-  navigation: horizontal
+  navigation: True
   progress bar: True
-  show progress bar percentage: True
   debug: false
   hide standard menu: false
-  css: CBSInc.css
+  css: CBS_1.css
 ---
 objects:
   - NDISlogo: DAStaticFile.using(filename='ndisadvisor_logo.png')
@@ -47,7 +46,7 @@ metadata:
 ---
 mandatory: True
 code: |
-  set_parts(logo='<img src="' + NDISlogo.url_for() + '" style="height: 200px;">')
+  set_parts(logo='<img src="' + NDISlogo.url_for() + '" style="height: 180px; align-items: flex-end; flex-direction: row-reverse">')
 ---
 default screen parts:
   post: |
