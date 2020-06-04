@@ -79,16 +79,15 @@ subquestion: |
    
   > A certain degree of permanence should also be fulfilled before being considered eligible.
   
-    **Permanence** | Your Answers
-    --------|------------
     **Permanence** | ${ dr_permanence1 }
+    --------|------------
     **Evidence for Permanence** | ${ pdf_permanence_text }
 
   > Goals and Aspirations
   
-    **Goals**|
+    **Goals**|Your Response
     --------|---------
-    **Do you have any goals?** | ${ hasgoals }
+    **Do you have any goals?** | ${ pdf_goals_text }
     % if hasgoals:
     **Short-Term Goals** | ${ shorttermgoals }
     **Long-Term Goals** | ${ longtermgoals }

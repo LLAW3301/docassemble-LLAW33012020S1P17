@@ -25,3 +25,9 @@ fields:
     show if: hasgoals
 section: goals
 ---
+code: |
+  if hasgoals:
+    pdf_goals_text = 'Yes'
+  else:
+    pdf_goals_text = 'I do not have goals'
+---
