@@ -116,10 +116,24 @@ html {
 body {
   font-size: 1.2rem;
   line-height: 1.5;
-  word-spacing: 3px;
+  word-spacing: 5px;
   color: rgb(32,68,144);
   font: Calibri;
   position: relative;
-  top: 100px;
+  top: 150px;
 }
-
+a.daterm{
+  color: rgb(249,150,76);
+}
+daquestion {
+  padding: 100px
+}
+.progress-bar{
+   color: rgb(255,255,255);
+   background-color: rgb(32,68,144);
+}
+.progress.mt-2{
+   color: rgb(255,255,255);
+   height: 20px;
+   position: relative;
+}

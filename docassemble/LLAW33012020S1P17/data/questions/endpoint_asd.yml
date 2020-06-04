@@ -14,9 +14,10 @@ subquestion: |
   Access Request with them. 
  
 buttons:
-  - Contact NDIS: exit
-    url: https://communitybridgingservices.org.au/
-  - Restart: restart
+  - Contact CBS: exit
+    url: https://communitybridgingservices.org.au/contact-us/
+  - More Information: exit
+    url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible 
 ---
 code: |
   nav.hide()

@@ -47,6 +47,14 @@ metadata:
 mandatory: True
 code: |
   set_parts(logo='<img src="' + NDISlogo.url_for() + '" style="height: 180px; align-items: flex-end; flex-direction: row-reverse">')
+
+html: |
+    <div class="progress" style="height:20px">>
+    <div class="progress-bar"
+    role="progressbar"
+    style="width:100%;height:20px">
+    </div>
+    </div>
 ---
 default screen parts:
   post: |
@@ -55,7 +63,8 @@ default screen parts:
     </div>
     <div style="margin: 5px; text-align: right">
     <cite><small><i>
-    Developed by Flinders University in collaboration with Community Bridging Services (CBS) Inc 
+    Developed by Flinders University in collaboration with
+    <br>Community Bridging Services (CBS) Inc 
     </i></small></cite>
     </div>
     </div>
