@@ -13,12 +13,12 @@ fields:
       - I do not think my impairment will improve over time
       - My impairment sometimes improves and sometimes worsens over time / it fluctuates from time to time
       - Unsure / None of the above
-  - A medical professional is able to confirm that my impairment cannot be improved from treatments available or appropriate to my impairment: notreatment
+  - A medical professional is able to confirm the above: notreatment
     datatype: radio
     choices:
       - Yes
       - No
-  - I will seek evidence from a medical professional to confirm this: confirmation
+  - I will seek evidence from a medical professional to confirm the above: confirmation
     datatype: yesno
     show if: 
       variable: notreatment
@@ -47,12 +47,12 @@ question: |
 subquestion: |
   > This section of the questionnaire will ask you questions relating to **permanence**.
 fields:
-  - A medical professional is able to confirm that my impairment cannot be improved from treatments available or appropriate to my impairment: notreatment
+  - A medical professional is able to confirm the above: notreatment
     datatype: radio
     choices:
       - Yes
       - No
-  - I will seek evidence from a medical professional to confirm this: confirmation
+  - I will seek evidence from a medical professional to confirm the above: confirmation
     datatype: yesno
     show if: 
       variable: notreatment
@@ -61,9 +61,9 @@ section: Permanence
 ---
 code: |
   if notreatment == 'Yes':
-    pdf_permanence_text = 'A medical professional is able to confirm that my impairment cannot be improved from treatments available or appropriate to my impairment'
+    pdf_permanence_text = 'A medical professional is able to confirm the above'
   elif confirmation:
-    pdf_permanence_text = 'I will seek evidence from a medical professional to confirm this'
+    pdf_permanence_text = 'I will seek evidence from a medical professional to confirm the above'
   else:
     pdf_permanence_text = 'No evidence provided'
 ---

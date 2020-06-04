@@ -1,4 +1,13 @@
 ---
+image sets:
+  freepik:
+    attribution: |
+      Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
+    images:
+      social: hug.png
+---
+prevent going back: True
+decoration: social
 question: Social Interaction
 subquestion: |
   > **Please tick the choices that best describe you.**
@@ -12,12 +21,7 @@ fields:
       - I have difficulty understanding what others expect of me
       - When my senses feel overwhelmed, I feel the need to isolate myself
       - When talking in a group, I find it difficult to know when it is my turn to talk
----
-code: |
-  if socialinteraction:
-    socialinteraction = True
-  else:
-    socialinteraction = False
+section: Social Interaction
 ---
 code: |
   if socialinteraction.any_true():
@@ -26,7 +30,7 @@ code: |
     socialinteraction_checkboxes = False
 ---
 code: |
-  if socialinteraction:
+  if socialinteraction_checkboxes:
     satisfy_social = True
   else:
     satisfy_social = False

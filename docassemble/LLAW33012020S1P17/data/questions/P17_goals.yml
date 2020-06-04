@@ -1,0 +1,27 @@
+---
+mandatory: True
+question: Goals and Aspirations
+subquestion: |
+  Please tell us about your {goals} and aspirations, if you have any. Hover or click on the coloured text to view more information.
+  
+  The NDIA will be looking at these goals to assist in your planning meeting and application, so please be as specific as possible.
+  
+  > **Do you have any goals and aspirations in life?**
+terms:
+  goals: |
+    These could be short-term and long-term, current and future goals. Goals are things you want to achieve with support from the NDIS and other supports and services. Your goals might include becoming more independent, getting or keeping a job, learning new skills, enrolling in education, becoming more active in your community, or improving relationships and making friends. You should try to make your goals as specific as possible. 
+fields:
+  - no label: hasgoals
+    datatype: yesnoradio
+  - Tell us about your short-term goals: shorttermgoals
+    hint: e.g. I want to learn more skills, be more active in my community, find a job, etc. Please be specific as possible.
+    input type: area
+    required: False
+    show if: hasgoals
+  - Tell us about your medium and long-term goals: longtermgoals
+    hint: e.g. I want to save up to buy a house, complete a university degree, improve and maintain my relationships, etc. Please be as specific as possible.
+    input type: area
+    required: False
+    show if: hasgoals
+section: goals
+---

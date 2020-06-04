@@ -1,54 +1,94 @@
 ---
+image sets:
+  freepik:
+    attribution: |
+      Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
+    images:
+      calendar: calendar.png
+      problem: problem.png
+      money: money.png
+      tasks: list.png
+---
 # definition/examples of making decisions?
+prevent going back: True
+decoration: calendar
 question: Self-Management
 subquestion: |
-  Please choose the option that best describes your level of self-management.
+  Please choose the option that best describes your level of self-management. Hover over the coloured text to view examples.
   
-  > **Making plans and decisions**
-fields:
-  - no label: mgmt_plans
-    datatype: radio
-    choices:
-      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
-      - I cannot do this without someone physically helping me or guiding me
-      - I cannot do this even with assistive technology or someone helping me
-      - I do not have a problem with this
-help: | 
-      Decision-making skills involve decisions you might make when completing tasks. E.g. deciding what to eat today, deciding what to do tomorrow, choosing what to wear, etc.
-      
+  > **{Making plans and decisions}**
+terms:
+  Making plans and decisions: |
+    Decision-making skills involve decisions you might make when completing tasks. E.g. deciding what to eat today, deciding what to do tomorrow, choosing what to wear, etc.
+field: mgmt_plans
+choices:
+  - I can do this independently: choice1
+    default: True
+  - I cannot do this without someone physically helping me or guiding me: choice2
+  - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications: choice3
+    help: |      
       Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.  
       
       Commonly used items examples can be mobile apps, electronic calendar, glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+  - I cannot do this even with assistive technology or someone helping me: choice4
+section: Self-Management
+---
+code: |
+  if mgmt_plans == 'choice1':
+    mgmt_plans_text = 'I can do this independently'
+  elif mgmt_plans == 'choice2':
+    mgmt_plans_text = 'I cannot do this without someone physically helping me or guiding me'
+  elif mgmt_plans == 'choice4':
+    mgmt_plans_text = 'I cannot do this even with assistive technology or someone helping me'
+  elif mgmt_plans == 'choice3':
+    mgmt_plans_text = 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications'
+  else:
+    mgmt_plans_text = 'Error'
 --- 
 code: |
   if mgmt_plans == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
-    mgmt_plan = True
+    mgmt_plans = True
   elif mgmt_plans == 'I cannot do this without someone physically helping me or guiding me':
-    mgmt_plan = True
+    mgmt_plans = True
   elif mgmt_plans == 'I cannot do this even with assistive technology or someone helping me':
-    mgmt_plan = True
+    mgmt_plans = True
   else:
-    mgmt_plan = False
+    mgmt_plans = False
 ---
+prevent going back: True
+decoration: problem
 question: Self-Management
 subquestion: |
-  Please choose the option that best describes your level of self-management.
+  Please choose the option that best describes your level of self-management. Hover over the coloured text to view examples.
   
-  > **Solving everyday problems**
-fields:
-  - no label: mgmt_problem
-    datatype: radio
-    choices:
-      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
-      - I cannot do this without someone physically helping me or guiding me
-      - I cannot do this even with assistive technology or someone helping me
-      - I do not have a problem with this
-help: |
-      Problem-solving involves being able to manage and resolve issues or conflicts that may arise throughout the day, whether you are by yourself or with other people.
-      
+  > **{Solving everyday problems}**
+terms:
+  Solving everyday problems: |
+    Problem-solving involves being able to manage and resolve issues or conflicts that may arise throughout the day, whether you are by yourself or with other people.
+field: mgmt_problem
+choices:
+  - I can do this independently: choice1
+    default: True
+  - I cannot do this without someone physically helping me or guiding me: choice2
+  - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications: choice3
+    help: |      
       Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.  
       
-      Commonly used items examples can be mobile apps, glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+      Commonly used items examples can be mobile apps, electronic calendar, glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+  - I cannot do this even with assistive technology or someone helping me: choice4
+section: Self-Management
+---
+code: |
+  if mgmt_problem == 'choice1':
+    mgmt_prob_text = 'I can do this independently'
+  elif mgmt_problem == 'choice2':
+    mgmt_prob_text = 'I cannot do this without someone physically helping me or guiding me'
+  elif mgmt_problem == 'choice4':
+    mgmt_prob_text = 'I cannot do this even with assistive technology or someone helping me'
+  elif mgmt_problem == 'choice3':
+    mgmt_prob_text = 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications'
+  else:
+    mgmt_prob_text = 'Error'
 --- 
 code: |
   if mgmt_problem == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
@@ -60,25 +100,40 @@ code: |
   else:
     mgmt_problem = False
 ---
+prevent going back: True
+decoration: money
 question: Self-Management
 subquestion: |
-  Please choose the option that best describes your level of self-management.
+  Please choose the option that best describes your level of self-management. Hover over the coloured text to view examples.
   
-  > **Managing my finances**
-fields:
-  - no label: mgmt_finance
-    datatype: radio
-    choices:
-      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
-      - I cannot do this without someone physically helping me or guiding me
-      - I cannot do this even with assistive technology or someone helping me
-      - I do not have a problem with this
-help: |
-      Examples of managing your own finances include budgeting weekly expenses, managing your savings, etc.
-      
+  > **{Managing my finances}**
+terms:
+  Managing my finances: |
+    Examples of managing your own finances include budgeting weekly expenses, managing your savings, etc.
+field: mgmt_finance
+choices:
+  - I can do this independently: choice1
+    default: True
+  - I cannot do this without someone physically helping me or guiding me: choice2
+  - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications: choice3
+    help: |      
       Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.  
       
-      Commonly used items examples can be mobile apps, online banking, glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+      Commonly used items examples can be mobile apps, electronic calendar, glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+  - I cannot do this even with assistive technology or someone helping me: choice4
+section: Self-Management
+---
+code: |
+  if mgmt_finance == 'choice1':
+    mgmt_fin_text = 'I can do this independently'
+  elif mgmt_finance == 'choice2':
+    mgmt_fin_text = 'I cannot do this without someone physically helping me or guiding me'
+  elif mgmt_finance == 'choice4':
+    mgmt_fin_text = 'I cannot do this even with assistive technology or someone helping me'
+  elif mgmt_finance == 'choice3':
+    mgmt_fin_text = 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications'
+  else:
+    mgmt_fin_text = 'Error'
 --- 
 code: |
   if mgmt_finance == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
@@ -90,25 +145,40 @@ code: |
   else:
     mgmt_finance = False
 ---
+prevent going back: True
+decoration: tasks
 question: Self-Management
 subquestion: |
-  Please choose the option that best describes your level of self-management.
+  Please choose the option that best describes your level of self-management. Hover over the coloured text to view examples.
   
-  > **Completing daily tasks**
-fields:
-  - no label: mgmt_tasks
-    datatype: radio
-    choices:
-      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
-      - I cannot do this without someone physically helping me or guiding me
-      - I cannot do this even with assistive technology or someone helping me
-      - I do not have a problem with this
-  - note: | 
-      Daily tasks might include things that make up a routine such as preparing food, showering/using the toilet throughout the day, running errands, etc.
-      
+  > **Completing {daily tasks}**
+terms:
+  daily tasks: |
+    Daily tasks might include things that make up a routine such as preparing food, showering/using the toilet throughout the day, running errands, etc.
+field: mgmt_tasks
+choices:
+  - I can do this independently: choice1
+    default: True
+  - I cannot do this without someone physically helping me or guiding me: choice2
+  - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications: choice3
+    help: |      
       Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.  
       
-      Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+      Commonly used items examples can be mobile apps, electronic calendar, glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+  - I cannot do this even with assistive technology or someone helping me: choice4
+section: Self-Management
+--- 
+code: |
+  if mgmt_tasks == 'choice1':
+    mgmt_tasks_text = 'I can do this independently'
+  elif mgmt_tasks == 'choice2':
+    mgmt_tasks_text = 'I cannot do this without someone physically helping me or guiding me'
+  elif mgmt_tasks == 'choice4':
+    mgmt_tasks_text = 'I cannot do this even with assistive technology or someone helping me'
+  elif mgmt_tasks == 'choice3':
+    mgmt_tasks_text = 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications'
+  else:
+    mgmt_tasks_text = 'Error'
 --- 
 code: |
   if mgmt_tasks == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
@@ -120,23 +190,37 @@ code: |
   else:
     mgmt_tasks = False
 ---
+prevent going back: True
+decoration: calendar
 question: Self-Management
 subquestion: |
-  Please choose the option that best describes your level of self-management.
+  Please choose the option that best describes your level of self-management. 
   
   > **Organising my schedule**
-fields:
-  - no label: mgmt_schedule
-    datatype: radio
-    choices:
-      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
-      - I cannot do this without someone physically helping me or guiding me
-      - I cannot do this even with assistive technology or someone helping me
-      - I do not have a problem with this
-help: | 
+field: mgmt_schedule
+choices:
+  - I can do this independently: choice1
+    default: True
+  - I cannot do this without someone physically helping me or guiding me: choice2
+  - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications: choice3
+    help: |      
       Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.  
       
       Commonly used items examples can be mobile apps, electronic calendar, glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+  - I cannot do this even with assistive technology or someone helping me: choice4
+section: Self-Management
+--- 
+code: |
+  if mgmt_schedule == 'choice1':
+    mgmt_sched_text = 'I can do this independently'
+  elif mgmt_schedule == 'choice2':
+    mgmt_sched_text = 'I cannot do this without someone physically helping me or guiding me'
+  elif mgmt_schedule == 'choice4':
+    mgmt_sched_text = 'I cannot do this even with assistive technology or someone helping me'
+  elif mgmt_schedule == 'choice3':
+    mgmt_sched_text = 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications'
+  else:
+    mgmt_sched_text = 'Error'
 --- 
 code: |
   if mgmt_schedule == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':

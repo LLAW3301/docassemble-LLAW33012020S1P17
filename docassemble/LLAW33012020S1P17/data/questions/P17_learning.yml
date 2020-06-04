@@ -1,21 +1,44 @@
 ---
+image sets:
+  freepik:
+    attribution: |
+      Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
+    images:
+      book: book-2.png
+      learning2: Learning2.png
+      remember: Remembering.png
+---
+prevent going back: True
+decoration: book
 question: Learning
 subquestion: |
   Please choose the option that best describes your level of learning.
   
   > **Learning new skills**
-fields:
-  - no label: learning_new
-    datatype: radio
-    choices:
-      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
-      - I cannot do this without someone physically helping me or guiding me
-      - I cannot do this even with assistive technology or someone helping me
-      - I do not have a problem with this
-help: |
+field: learning_new
+choices:
+  - I can do this independently: choice1
+    default: True
+  - I cannot do this without someone physically helping me or guiding me: choice2
+  - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications: choice3
+    help: |
       Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+  - I cannot do this even with assistive technology or someone helping me: choice4
+section: Learning
+---
+code: |
+  if learning_new == 'choice1':
+    learn_new_text = 'I can do this independently'
+  elif learning_new == 'choice2':
+    learn_new_text = 'I cannot do this without someone physically helping me or guiding me'
+  elif learning_new == 'choice4':
+    learn_new_text = 'I cannot do this even with assistive technology or someone helping me'
+  elif learning_new == 'choice3':
+    learn_new_text = 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications'
+  else:
+    learn_new_text = 'Error'
 ---
 code: |
   if learning_new == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
@@ -27,23 +50,37 @@ code: |
   else:
     learning_new = False
 ---
+prevent going back: True
+decoration: remember
 question: Learning
 subquestion: |
   Please choose the option that best describes your level of learning.
   
   > **Remebering information**
-fields:
-  - no label: learning_remember
-    datatype: radio
-    choices:
-      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
-      - I cannot do this without someone physically helping me or guiding me
-      - I cannot do this even with assistive technology or someone helping me
-      - I do not have a problem with this
-help: |
+field: learning_remember
+choices:
+  - I can do this independently: choice1
+    default: True
+  - I cannot do this without someone physically helping me or guiding me: choice2
+  - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications: choice3
+    help: |
       Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+  - I cannot do this even with assistive technology or someone helping me: choice4
+section: Learning
+---
+code: |
+  if learning_remember == 'choice1':
+    learn_remem_text = 'I can do this independently'
+  elif learning_remember == 'choice2':
+    learn_remem_text = 'I cannot do this without someone physically helping me or guiding me'
+  elif learning_remember == 'choice4':
+    learn_remem_text = 'I cannot do this even with assistive technology or someone helping me'
+  elif learning_remember == 'choice3':
+    learn_remem_text = 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications'
+  else:
+    learn_remem_text = 'Error'
 ---
 code: |
   if learning_remember == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
@@ -55,23 +92,37 @@ code: |
   else:
     learning_remember = False
 ---
+prevent going back: True
+decoration: learning2
 question: Learning
 subquestion: |
   Please choose the option that best describes your level of learning.
   
   > **Using new skills**
-fields:
-  - no label: learning_using
-    datatype: radio
-    choices:
-      - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications
-      - I cannot do this without someone physically helping me or guiding me
-      - I cannot do this even with assistive technology or someone helping me
-      - I do not have a problem with this
-help: |
+field: learning_using
+choices:
+  - I can do this independently: choice1
+    default: True
+  - I cannot do this without someone physically helping me or guiding me: choice2
+  - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications: choice3
+    help: |
       Assistive technology includes speech generating devices, memory aids, educational software, or other assistive technology for cognition.
       
       Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+  - I cannot do this even with assistive technology or someone helping me: choice4
+section: Learning
+---
+code: |
+  if learning_using == 'choice1':
+    learn_use_text = 'I can do this independently'
+  elif learning_using == 'choice2':
+    learn_use_text = 'I cannot do this without someone physically helping me or guiding me'
+  elif learning_using == 'choice4':
+    learn_use_text = 'I cannot do this even with assistive technology or someone helping me'
+  elif learning_using == 'choice3':
+    learn_use_text = 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications'
+  else:
+    learn_use_text = 'Error'
 ---
 code: |
   if learning_using == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':

@@ -1,9 +1,11 @@
 # ENDPOINT: Ineligibility due to AGE
 ---
+prevent going back: True
+progress: 100
 event: endpoint['ineligibleduetoage']
 question: Unfortunately, you may not be eligible for the NDIS.
 subquestion: |
-  
+  ${ nav_hidden }
   To access the NDIS, you must be between 7 and 65 years old.
   
   You have indicated that you are **${ user_age }** years old. 
@@ -24,4 +26,8 @@ buttons:
   - Contact NDIS: exit
     url: https://www.ndis.gov.au/contact
   - Restart: restart
+---
+code: |
+  nav.hide()
+  nav_hidden=''
 ---
