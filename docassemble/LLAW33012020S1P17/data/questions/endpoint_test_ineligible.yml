@@ -11,16 +11,18 @@ subquestion: |
  
   Unfortunately, **${ user_fullname }** you may not be eligible for NDIS support.
   
-  Although you have satisfied the preliminary requirements, there are further disability requirements necessary in able to be eligible for NDIS support. 
+  Although you have satisfied the preliminary requirements, there are further       disability requirements necessary in able to be eligible for NDIS support. 
  
   Please see your results below.
  
-  %if user_diagnosedautism != 'Yes':
-  From what you have told us, you have ${ user_levelofautism } Austism Spectrum Disorder (ASD) diagnosed by ${ user_medicalprof }.
-  %endif
+  % if user_diagnosedautism:
+  From what you have told us, you have ${ user_levelofautism } Austism Spectrum     Disorder (ASD) diagnosed by ${ user_medicalprof }.
+  % else:
+  From what you have told us you have not been diagnosed by a medical         
+  professional. 
+  % endif
   
-  > To be eligible for the NDIS your autism spectrum disorder **must** cause you a 
-  very high level of difficulty in *one* of the following areas:
+  > To be eligible for the NDIS your autism spectrum disorder **must** cause you   a very high level of difficulty in *one* of the following areas:
     
     - Communication
     - Social interaction
@@ -28,69 +30,18 @@ subquestion: |
     - Mobility
     - Self-care
     - Self-management
-  
-    **Communication**|Your Answers
-    --------|------------
-    Expressing my needs and wants | ${ comms_exp_text }
-    Getting my point across when talking to others | ${ comms_point_text }
-    Having a general conversation or talking to someone | ${ comms_talk_text }
-    Understanding what other people are saying to me| ${ comms_under_text }
-    **Learning**
-    Learning new skills | ${ learn_new_text }
-    Remembering information | ${ learn_remem_text }
-    Using newly learned skills | ${ learn_use_text }
-    **Mobility**
-    Getting around the house or anywhere I want to go | ${ mob_get_text }
-    Getting in or out of bed or a chair | ${ mob_bed_text }
-    Being on my feet for extended periods of time | ${ mob_feet_text }
-    Doing tasks that requires the use of limbs | ${ mob_limbs_text }
-    **Self-Care**
-    Showering or cleaning/brushing my teeth | ${ self_shower_text }
-    Feeding myself | ${ self_feed_text }
-    Dressing myself | ${ self_dress_text }
-    Using the toilet| ${ self_toilet_text }
-    **Self-Management**
-    Making plans and decisions | ${ mgmt_plans_text }
-    Solving everyday problems | ${ mgmt_prob_text }
-    Managing my finances | ${ mgmt_fin_text }
-    Completing daily tasks | ${ mgmt_tasks_text }
-    Organising my schedule | ${ mgmt_sched_text }
-    **Social Interaction** | ${ socialinteraction.true_values() if socialinteraction.true_values() else 'None applicable' }
     
     
   > Your autism spectrum disorder **must** also cause you a very high level 
   of impairment in either economic or social participation.
     
-    **Social and Economic Participation**|Your Answers
-    --------|------------
-    Part I | ${ dr_socioecopart1.true_values() if dr_socioecopart1.true_values() else 'None applicable' }
-     % if dr_socioecopart2_checkboxes:
-    Part II || ${ dr_socioecopart2.true_values() if dr_socioecopart2.true_values() else 'None applicable' }
-    % endif
-    
     
   > Your autism spectrum disorder **must** also require you to have lifetime support.
-   
-    **Lifetime Support** | ${ dr_lifetimesupport }
-     --------|--------
    
    
   > A certain degree of permanence should also be fulfilled before being considered eligible.
   
-    **Permanence** | Your Answers
-    --------|------------
-    **Permanence** | ${ dr_permanence1 }
-    **Evidence for Permanence** | ${ pdf_permanence_text }
-
-  > Goals and Aspirations
   
-    **Goals**|Your Response
-    --------|---------
-    **Do you have any goals?** | ${ pdf_goals_text }
-    % if hasgoals:
-    **Short-Term Goals** | ${ shorttermgoals }
-    **Long-Term Goals** | ${ longtermgoals }
-    % endif
   
   Please keep in mind that the NDIA makes the final decision about who gets to
   receive support under the NDIS.
@@ -98,16 +49,16 @@ subquestion: |
   You can still contact the National Disability Insurance Agency (NDIA) if you wish to
   confirm your eligibility. You can do this by calling the NDIA on 1800 800 119.
 
+
+
   This app was completed on ${ today() } at ${ format_time(current_datetime()) }.
-attachment:
-  docx template file: Summary_Eligible.docx
-  name: NDIS Advisor Results Summary - Eligible
-  filename: NDIS Advisor Results Summary
-  valid formats:
-      - pdf
+
 
 buttons:
-  - Exit: exit
+  - Contact CBS: exit
+    url: https://communitybridgingservices.org.au/contact-us/
+  - More Information: exit
+    url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible 
 
 section: Results
 ---

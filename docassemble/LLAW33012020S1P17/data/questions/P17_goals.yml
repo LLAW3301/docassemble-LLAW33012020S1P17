@@ -23,7 +23,7 @@ fields:
     input type: area
     required: False
     show if: hasgoals
-section: goals
+section: Goals
 ---
 code: |
   if hasgoals:
