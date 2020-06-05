@@ -18,6 +18,7 @@ subquestion: |
 field: mobility_getaround
 choices:
   - I can do this independently: choice1
+    default: True
   - I cannot do this without someone physically helping me or guiding me: choice2
   - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications: choice3
     help: |
