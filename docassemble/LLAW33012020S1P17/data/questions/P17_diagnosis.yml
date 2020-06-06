@@ -12,8 +12,10 @@ question: Have you been diagnosed with autism spectrum disorder?
 fields:
   - no label: user_diagnosedautism
     datatype: yesnoradio
+    default: False
   - Who diagnosed you?: user_medicalprof
     datatype: radio
+    default: 'Clinical Psychologist'
     choices:
       - Clinical Psychologist
       - Psychiatrist
@@ -22,6 +24,7 @@ fields:
     show if: user_diagnosedautism
   - What level of autism spectrum disorder have you been diagnosed with?: user_levelofautism
     datatype: radio
+    default: 'Level 1'
     choices:
       - Level 1
       - Level 2

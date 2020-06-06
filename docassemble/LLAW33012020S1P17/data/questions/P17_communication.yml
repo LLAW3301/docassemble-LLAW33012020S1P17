@@ -39,14 +39,10 @@ code: |
     comms_exp_text = 'Error'
 ---
 code: |
-  if comms_expression == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
-    comms_expression = True
-  elif comms_expression == 'I cannot do this without someone physically helping me or guiding me':
-    comms_expression = True
-  elif comms_expression == 'I cannot do this even with assistive technology or someone helping me':
-    comms_expression = True
+  if comms_expression == 'choice1':
+    satisfy_comms_expression = False
   else:
-    comms_expression = False
+    satisfy_comms_expression = True
 ---
 prevent going back: True
 decoration: group
@@ -80,14 +76,10 @@ code: |
     comms_talk_text = 'Error'
 ---
 code: |
-  if comms_talking == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
-    comms_talking = True
-  elif comms_talking == 'I cannot do this without someone physically helping me or guiding me':
-    comms_talking = True
-  elif comms_talking == 'I cannot do this even with assistive technology or someone helping me':
-    comms_talking = True
+  if comms_talking == 'choice1':
+    satisfy_comms_talking = False
   else:
-    comms_talking = False
+    satisfy_comms_talking = True
 ---
 prevent going back: True
 decoration: group
@@ -122,14 +114,10 @@ code: |
     comms_under_text = 'Error'
 ---
 code: |
-  if comms_understanding == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
-    comms_understanding = True
-  elif comms_understanding == 'I cannot do this without someone physically helping me or guiding me':
-    comms_understanding = True
-  elif comms_understanding == 'I cannot do this even with assistive technology or someone helping me':
-    comms_understanding = True
+  if comms_understanding == 'choice1':
+    satisfy_comms_understanding = False
   else:
-    comms_understanding = False
+    satisfy_comms_understanding = True
 ---
 prevent going back: True
 decoration: talking
@@ -163,17 +151,13 @@ code: |
     comms_point_text = 'Error'
 ---
 code: |
-  if comms_gettingpoint == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
-    comms_gettingpoint = True
-  elif comms_gettingpoint == 'I cannot do this without someone physically helping me or guiding me':
-    comms_gettingpoint = True
-  elif comms_gettingpoint == 'I cannot do this even with assistive technology or someone helping me':
-    comms_gettingpoint = True
+  if comms_gettingpoint == 'choice1':
+    satisfy_comms_gettingpoint = False
   else:
-    comms_gettingpoint = False
+    satisfy_comms_gettingpoint = True
 ---
 code: |
-  if comms_understanding and comms_talking and comms_gettingpoint and comms_expression:
+  if satisfy_comms_understanding or satisfy_comms_talking or satisfy_comms_gettingpoint or satisfy_comms_expression:
     satisfy_comms = True
   else:
     satisfy_comms = False

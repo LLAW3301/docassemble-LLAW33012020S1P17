@@ -18,6 +18,7 @@ subquestion: |
 field: mobility_getaround
 choices:
   - I can do this independently: choice1
+    default: True
   - I cannot do this without someone physically helping me or guiding me: choice2
   - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications: choice3
     help: |
@@ -40,14 +41,10 @@ code: |
     mob_get_text = 'Error'
 --- 
 code: |
-  if mobility_getaround == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
-    mobility_getaround = True
-  elif mobility_getaround == 'I cannot do this without someone physically helping me or guiding me':
-    mobility_getaround = True
-  elif mobility_getaround == 'I cannot do this even with assistive technology or someone helping me':
-    mobility_getaround = True
+  if mobility_getaround == 'choice1':
+    satisfy_mobility_getaround = False
   else:
-    mobility_getaround = False
+    satisfy_mobility_getaround = True
 ---
 prevent going back: True
 decoration: prosthetic
@@ -82,14 +79,10 @@ code: |
     mob_bed_text = 'Error'
 --- 
 code: |
-  if mobility_bed == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
-    mobility_bed = True
-  elif mobility_bed == 'I cannot do this without someone physically helping me or guiding me':
-    mobility_bed = True
-  elif mobility_bed == 'I cannot do this even with assistive technology or someone helping me':
-    mobility_bed = True
+  if mobility_bed == 'choice1':
+    satisfy_mobility_bed = False
   else:
-    mobility_bed = False
+    satisfy_mobility_bed = True
 ---
 prevent going back: True
 decoration: feet
@@ -124,14 +117,10 @@ code: |
     mob_feet_text = 'Error'
 --- 
 code: |
-  if mobility_onfeet == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
-    mobility_onfeet = True
-  elif mobility_onfeet == 'I cannot do this without someone physically helping me or guiding me':
-    mobility_onfeet = True
-  elif mobility_onfeet == 'I cannot do this even with assistive technology or someone helping me':
-    mobility_onfeet = True
+  if mobility_onfeet == 'choice1':
+    satisfy_mobility_onfeet = False
   else:
-    mobility_onfeet = False
+    satisfy_mobility_onfeet = True
 ---
 prevent going back: True
 decoration: prosthetic
@@ -166,17 +155,13 @@ code: |
     mob_limbs_text = 'Error'
 --- 
 code: |
-  if mobility_limbs == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
-    mobility_limbs = True
-  elif mobility_limbs == 'I cannot do this without someone physically helping me or guiding me':
-    mobility_limbs = True
-  elif mobility_limbs == 'I cannot do this even with assistive technology or someone helping me':
-    mobility_limbs = True
+  if mobility_limbs == 'choice1':
+    satisfy_mobility_limbs = False
   else:
-    mobility_limbs = False
+    satisfy_mobility_limbs = True
 ---
 code: |
-  if mobility_onfeet or mobility_bed or mobility_getaround or mobility_limbs:
+  if satisfy_mobility_onfeet or satisfy_mobility_bed or satisfy_mobility_getaround or satisfy_mobility_limbs:
     satisfy_mobility = True
   else:
     satisfy_mobility = False
