@@ -8,6 +8,7 @@ subquestion: |
 fields:
   - no label: dr_lifetimesupport
     datatype: radio
+    default: 'I only need temporary support'
     choices:
       - I believe that I will need support for the rest of my life
       - I believe that I will need support for most of my life, but not forever

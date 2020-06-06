@@ -35,8 +35,6 @@ code: |
 code: |
   if dr_socioecopart1_checkboxes and not dr_socioecopart2_checkboxes:
     satisfy_socecon = True
-  elif dr_socioecopart2_checkboxes:
-    satisfy_socecon = False
   else:
     satisfy_socecon = False
 ---

@@ -13,6 +13,7 @@ question: Do you currently live in Australia?
 fields:  
   - no label: user_australianresident
     datatype: yesnoradio
+    default: True
 section: Residency
 ---
 prevent going back: True
@@ -21,6 +22,7 @@ question: Are you an {Australian citizen}?
 fields:
   - no label: user_citizen
     datatype: yesnoradio
+    default: True
 terms:
   Australian citizen: |
     Were you born in Australia, or have you received official citizenship?
