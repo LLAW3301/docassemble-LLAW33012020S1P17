@@ -41,14 +41,10 @@ code: |
     learn_new_text = 'Error'
 ---
 code: |
-  if learning_new == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
-    learning_new = True
-  elif learning_new == 'I cannot do this without someone physically helping me or guiding me':
-    learning_new = True
-  elif learning_new == 'I cannot do this even with assistive technology or someone helping me':
-    learning_new = True
+  if learning_new == 'choice1':
+    satisfy_learning_new = False
   else:
-    learning_new = False
+    satisfy_learning_new = False
 ---
 prevent going back: True
 decoration: remember
@@ -83,14 +79,10 @@ code: |
     learn_remem_text = 'Error'
 ---
 code: |
-  if learning_remember == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
-    learning_remember = True
-  elif learning_remember == 'I cannot do this without someone physically helping me or guiding me':
-    learning_remember = True
-  elif learning_remember == 'I cannot do this even with assistive technology or someone helping me':
-    learning_remember = True
+  if learning_remember == 'choice1':
+    satisfy_learning_remember = False
   else:
-    learning_remember = False
+    satisfy_learning_remember = True
 ---
 prevent going back: True
 decoration: learning2
@@ -125,17 +117,13 @@ code: |
     learn_use_text = 'Error'
 ---
 code: |
-  if learning_using == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
-    learning_using = True
-  elif learning_using == 'I cannot do this without someone physically helping me or guiding me':
-    learning_using = True
-  elif learning_using == 'I cannot do this even with assistive technology or someone helping me':
-    learning_using = True
+  if learning_using == 'choice1':
+    satisfy_learning_using = False
   else:
-    learning_using = False
+    satisfy_learning_using = True
 ---
 code: |
-  if learning_new or learning_remember or learning_using:
+  if satisfy_learning_new or satisfy_learning_remember or satisfy_learning_using:
     satisfy_learning = True
   else:
     satisfy_learning = False

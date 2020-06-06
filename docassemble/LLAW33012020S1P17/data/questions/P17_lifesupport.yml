@@ -16,13 +16,7 @@ fields:
 section: Disability Requirement IV
 ---
 code: |
-  if dr_lifetimesupport == 'I am confident that I will need support for the rest of my life':
-    dr_lifetimesupport = True
-  else:
-    dr_lifetimesupport = False
----
-code: |
-  if dr_lifetimesupport:
+  if dr_lifetimesupport == 'I believe that I will need support for the rest of my life':
     satisfy_lifetimesupport = True
   else:
     satisfy_lifetimesupport = False

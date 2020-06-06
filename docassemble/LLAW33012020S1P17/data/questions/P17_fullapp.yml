@@ -123,7 +123,7 @@ subquestion: |
   *You may skip the videos if you wish.*
 terms:
   carer: |
-    A carer is an individual who provides personal care, support and assistance to other individual who needs it because that individual has a disability, mental condition, mental illness or is frail and aged. (section 5, Carer Recognition Act 2010)
+    A carer is an individual who provides personal care, support and assistance to other individual who needs it because that individual has a disability, mental condition, mental illness or is frail and aged. (*Carer Recognition Act 2010*, s5)
 buttons:
  - Continue: continue
  - Exit: exit
@@ -183,12 +183,12 @@ buttons:
 progress: 3
 question: Welcome to the NDIS Advisor!
 fields:
-  - What is your name?: user_fullname  
+  - What is your full name?: user_fullname  
   - Are you using this app with the presence of a {carer}?: user_carer
     datatype: yesnoradio
 terms:
   carer: |
-    A carer is an individual who provides personal care, support and assistance to other individual who needs it because that individual has a disability, mental condition, mental illness or is frail and aged. (section 5 of the Carer Recognition Act 2010 (Cth))
+    A carer is an individual who provides personal care, support and assistance to other individual who needs it because that individual has a disability, mental condition, mental illness or is frail and aged. (*Carer Recognition Act 2010*, s5)
 ---
 mandatory: True
 code: |
@@ -237,6 +237,7 @@ code: |
   # Social Interaction
   socialinteraction
   
+  
   # Disability Requirements III: Social and Economic Participation
   # If user select any, user is eligible
   dr_socioecopart1
@@ -253,23 +254,11 @@ code: |
   
   # Goals and Aspirations
   hasgoals
-  
-  if satisfy_disreq2 and satisfy_socecon and satisfy_lifetimesupport and satisfy_permanence:
+    
+  if ( satisfy_comms or satisfy_mobility or satisfy_selfcare or satisfy_selfmgmt or satisfy_learning or satisfy_social and satisfy_socecon and satisfy_lifetimesupport and satisfy_permanence == True ):
     endpoint['eligible']
-  elif ( dr_socioecopart2_checkboxes == True ):
+  else:
     endpoint['ineligible']
-  elif ( satisfy_disreq2 == False ):
-    endpoint['ineligible']
-  elif ( satisfy_lifetimesupport == False ):
-    endpoint['ineligible']
-  elif ( satisfy_permanence == False ):
-    endpoint['ineligible']
----  
-code: |
-  if satisfy_comms or satisfy_mobility or satisfy_selfcare or satisfy_selfmgmt or satisfy_learning or satisfy_social:
-    satisfy_disreq2 = True
-  elif ( satisfy_comms and satisfy_mobility and satisfy_selfcare and satisfy_selfmgmt and satisfy_learning and satisfy_social == False ):
-    satisfy_disreq2 = False
 ---
 include:
   - P17_appusage.yml
@@ -279,15 +268,15 @@ include:
   - P17_residencyreq.yml
   - endpoint_residency.yml
   - P17_diagnosis.yml
-  - P17_socioeconomic.yml
-  - P17_permanence.yml
-  - P17_lifesupport.yml
   - P17_communication.yml
   - P17_mobility.yml
   - P17_selfcare.yml
   - P17_selfmanagement.yml
   - P17_learning.yml
   - P17_socialinteraction.yml
+  - P17_socioeconomic.yml
+  - P17_permanence.yml
+  - P17_lifesupport.yml
   - P17_goals.yml
   - endpoint_test_eligible.yml
   - endpoint_test_ineligible.yml

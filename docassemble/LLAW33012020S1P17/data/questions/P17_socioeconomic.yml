@@ -32,12 +32,6 @@ code: |
   else:
     dr_socioecopart1_checkboxes = False
 ---
-code: |
-  if dr_socioecopart1_checkboxes and not dr_socioecopart2_checkboxes:
-    satisfy_socecon = True
-  else:
-    satisfy_socecon = False
----
 prevent going back: True
 decoration: social2
 question: |
@@ -57,7 +51,13 @@ section: Socio-Economic Participation
 ---
 code: |
   if dr_socioecopart2.any_true():
-    dr_socioecopart2_checkboxes = True
-  else:
     dr_socioecopart2_checkboxes = False
+  else:
+    dr_socioecopart2_checkboxes = True
+---
+code: |
+  if dr_socioecopart1_checkboxes and dr_socioecopart2_checkboxes:
+    satisfy_socecon = True
+  else:
+    satisfy_socecon = False
 ---

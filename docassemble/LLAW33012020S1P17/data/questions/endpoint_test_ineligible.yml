@@ -53,7 +53,17 @@ subquestion: |
 
   This app was completed on ${ today() } at ${ format_time(current_datetime()) }.
 
-
+attachment:
+  docx template file: Ineligible_Results.docx
+  name: NDIS Advisor Summary Results
+  filename: NDIS Advisor Results Summary
+  description: |
+    Please download the PDF files to view your results. 
+    
+    Please enter your email below to receive a copy of your results.
+  valid formats:
+      - pdf
+      
 buttons:
   - Contact CBS: exit
     url: https://communitybridgingservices.org.au/contact-us/

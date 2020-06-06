@@ -1,3 +1,9 @@
+# Ignore codes on objects and additional code at the bottom for email
+# Will try to make it work
+# Endpoint still works fine
+---
+objects: 
+  - receiver: Person
 ---
 progress: 100
 mandatory: True
@@ -64,9 +70,14 @@ subquestion: |
 
 
 attachment:
-  docx template file: Summary_Eligible.docx
-  name: NDIS Advisor Results Summary - Eligible
+  docx template file: Eligible_Results.docx
+  name: NDIS Advisor Summary Results
   filename: NDIS Advisor Results Summary
+  variable name: eligible_email
+  description: |
+    Please download the PDF files to view your results. 
+    
+    Please enter your email below to receive a copy of your results.
   valid formats:
       - pdf
 
@@ -80,4 +91,21 @@ section: Results
 code: |
   nav.hide()
   nav_hidden=''
+---
+code: |
+  send_email(template=results_email, attachments=[eligible_email])
+---
+code: |
+  receiver.fullname = ''
+  receiver.email = ''
+---
+template: results_email
+subject: |
+  NDIS Advisor Results 
+content: |
+  Dear %{user_fullname},
+  
+  Thank you for using Community Bridging Services (CBS) Inc NDIS Advisor App. 
+  
+  Please see attached file to view your NDIS Advisor Results.
 ---

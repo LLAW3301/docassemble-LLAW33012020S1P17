@@ -1,5 +1,6 @@
 ---
 mandatory: True
+prevent going back: True
 question: Goals and Aspirations
 subquestion: |
   Please tell us about your {goals} and aspirations, if you have any. Hover or click on the coloured text to view more information.
