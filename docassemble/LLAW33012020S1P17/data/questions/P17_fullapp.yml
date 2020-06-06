@@ -131,7 +131,7 @@ buttons:
 ---
 #Introduction to NDIS access plan and eligibility + videos
 mandatory: True
-progress: 0
+progress: 1
 question: Introduction to the National Disability Insurance Scheme (NDIS)
 subquestion: |
   This video is an introduction to the NDIS.  The NDIS provides support for those who are under the age of 65 and have a permanent or significant disability.  The video also outlines what the NDIS achieves in order to assist a person with a disability in enjoying an ordinary life.  The NDIS aims to help people with disability achieve their goals including independence, community involvement, education, employment and health and wellbeing. 
@@ -151,7 +151,7 @@ buttons:
    url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
 ---
 mandatory: True
-progress: 0
+progress: 2
 question: Requirements for NDIS Application
 subquestion: |
  **This video provides answers to FAQs.** 
@@ -180,7 +180,7 @@ buttons:
 ---
 # User information
 # Starting point for progress bar
-progress: 1
+progress: 3
 question: Welcome to the NDIS Advisor!
 fields:
   - What is your name?: user_fullname  
@@ -256,21 +256,19 @@ code: |
   
   if satisfy_disreq2 and satisfy_socecon and satisfy_lifetimesupport and satisfy_permanence:
     endpoint['eligible']
-  elif dr_socioecopart2_checkboxes == True:
+  elif ( dr_socioecopart2_checkboxes == True ):
     endpoint['ineligible']
-  elif satisfy_disreq2 == False:
+  elif ( satisfy_disreq2 == False ):
     endpoint['ineligible']
-  elif satisfy_permanence == False:
+  elif ( satisfy_lifetimesupport == False ):
     endpoint['ineligible']
-  elif satisfy_lifetimesupport == False:
-    endpoint['ineligible']
-  elif satisfy_socecon == False:
+  elif ( satisfy_permanence == False ):
     endpoint['ineligible']
 ---  
 code: |
   if satisfy_comms or satisfy_mobility or satisfy_selfcare or satisfy_selfmgmt or satisfy_learning or satisfy_social:
     satisfy_disreq2 = True
-  else:
+  elif ( satisfy_comms and satisfy_mobility and satisfy_selfcare and satisfy_selfmgmt and satisfy_learning and satisfy_social == False ):
     satisfy_disreq2 = False
 ---
 include:

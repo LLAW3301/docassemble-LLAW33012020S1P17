@@ -135,7 +135,7 @@ code: |
     learning_using = False
 ---
 code: |
-  if learning_new and learning_remember and learning_using:
+  if learning_new or learning_remember or learning_using:
     satisfy_learning = True
   else:
     satisfy_learning = False

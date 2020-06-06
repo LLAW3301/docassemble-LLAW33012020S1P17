@@ -8,6 +8,7 @@ subquestion: |
 fields:
   - no label: dr_permanence1
     datatype: radio
+    default: 'Unsure / None of the above'
     choices:
       - There are no clinical, medical or other types of treatments that exist that may be available to help my impairment/s
       - I do not think my impairment will improve over time
