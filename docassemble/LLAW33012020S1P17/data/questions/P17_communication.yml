@@ -40,9 +40,9 @@ code: |
 ---
 code: |
   if comms_expression == 'choice1':
-    comms_expression = False
+    satisfy_comms_expression = False
   else:
-    comms_expression = True
+    satisfy_comms_expression = True
 ---
 prevent going back: True
 decoration: group
@@ -77,9 +77,9 @@ code: |
 ---
 code: |
   if comms_talking == 'choice1':
-    comms_talking = False
+    satisfy_comms_talking = False
   else:
-    comms_talking = True
+    satisfy_comms_talking = True
 ---
 prevent going back: True
 decoration: group
@@ -115,9 +115,9 @@ code: |
 ---
 code: |
   if comms_understanding == 'choice1':
-    comms_understanding = False
+    satisfy_comms_understanding = False
   else:
-    comms_understanding = True
+    satisfy_comms_understanding = True
 ---
 prevent going back: True
 decoration: talking
@@ -152,12 +152,12 @@ code: |
 ---
 code: |
   if comms_gettingpoint == 'choice1':
-    comms_gettingpoint = False
+    satisfy_comms_gettingpoint = False
   else:
-    comms_gettingpoint = True
+    satisfy_comms_gettingpoint = True
 ---
 code: |
-  if comms_understanding or comms_talking or comms_gettingpoint or comms_expression:
+  if satisfy_comms_understanding or satisfy_comms_talking or satisfy_comms_gettingpoint or satisfy_comms_expression:
     satisfy_comms = True
   else:
     satisfy_comms = False

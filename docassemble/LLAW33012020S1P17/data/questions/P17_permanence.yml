@@ -28,43 +28,19 @@ section: Permanence
 ---
 code: |
   if dr_permanence1 == 'There are no clinical, medical or other types of treatments that exist that may be available to help my impairment/s':
-    dr_permanence1 = True
-  elif dr_permanence1 == 'I do not think my impairment will improve ':
-    dr_permanence1 = True
-  elif dr_permanence1 == 'My impairment sometimes improves and sometimes deteriorates over time i.e. fluctuates':
-    dr_permanence1 = True
-  else:
-    dr_permanence1 = False
----
-code: |
-  if dr_permanence1:
+    satisfy_permanence = True
+  elif dr_permanence1 == 'I do not think my impairment will improve over time':
+    satisfy_permanence = True
+  elif dr_permanence1 == 'My impairment sometimes improves and sometimes worsens over time / it fluctuates from time to time':
     satisfy_permanence = True
   else:
     satisfy_permanence = False
 ---
-prevent going back: True
-question: |
-  Please tick all that apply.
-subquestion: |
-  > This section of the questionnaire will ask you questions relating to **permanence**.
-fields:
-  - A medical professional is able to confirm the above: notreatment
-    datatype: radio
-    choices:
-      - Yes
-      - No
-  - I will seek evidence from a medical professional to confirm the above: confirmation
-    datatype: yesno
-    show if: 
-      variable: notreatment
-      is: No
-section: Permanence
----
 code: |
   if notreatment == 'Yes':
-    pdf_permanence_text = 'A medical professional is able to confirm the above'
+    pdf_permanence_text = 'A medical professional is able to confirm that my impairment cannot be improved from treatments available or appropriate to my impairment'
   elif confirmation:
-    pdf_permanence_text = 'I will seek evidence from a medical professional to confirm the above'
+    pdf_permanence_text = 'I will seek evidence from a medical professional to confirm this'
   else:
     pdf_permanence_text = 'No evidence provided'
 ---

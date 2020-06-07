@@ -46,14 +46,10 @@ code: |
     mgmt_plans_text = 'Error'
 --- 
 code: |
-  if mgmt_plans == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
-    mgmt_plans = True
-  elif mgmt_plans == 'I cannot do this without someone physically helping me or guiding me':
-    mgmt_plans = True
-  elif mgmt_plans == 'I cannot do this even with assistive technology or someone helping me':
-    mgmt_plans = True
+  if mgmt_plans == 'choice1':
+    satisfy_mgmt_plans = False
   else:
-    mgmt_plans = False
+    satisfy_mgmt_plans = True
 ---
 prevent going back: True
 decoration: problem
@@ -91,14 +87,10 @@ code: |
     mgmt_prob_text = 'Error'
 --- 
 code: |
-  if mgmt_problem == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
-    mgmt_problem = True
-  elif mgmt_problem == 'I cannot do this without someone physically helping me or guiding me':
-    mgmt_problem = True
-  elif mgmt_problem == 'I cannot do this even with assistive technology or someone helping me':
-    mgmt_problem = True
+  if mgmt_problem == 'choice1':
+    satisfy_mgmt_problem = False
   else:
-    mgmt_problem = False
+    satisfy_mgmt_problem = True
 ---
 prevent going back: True
 decoration: money
@@ -136,14 +128,10 @@ code: |
     mgmt_fin_text = 'Error'
 --- 
 code: |
-  if mgmt_finance == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
-    mgmt_finance = True
-  elif mgmt_finance == 'I cannot do this without someone physically helping me or guiding me':
-    mgmt_finance = True
-  elif mgmt_finance == 'I cannot do this even with assistive technology or someone helping me':
-    mgmt_finance = True
+  if mgmt_finance == 'choice1':
+    satisfy_mgmt_finance = False
   else:
-    mgmt_finance = False
+    satisfy_mgmt_finance = True
 ---
 prevent going back: True
 decoration: tasks
@@ -181,14 +169,10 @@ code: |
     mgmt_tasks_text = 'Error'
 --- 
 code: |
-  if mgmt_tasks == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
-    mgmt_tasks = True
-  elif mgmt_tasks == 'I cannot do this without someone physically helping me or guiding me':
-    mgmt_tasks = True
-  elif mgmt_tasks == 'I cannot do this even with assistive technology or someone helping me':
-    mgmt_tasks = True
+  if mgmt_tasks == 'choice1':
+    satisfy_mgmt_tasks = False
   else:
-    mgmt_tasks = False
+    mgmt_tasks = True
 ---
 prevent going back: True
 decoration: calendar
@@ -223,17 +207,13 @@ code: |
     mgmt_sched_text = 'Error'
 --- 
 code: |
-  if mgmt_schedule == 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications':
-    mgmt_schedule = True
-  elif mgmt_schedule == 'I cannot do this without someone physically helping me or guiding me':
-    mgmt_schedule = True
-  elif mgmt_schedule == 'I cannot do this even with assistive technology or someone helping me':
-    mgmt_schedule = True
+  if mgmt_schedule == 'choice1':
+    satisfy_mgmt_schedule = False
   else:
-    mgmt_schedule = False
+    satisfy_mgmt_schedule = True
 ---
 code: |
-  if mgmt_problem or mgmt_plans or mgmt_tasks or mgmt_finance or mgmt_schedule:
+  if satisfy_mgmt_problem or satisfy_mgmt_plans or satisfy_mgmt_tasks or satisfy_mgmt_finance or satisfy_mgmt_schedule:
     satisfy_selfmgmt = True
   else:
     satisfy_selfmgmt = False
