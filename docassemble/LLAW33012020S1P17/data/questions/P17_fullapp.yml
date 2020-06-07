@@ -14,9 +14,9 @@ sections:
     - Communication
     - Learning
     - Mobility
-    - Social Interaction
     - Self-Care
     - Self-Management
+    - Social Interaction
   - Disability Requirement III:
     - Socio-Economic Participation
     - Permanence
@@ -27,8 +27,8 @@ sections:
 features:
   navigation: True
   progress bar: True
-  debug: false
-  hide standard menu: false
+  hide standard menu: False
+  debug: False
   css: CBS_1.css
 ---
 objects:
@@ -43,6 +43,7 @@ metadata:
     - name: Gale del Pilar
     - name: Samara Shute
   organisation:  Flinders University
+  show login: False
 ---
 mandatory: True
 code: |
@@ -76,7 +77,7 @@ question: Welcome to our NDIS Advisor!
 subquestion: |
    The purpose of this application is to decide whether you are likely to be eligible for the National Disability Insurance Scheme (NDIS) and to give you tips for the next steps in applying.
    
-    **This application currently only applies for people with Autism Spectrum Disorder (ASD).**
+    **This application currently only applies to people with Autism Spectrum Disorder (ASD).**
   
 buttons:
   - Continue: continue
@@ -91,12 +92,12 @@ subquestion: |
   
   This application does not guarantee you will receive funding for the NDIS, nor does it guarantee ineligibility. 
   
-  This application also does not provide comprehensive information on the NDIS. It will simply assist in assessing whether you are likely to be eligible, and give you some tips on the next steps.
+  This application also does not provide comprehensive information on the NDIS. It will simply assist in assessing whether you are likely to be eligible and give you some tips on the next steps.
   
   **The National Disability Insurance Agency (NDIA) reserves the right to make any final decisions.**
  
  
-  We advise you to have your support person while filling out the questions. If you are under 16, you must have a parent or caregiver present while filling out the questions. 
+  We advise you to have your support person while filling out the questions. If you are under the age of 16, you must have a parent or caregiver present while filling out the questions. 
  
   **Please answer all questions honestly and as accurately as possible.**
  
@@ -157,7 +158,7 @@ subquestion: |
  **This video provides answers to FAQs.** 
 
 
- In order to be eligible for the NIDS you must meet the following requirements:
+ In order to be eligible for the NDIS you must meet the following requirements:
 
  * Have a permanent or significant disability or developmental delay
  * Be a certain age
@@ -186,10 +187,17 @@ fields:
   - What is your full name?: user_fullname  
   - Are you using this app with the presence of a {carer}?: user_carer
     datatype: yesnoradio
+  - note: |
+      A copy of your results will be generated for you once you have completed this app. 
+      You can directly download these documents or you can choose to send them to your email. Please enter your email below.
+  - Email: user_email
+    datatype: email
+    required: false
 terms:
   carer: |
     A carer is an individual who provides personal care, support and assistance to other individual who needs it because that individual has a disability, mental condition, mental illness or is frail and aged. (*Carer Recognition Act 2010*, s5)
 ---
+# Code block which runs the whole app
 mandatory: True
 code: |
   # Asks for name to be put in PDF files
