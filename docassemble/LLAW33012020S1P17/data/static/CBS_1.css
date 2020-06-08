@@ -113,3 +113,35 @@ a.daterm:hover{
    height: 20px;
    position: relative;
 }
+.da-attachment-alert.da-attachment-alert-multiple.alert.alert-success{
+   color: rgb(255,255,255);
+   background-color: rgb(254,140,70);
+   border: rgb(249,150,76);
+}
+.nav.nav-tabs.da.attachment-tablist{
+  display: none;
+}
+.da-attachment-tab-download-pdf{
+  display: none;
+}
+.dadownload-tab1.nav-link.active{
+  display: none;
+}
+.dadownload-tab2.nav-link.active{
+  display: none;
+}
+.dadownload-tab0{
+  display: none;
+}
+.dadownload-tab1{
+  display: none;
+}
+.dadownload-tab2{
+  display: none;
+}
+.da-attachment-download-wrapper{
+  display: none;
+}
+h3{
+  display: none;
+}

@@ -50,7 +50,7 @@ question: Communication
 subquestion: |
   Please choose the option that best describes your level of communication.
   
-  > **Having a general conversation/talking to other people**
+  > **Having a conversation/talking to other people**
 field: comms_talking
 choices:
   - I can do this independently: choice1

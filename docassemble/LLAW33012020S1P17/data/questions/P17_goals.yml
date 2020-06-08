@@ -3,14 +3,14 @@ mandatory: True
 prevent going back: True
 question: Goals and Aspirations
 subquestion: |
-  Please tell us about your {goals} and aspirations, if you have any. Hover or click on the coloured text to view more information.
+  Please tell us about your {goals} and aspirations, if you have any. Click on the coloured text to view more information.
   
-  The NDIA will be looking at these goals to assist in your planning meeting and application, so please be as specific as possible.
+  Knwowing what your goals are can assist you in your planning meeting, please be as specific as possible.
   
-  > **Do you have any goals and aspirations in life?**
+  > **Do you have any goals and aspirations that you want to achieve in life?**
 terms:
   goals: |
-    These could be short-term and long-term, current and future goals. Goals are things you want to achieve with support from the NDIS and other supports and services. Your goals might include becoming more independent, getting or keeping a job, learning new skills, enrolling in education, becoming more active in your community, or improving relationships and making friends. You should try to make your goals as specific as possible. 
+    These could be short-term, long-term or future goals. Your goals might include becoming more independent, getting or keeping a job, learning new skills, enrolling in education, becoming more active in your community, or improving relationships and making friends. You should try to make your goals as specific as possible. 
 fields:
   - no label: hasgoals
     datatype: yesnoradio
@@ -31,5 +31,5 @@ code: |
   if hasgoals:
     pdf_goals_text = 'Yes'
   else:
-    pdf_goals_text = 'I do not have goals'
+    pdf_goals_text = 'I have not indicated any goals in the application'
 ---

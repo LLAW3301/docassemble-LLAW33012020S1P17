@@ -13,9 +13,12 @@ prevent going back: True
 decoration: shower
 question: Self-Care
 subquestion: |
-  Please choose the option that best describes your level of self-care.
+  Please choose the option that best describes your level of self-care. Click the coloured text to view examples.
   
-  > **Showering and cleaning/brushing my teeth**
+  > **Showering and managing my {personal hygiene}**
+terms:
+  personal hygiene: |
+    Bathing, brushing teeth, grooming
 field: self_shower
 choices:
   - I can do this independently: choice1

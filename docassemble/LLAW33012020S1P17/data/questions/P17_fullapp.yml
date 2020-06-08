@@ -73,11 +73,11 @@ default screen parts:
 # Introduction Screen + Disclaimer
 mandatory: True
 progress: 0
-question: Welcome to our NDIS Advisor!
+question: Welcome to the NDIS Advisor!
 subquestion: |
-   The purpose of this application is to decide whether you are likely to be eligible for the National Disability Insurance Scheme (NDIS) and to give you tips for the next steps in applying.
+   The purpose of this application is to decide whether you are likely to be eligible for the National Disability Insurance Scheme (NDIS).
    
-    **This application currently only applies to people with Autism Spectrum Disorder (ASD).**
+    **This application currently only applies to people with autism spectrum disorder (ASD).**
   
 buttons:
   - Continue: continue
@@ -88,18 +88,16 @@ mandatory: True
 progress: 0
 question: Disclaimer
 subquestion: |
-  This application is **not** legal advice. 
+  This application is **does not** provide legal advice. 
   
   This application does not guarantee you will receive funding for the NDIS, nor does it guarantee ineligibility. 
   
-  This application also does not provide comprehensive information on the NDIS. It will simply assist in assessing whether you are likely to be eligible and give you some tips on the next steps.
+  This application does not provide comprehensive information on the NDIS. It will simply assist in assessing whether you are likely to be eligible or ineligible.
   
   **The National Disability Insurance Agency (NDIA) reserves the right to make any final decisions.**
  
  
-  We advise you to have your support person while filling out the questions. If you are under the age of 16, you must have a parent or caregiver present while filling out the questions. 
- 
-  **Please answer all questions honestly and as accurately as possible.**
+  It is advised that you have a support person while operating the application. If you are under the age of 16, you must have a parent or caregiver present while filling out the questions. 
  
   By clicking **CONTINUE**, you accept these terms.
  
@@ -113,18 +111,18 @@ mandatory: True
 progress: 0
 question: NDIS Advisor
 subquestion: |
-  Please make sure that you are with a {carer} before you start answering any questions. 
-  Please answer the questions as accurately as possible.
+  Please make sure that you are with a {carer} or support person before you start answering any questions. 
   
   The NDIS Advisor will take approximately **30 minutes** to complete. 
+ 
+  **Please answer all questions honestly and as accurately as possible.**
   
-  
-  The next few pages will display information and videos about the NDIS Access Plan and Requirements for an NDIS Application.
+  The next few pages will display information and videos about the NDIS access plan and requirements for an NDIS Application.
   
   *You may skip the videos if you wish.*
 terms:
   carer: |
-    A carer is an individual who provides personal care, support and assistance to other individual who needs it because that individual has a disability, mental condition, mental illness or is frail and aged. (*Carer Recognition Act 2010*, s5)
+    A carer is an individual who provides personal care, support and assistance to other individual who needs it because that individual has a disability, mental condition, mental illness or is frail and aged. (*Carer Recognition Act 2010* (Cth), s5)
 buttons:
  - Continue: continue
  - Exit: exit
@@ -132,18 +130,12 @@ buttons:
 ---
 #Introduction to NDIS access plan and eligibility + videos
 mandatory: True
-progress: 1
+progress: 0
 question: Introduction to the National Disability Insurance Scheme (NDIS)
 subquestion: |
-  This video is an introduction to the NDIS.  The NDIS provides support for those who are under the age of 65 and have a permanent or significant disability.  The video also outlines what the NDIS achieves in order to assist a person with a disability in enjoying an ordinary life.  The NDIS aims to help people with disability achieve their goals including independence, community involvement, education, employment and health and wellbeing. 
-
-
-  As the NDIS is an insurance scheme, it provides a lifetime approach to those who need it. It also provides individuals and their families with referrals within the community. 
-
-
-  The NDIA ultimately aims to give everyone an opportunity to have the power of choice and control over their life, through providing the appropriate support.
+  This video is an introduction to the NDIS. The video outlines what the NDIS achieves in order to assist a person with a disability in enjoying an ordinary life.  The NDIS aims to help people with disability achieve their goals including independence, community involvement, education, employment and health and wellbeing. 
   
-    *You may skip the videos if you wish.*
+  *You may skip the videos if you wish.*
 
 video: "[YOUTUBE oKxzePCoRis]"
 buttons:
@@ -152,7 +144,7 @@ buttons:
    url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
 ---
 mandatory: True
-progress: 2
+progress: 0
 question: Requirements for NDIS Application
 subquestion: |
  **This video provides answers to FAQs.** 
@@ -164,14 +156,9 @@ subquestion: |
  * Be a certain age
  * Live in Australia
  * Be an Australian citizen or hold the appropriate visa
-
-
- Your medical practitioner may assist you in filling out this app and in assessing whether you could be eligible for the NDIS. 
-
  
-  If you meet the eligibility criteria, you will need to get in contact with the NDIA to schedule a meeting.
   
-    *You may skip the videos if you wish.*
+ *You may skip the videos if you wish.*
 
 video: "[YOUTUBE aF3gGRNRnkk]"
 buttons:
@@ -185,17 +172,11 @@ progress: 3
 question: Welcome to the NDIS Advisor!
 fields:
   - What is your full name?: user_fullname  
-  - Are you using this app with the presence of a {carer}?: user_carer
+  - Are you using this app with the presence of a {carer} or support person?: user_carer
     datatype: yesnoradio
-  - note: |
-      A copy of your results will be generated for you once you have completed this app. 
-      You can directly download these documents or you can choose to send them to your email. Please enter your email below.
-  - Email: user_email
-    datatype: email
-    required: false
 terms:
   carer: |
-    A carer is an individual who provides personal care, support and assistance to other individual who needs it because that individual has a disability, mental condition, mental illness or is frail and aged. (*Carer Recognition Act 2010*, s5)
+    A carer is an individual who provides personal care, support and assistance to other individual who needs it because that individual has a disability, mental condition, mental illness or is frail and aged. (*Carer Recognition Act 2010* (Cth), s5)
 ---
 # Code block which runs the whole app
 mandatory: True
@@ -263,7 +244,8 @@ code: |
   # Goals and Aspirations
   hasgoals
     
-  if ( satisfy_comms or satisfy_mobility or satisfy_selfcare or satisfy_selfmgmt or satisfy_learning or satisfy_social and satisfy_socecon and satisfy_lifetimesupport and satisfy_permanence == True ):
+  if (( satisfy_comms or satisfy_mobility or satisfy_selfcare or satisfy_selfmgmt or satisfy_learning or satisfy_social ) and
+     ( satisfy_socecon and satisfy_lifetimesupport and satisfy_permanence == True )):
     endpoint['eligible']
   else:
     endpoint['ineligible']
@@ -286,6 +268,6 @@ include:
   - P17_permanence.yml
   - P17_lifesupport.yml
   - P17_goals.yml
-  - endpoint_test_eligible.yml
-  - endpoint_test_ineligible.yml
+  - endpoint_eligible.yml
+  - endpoint_ineligible.yml
 ---

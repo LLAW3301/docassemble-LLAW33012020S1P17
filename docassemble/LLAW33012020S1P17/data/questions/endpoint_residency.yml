@@ -3,22 +3,17 @@
 prevent going back: True
 progress: 100
 event: endpoint['ineligibleduetoresidency']
-question: Eligibility requirements not met
+question: Unfortunately, you are *not* eligible for the NDIS.
 subquestion: |
   ${ nav_hidden }
   
-  **Unfortunately, you are *not* eligible for the NDIS.**
- 
- 
-  
   To access the NDIS, you must be between 7 and 65 years old. 
   
-  **You must also live in Australia and be either an 
-  Australian citizen or holder of a protected or special category Visa.**
+  **You must also reside in Australia and be either an 
+  Australian citizen or holder of a protected or special category visa.**
   
   
-  *Based on what you told us, you do not meet one of these residency requirements, therefore
-  you are unable to access the NDIS.*
+  *From what you've indicated, you do not meet one of these residency requirements, therefore you are unable to access the NDIS.*
   
   
   The National Disability Insurance Agency (NDIA) makes the final decision
