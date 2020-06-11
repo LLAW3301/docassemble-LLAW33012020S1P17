@@ -9,7 +9,7 @@ image sets:
       citizen: passport.png
 ---
 decoration: residence
-question: Do you currently live in Australia?
+question: Do you currently reside in Australia?
 fields:  
   - no label: user_australianresident
     datatype: yesnoradio

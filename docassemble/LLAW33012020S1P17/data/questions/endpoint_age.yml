@@ -1,6 +1,5 @@
 # ENDPOINT: Ineligibility due to AGE
 ---
-prevent going back: True
 progress: 100
 event: endpoint['ineligibleduetoage']
 question: Unfortunately, you may not be eligible for the NDIS.
@@ -15,9 +14,12 @@ subquestion: |
   
   **This means you may not be eligible to access the NDIS.**
   
-  The National Disability Insurance Agency (NDIA) makes the final decision
-  about who gets to receive support under the NDIS. If you would still like to 
-  check if you are eligible you should contact them to discuss your eligibility. 
+  The National Disability Insurance Agency (NDIA) reserves the right to make the final decision about who is eligible to receive support under the NDIS. 
+  
+  
+  If you would still like to discuss your eligibility, you may contact CBS by clicking the button below.
+  
+  If you would like see the NDIS eligibility criteria, click 'More Information' below.
  
   
   Thank you for using the NDIS Advisor.

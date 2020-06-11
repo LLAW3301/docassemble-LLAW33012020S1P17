@@ -14,7 +14,7 @@ prevent going back: True
 decoration: calendar
 question: Self-Management
 subquestion: |
-  Please choose the option that best describes your level of self-management. Hover over the coloured text to view examples.
+  Please choose the option that best describes your level of self-management. Click the coloured text to view examples.
   
   > **{Making plans and decisions}**
 terms:
@@ -55,7 +55,7 @@ prevent going back: True
 decoration: problem
 question: Self-Management
 subquestion: |
-  Please choose the option that best describes your level of self-management. Hover over the coloured text to view examples.
+  Please choose the option that best describes your level of self-management. Click the coloured text to view examples.
   
   > **{Solving everyday problems}**
 terms:
@@ -96,7 +96,7 @@ prevent going back: True
 decoration: money
 question: Self-Management
 subquestion: |
-  Please choose the option that best describes your level of self-management. Hover over the coloured text to view examples.
+  Please choose the option that best describes your level of self-management. Click the coloured text to view examples.
   
   > **{Managing my finances}**
 terms:
@@ -137,7 +137,7 @@ prevent going back: True
 decoration: tasks
 question: Self-Management
 subquestion: |
-  Please choose the option that best describes your level of self-management. Hover over the coloured text to view examples.
+  Please choose the option that best describes your level of self-management. Click the coloured text to view examples.
   
   > **Completing {daily tasks}**
 terms:

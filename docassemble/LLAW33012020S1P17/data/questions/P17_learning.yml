@@ -90,7 +90,7 @@ question: Learning
 subquestion: |
   Please choose the option that best describes your level of learning.
   
-  > **Using new skills**
+  > **Practicing new skills**
 field: learning_using
 choices:
   - I can do this independently: choice1

@@ -12,9 +12,9 @@ image sets:
 prevent going back: True
 decoration: social1
 question: |
-  Please tick all that apply.
+  Social and Economic Participation I
 subquestion: |
-  > This section of the questionnaire will ask you questions relating to **social and economic participation**.
+  > This section of the questionnaire will ask you questions relating to **social and economic participation**. Please tick the option that best describes your situation.
 fields:
   - no label: dr_socioecopart1
     datatype: checkboxes
@@ -35,9 +35,9 @@ code: |
 prevent going back: True
 decoration: social2
 question: |
-  Please tick all that apply.
+  Social and Economic Participation II
 subquestion: |
-  > This section of the questionnaire will ask you questions relating to **social and economic participation**.
+  > This section of the questionnaire will ask you questions relating to **social and economic participation**. Please tick the option that best describes your situation.
 fields:
   - no label: dr_socioecopart2
     datatype: checkboxes

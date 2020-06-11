@@ -2,7 +2,7 @@
 ---
 prevent going back: True
 question: |
-  Please tick all that apply.
+  Permanence
 subquestion: |
   > This section of the questionnaire will ask you questions relating to **permanence**. Please tick the option that best describes your situation.
 fields:
