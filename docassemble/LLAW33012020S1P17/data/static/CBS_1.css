@@ -1,0 +1,147 @@
+.navbar{
+    background-color: rgb(255,255,255) !important;
+}
+/* Colour of the 'Source' link in the navbar, set to white to be hidden */
+.navbar .nav-item a{
+    color: rgb(255,255,255) !important;
+}
+.navbar .dropdown-menu{
+    background-color: rgba(26,43,76);
+}
+.dropdown-item:hover{
+    background-color: rgba(137,169,217,0.5);
+}
+.nav-link{
+  color: rgb(230,128,82);
+  background-color: rgba(255,255,255);
+  border-color: rgba(230,128,82);
+}
+.nav-link:hover{
+  color: rgba(30,117,175);
+  background-color: rgba(165,204,239);
+  border-color: rgba(230,128,82);
+  cursor: pointer;
+}
+.daclickable.nav-link.danavlink.active{
+  color: rgba(32,68,144);
+  background-color: rgba(255,255,255);
+  border-color: rgba(32,68,144);  
+}
+.nav-link.danavlink.active{
+  color: rgba(32,68,144);
+  background-color: rgba(255,255,255);
+  border-color: rgba(32,68,144);  
+}
+/*'Continue' button*/
+.btn-primary{
+  color: rgb(255,255,255);
+  background-color: rgb(249,150,76);
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  padding: 12px 28px;
+}
+.btn-primary:hover{
+  color: rgb(255,255,255);
+  background-color: rgb(249,150,76);
+  border: none;
+}
+.btn-primary span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.btn-primary span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+/* Effect for 'Continue' button */
+.btn-primary:hover span {
+  padding-right: 25px;
+}
+.btn-primary:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.btn-primary:focus {
+  box-shadow: none !important;
+  outline-color: rgb(242, 173, 124) !important;
+  outline-width: 1px !important;
+}
+/*'Exit' button*/
+.btn-danger{
+  color: rgb(255,255,255);
+  background-color: rgba(32,95,189);
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  padding: 12px 28px;
+}
+.btn-danger:hover{
+  color: rgb(255,255,255);
+  background-color: rgba(32,95,189);
+  border: none;
+}
+body {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  word-spacing: 5px;
+  color: rgb(32,68,144);
+  font: Calibri;
+  position: relative;
+}
+a.daterm{
+  color: rgb(249,150,76);
+}
+a.daterm:hover{
+  color: rgba(165,204,239);
+}
+.row.tab-content{
+  margin-top: 150px;
+}
+.progress-bar{
+   color: rgb(255,255,255);
+   background-color: rgb(32,68,144);
+}
+.progress.mt-2{
+   color: rgb(255,255,255);
+   height: 20px;
+   position: relative;
+}
+.da-attachment-alert.da-attachment-alert-multiple.alert.alert-success{
+   color: rgb(255,255,255);
+   background-color: rgb(254,140,70);
+   border: rgb(249,150,76);
+}
+.nav.nav-tabs.da.attachment-tablist{
+  display: none;
+}
+.da-attachment-tab-download-pdf{
+  display: none;
+}
+.dadownload-tab1.nav-link.active{
+  display: none;
+}
+.dadownload-tab2.nav-link.active{
+  display: none;
+}
+.dadownload-tab0{
+  display: none;
+}
+.dadownload-tab1{
+  display: none;
+}
+.dadownload-tab2{
+  display: none;
+}
+.da-attachment-download-wrapper{
+  display: none;
+}
+h3{
+  display: none;
+}

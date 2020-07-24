@@ -1,0 +1,15 @@
+# Application Usage Requirement
+---
+question: Are you using this application because you believe you have *autism spectrum disorder (ASD)*?
+fields:
+  - no label: user_useasd
+    datatype: yesnoradio
+    default: True
+section: Application Usage
+---
+code: |
+  if user_useasd:
+    user_canuse = True
+  else:
+    user_canuse = False
+---

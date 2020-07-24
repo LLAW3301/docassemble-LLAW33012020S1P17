@@ -1,0 +1,156 @@
+---
+image sets:
+  freepik:
+    attribution: |
+      Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
+    images:
+      talking: Conversation.png
+      group: Group_Convo.png
+---
+decoration: talking
+question: Communication
+subquestion: |
+  Please choose the option that best describes your level of communication.
+  
+  > **Expressing what I need or want**
+field: comms_expression
+choices:
+  - I can do this independently: choice1
+  - I cannot do this without someone physically helping me or guiding me: choice2
+  - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications: choice4
+    help: |
+      Assistive technology includes speech generating devices, devices that project images, amplified telephone equipment, hearing aids, active listening devices, etc.
+      Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+  - I cannot do this even with assistive technology or someone helping me: choice3
+section: Communication
+---
+code: |
+  if comms_expression == 'choice1':
+    comms_exp_text = 'I can do this independently'
+  elif comms_expression == 'choice2':
+    comms_exp_text = 'I cannot do this without someone physically helping me or guiding me'
+  elif comms_expression == 'choice3':
+    comms_exp_text = 'I cannot do this even with assistive technology or someone helping me'
+  elif comms_expression == 'choice4':
+    comms_exp_text = 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications'
+  else:
+    comms_exp_text = 'Error'
+---
+code: |
+  if comms_expression == 'choice1':
+    satisfy_comms_expression = False
+  else:
+    satisfy_comms_expression = True
+---
+decoration: group
+question: Communication
+subquestion: |
+  Please choose the option that best describes your level of communication.
+  
+  > **Having a conversation/talking to other people**
+field: comms_talking
+choices:
+  - I can do this independently: choice1
+  - I cannot do this without someone physically helping me or guiding me: choice2
+  - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications: choice4
+    help: |
+      Assistive technology includes speech generating devices, devices that project images, amplified telephone equipment, hearing aids, active listening devices, etc.
+      Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils.
+  - I cannot do this even with assistive technology or someone helping me: choice3
+section: Communication
+---
+code: |
+  if comms_talking == 'choice1':
+    comms_talk_text = 'I can do this independently'
+  elif comms_talking == 'choice2':
+    comms_talk_text = 'I cannot do this without someone physically helping me or guiding me'
+  elif comms_talking == 'choice3':
+    comms_talk_text = 'I cannot do this even with assistive technology or someone helping me'
+  elif comms_talking == 'choice4':
+    comms_talk_text = 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications'
+  else:
+    comms_talk_text = 'Error'
+---
+code: |
+  if comms_talking == 'choice1':
+    satisfy_comms_talking = False
+  else:
+    satisfy_comms_talking = True
+---
+decoration: group
+question: Communication
+subquestion: |
+  Please choose the option that best describes your level of communication.
+  
+  > **Understanding what other people are saying to me**
+field: comms_understanding
+choices:
+  - I can do this independently: choice1
+  - I cannot do this without someone physically helping me or guiding me: choice2
+  - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications: choice4
+    help: |
+      Assistive technology includes speech generating devices, devices that project images, amplified telephone equipment, hearing aids, active listening devices, etc.
+      
+      Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils.
+  - I cannot do this even with assistive technology or someone helping me: choice3
+section: Communication
+---
+code: |
+  if comms_understanding == 'choice1':
+    comms_under_text = 'I can do this independently'
+  elif comms_understanding == 'choice2':
+    comms_under_text = 'I cannot do this without someone physically helping me or guiding me'
+  elif comms_understanding == 'choice3':
+    comms_under_text = 'I cannot do this even with assistive technology or someone helping me'
+  elif comms_understanding == 'choice4':
+    comms_under_text = 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications'
+  else:
+    comms_under_text = 'Error'
+---
+code: |
+  if comms_understanding == 'choice1':
+    satisfy_comms_understanding = False
+  else:
+    satisfy_comms_understanding = True
+---
+decoration: talking
+question: Communication
+subquestion: |
+  Please choose the option that best describes your level of communication.
+  
+  > **Getting my point across to people when I am talking**
+field: comms_gettingpoint
+choices:
+  - I can do this independently: choice1
+  - I cannot do this without someone physically helping me or guiding me: choice2
+  - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications: choice4
+    help: |
+      Assistive technology includes speech generating devices, devices that project images, amplified telephone equipment, hearing aids, active listening devices, etc.
+      Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils. 
+  - I cannot do this even with assistive technology or someone helping me: choice3
+section: Communication
+---
+code: |
+  if comms_gettingpoint == 'choice1':
+    comms_point_text = 'I can do this independently'
+  elif comms_gettingpoint == 'choice2':
+    comms_point_text = 'I cannot do this without someone physically helping me or guiding me'
+  elif comms_gettingpoint == 'choice3':
+    comms_point_text = 'I cannot do this even with assistive technology or someone helping me'
+  elif comms_gettingpoint == 'choice4':
+    comms_point_text = 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications'
+  else:
+    comms_point_text = 'Error'
+---
+code: |
+  if comms_gettingpoint == 'choice1':
+    satisfy_comms_gettingpoint = False
+  else:
+    satisfy_comms_gettingpoint = True
+---
+code: |
+  if satisfy_comms_understanding or satisfy_comms_talking or satisfy_comms_gettingpoint or satisfy_comms_expression:
+    satisfy_comms = True
+  else:
+    satisfy_comms = False
+---

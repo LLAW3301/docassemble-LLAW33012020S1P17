@@ -1,0 +1,97 @@
+---
+progress: 100
+mandatory: True
+prevent going back: True
+event: endpoint['ineligible']
+question: Results
+subquestion: |
+  ${ nav_hidden }
+ 
+  > Thank you **${ user_fullname }** for completing the NDIS Advisor application. 
+ 
+  **Unfortunately, you may not be eligible to receive NDIS support.**
+  
+  Although, you have satisfied the preliminary requirements, further       disability requirements need to be satisfied to ensure eligibility for NDIS support. 
+ 
+  Here are the further disability requirements which need to be satisfied to ensure eligibility for NDIS support. 
+ 
+  % if user_diagnosedautism:
+  From what you have told us, you have ${ user_levelofautism } Austism Spectrum     Disorder (ASD) diagnosed by ${ user_medicalprof }.
+  % else:
+  From what you have told us you have not been diagnosed by a medical         
+  professional. 
+  % endif
+  
+  > **Disability Requirement II**
+  
+  To be eligible for the NDIS your autism spectrum disorder **must** cause you a very high level of difficulty in **one** of the following areas:
+    
+    - Communication
+    - Social interaction
+    - Learning
+    - Mobility
+    - Self-care
+    - Self-management
+    
+    
+  > **Disability Requirement III**
+  
+  Your autism spectrum disorder **must** also cause you a very high level 
+  of impairment in either economic or social participation.
+    
+  A certain degree of permanence should be fulfilled before you are considered eligible. 
+    
+    
+  > **Disability Requirement IV**
+  
+  Your autism spectrum disorder **must** also require you to need lifetime support.
+  
+  
+  
+   <br>Please keep in mind that the NDIA makes the final decision about who will receive support under the NDIS.
+   <br>
+   <br>
+    You can still contact the National Disability Insurance Agency (NDIA) if you wish to
+  confirm your eligibility. You can do this by contacting the NDIA on 1800 800 119.
+
+
+   This app was completed on ${ today() } at ${ format_time(current_datetime()) }.
+
+   If you would still like to discuss your eligibility, you may contact CBS by clicking the button below.
+  
+   If you would like see the NDIS Eligibility Criteria, click 'More Information' below.
+
+allow downloading: True
+zip filename: NDISAdvisor_Results.zip
+attachments:
+  - docx template file: Ineligible_Result.docx
+    filename: NDIS Advisor Results Summary
+    description: |
+      **Here are your NDIS Advisor Results**
+      
+      Please download the PDF attachments or enter your email below to receive a copy of your results.
+    valid formats:
+      - pdf
+  - docx template file: Next-Steps.docx
+    filename: NDIS Advisor Next Steps
+    allow emailing: False
+    valid formats:
+      - pdf
+  - docx template file: Planning-Tips.docx
+    filename: NDIS Advisor Planning Tips
+    allow emailing: False
+    valid formats:
+      - pdf
+      
+buttons:
+  - Contact CBS: exit
+    url: https://communitybridgingservices.org.au/contact-us/
+  - More Information: exit
+    url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible 
+
+section: Results
+---
+code: |
+  nav.hide()
+  nav_hidden=''
+---

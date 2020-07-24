@@ -1,0 +1,33 @@
+---
+mandatory: True
+question: Goals and Aspirations
+subquestion: |
+  Please tell us about your {goals} and aspirations, if you have any. Click on the coloured text to view more information.
+  
+  Knwowing what your goals are can assist you in your planning meeting, please be as specific as possible.
+  
+  > **Do you have any goals and aspirations that you want to achieve in life?**
+terms:
+  goals: |
+    These could be short-term, long-term or future goals. Your goals might include becoming more independent, getting or keeping a job, learning new skills, enrolling in education, becoming more active in your community, or improving relationships and making friends. You should try to make your goals as specific as possible. 
+fields:
+  - no label: hasgoals
+    datatype: yesnoradio
+  - Tell us about your short-term goals: shorttermgoals
+    hint: e.g. I want to learn more skills, be more active in my community, find a job, etc. Please be specific as possible.
+    input type: area
+    required: False
+    show if: hasgoals
+  - Tell us about your medium and long-term goals: longtermgoals
+    hint: e.g. I want to save up to buy a house, complete a university degree, improve and maintain my relationships, etc. Please be as specific as possible.
+    input type: area
+    required: False
+    show if: hasgoals
+section: Goals
+---
+code: |
+  if hasgoals:
+    pdf_goals_text = 'Yes'
+  else:
+    pdf_goals_text = 'I have not indicated any goals in the application'
+---

@@ -1,0 +1,65 @@
+# Disability Requirements III: Social and Economic Participation
+# If user selects any one of these, user is ineligible only for socecopart
+---
+image sets:
+  freepik:
+    attribution: |
+      Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
+    images:
+      social1: employment.png
+      social2: fitness-forever.png
+---
+prevent going back: True
+decoration: social1
+question: |
+  Please tick all that apply.
+subquestion: |
+  > This section of the questionnaire will ask you questions relating to **social and economic participation**.
+fields:
+  - no label: dr_socioecopart1
+    datatype: checkboxes
+    choices:
+      - I have difficulty participating in sports
+      - I have difficulty performing voluntary or paid work
+      - I have difficulty travelling
+      - I have trouble engaging in social activities like going to shopping or to the movies
+      - I have difficulty keeping any form of employment
+section: Socio-Economic Participation
+---
+code: |
+  if dr_socioecopart1.any_true():
+    dr_socioecopart1_checkboxes = True
+  else:
+    dr_socioecopart1_checkboxes = False
+---
+code: |
+  if dr_socioecopart1_checkboxes and not dr_socioecopart2_checkboxes:
+    satisfy_socecon = True
+  elif dr_socioecopart2_checkboxes:
+    satisfy_socecon = False
+  else:
+    satisfy_socecon = False
+---
+prevent going back: True
+decoration: social2
+question: |
+  Please tick all that apply.
+subquestion: |
+  > This section of the questionnaire will ask you questions relating to **social and economic participation**.
+fields:
+  - no label: dr_socioecopart2
+    datatype: checkboxes
+    choices:
+      - I have a stable job
+      - I regularly attend church/a club/volunteer activities
+      - I can drive by myself to places
+      - I often do physical exercise/go to the gym
+      - I have a circle of friends that I can talk to and support me
+section: Socio-Economic Participation
+---
+code: |
+  if dr_socioecopart2.any_true():
+    dr_socioecopart2_checkboxes = True
+  else:
+    dr_socioecopart2_checkboxes = False
+---

@@ -1,0 +1,273 @@
+---
+objects:
+  - endpoint: DADict
+---
+sections:
+  - Introduction to NDIS Advisor
+  - Information about NDIS Access Plan
+  - Preliminary Requirements:
+    - Application Usage
+    - Age
+    - Residency
+  - Disability Requirement I
+  - Disability Requirement II:
+    - Communication
+    - Learning
+    - Mobility
+    - Self-Care
+    - Self-Management
+    - Social Interaction
+  - Disability Requirement III:
+    - Socio-Economic Participation
+    - Permanence
+  - Disability Requirement IV
+  - Goals
+  - Results
+---
+features:
+  navigation: True
+  progress bar: True
+  hide standard menu: False
+  debug: False
+  css: CBS_1.css
+---
+objects:
+  - NDISlogo: DAStaticFile.using(filename='ndisadvisor_logo.png')
+---
+metadata: 
+  title: |
+    NDIS Advisor
+  authors:
+    - name: Corina Catsiavas
+    - name: Nicole Catabran
+    - name: Gale del Pilar
+    - name: Samara Shute
+  organisation:  Flinders University
+  show login: False
+---
+mandatory: True
+code: |
+  set_parts(logo='<img src="' + NDISlogo.url_for() + '" style="height: 180px; align-items: flex-end; flex-direction: row-reverse">')
+
+html: |
+    <div class="progress" style="height:20px">>
+    <div class="progress-bar"
+    role="progressbar"
+    style="width:100%;height:20px">
+    </div>
+    </div>
+---
+default screen parts:
+  post: |
+    <div style="display: flex; height: 200px; align-items: flex-end; flex-direction: row-reverse">
+    <div style="margin: 5px"><img src="https://staff.flinders.edu.au/etc.clientlibs/flinders/clientlibs/clientlib-site/resources/images/flinderuni_main_logo_black.png" height="40">
+    </div>
+    <div style="margin: 5px; text-align: right">
+    <cite><small><i>
+    Developed by Flinders University in collaboration with
+    <br>Community Bridging Services (CBS) Inc 
+    </i></small></cite>
+    </div>
+    </div>
+---
+# Introduction Screen + Disclaimer
+mandatory: True
+progress: 0
+question: Welcome to the NDIS Advisor!
+subquestion: |
+   The purpose of this application is to decide whether you are likely to be eligible for the National Disability Insurance Scheme (NDIS).
+   
+    **This application currently only applies to people with autism spectrum disorder (ASD).**
+  
+buttons:
+  - Continue: continue
+  - Exit: exit
+    url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
+---  
+mandatory: True
+progress: 0
+question: Disclaimer
+subquestion: |
+  This application is **does not** provide legal advice. 
+  
+  This application does not guarantee you will receive funding for the NDIS, nor does it guarantee ineligibility. 
+  
+  This application does not provide comprehensive information on the NDIS. It will simply assist in assessing whether you are likely to be eligible or ineligible.
+  
+  **The National Disability Insurance Agency (NDIA) reserves the right to make any final decisions.**
+ 
+ 
+  It is advised that you have a support person while operating the application. If you are under the age of 16, you must have a parent or caregiver present while filling out the questions. 
+ 
+  By clicking **CONTINUE**, you accept these terms.
+ 
+buttons:
+  - Continue: continue
+  - Exit: exit
+    url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
+---
+# This page tells the user approximately how much time is required for completing the survey
+mandatory: True
+progress: 0
+question: NDIS Advisor
+subquestion: |
+  Please make sure that you are with a {carer} or support person before you start answering any questions. 
+  
+  The NDIS Advisor will take approximately **30 minutes** to complete. 
+ 
+  **Please answer all questions honestly and as accurately as possible.**
+  
+  The next few pages will display information and videos about the NDIS access plan and requirements for an NDIS Application.
+  
+  *You may skip the videos if you wish.*
+terms:
+  carer: |
+    A carer is an individual who provides personal care, support and assistance to other individual who needs it because that individual has a disability, mental condition, mental illness or is frail and aged. (*Carer Recognition Act 2010* (Cth), s5)
+buttons:
+ - Continue: continue
+ - Exit: exit
+   url: https://communitybridgingservices.org.au/
+---
+#Introduction to NDIS access plan and eligibility + videos
+mandatory: True
+progress: 0
+question: Introduction to the National Disability Insurance Scheme (NDIS)
+subquestion: |
+  This video is an introduction to the NDIS. The video outlines what the NDIS achieves in order to assist a person with a disability in enjoying an ordinary life.  The NDIS aims to help people with disability achieve their goals including independence, community involvement, education, employment and health and wellbeing. 
+  
+  *You may skip the videos if you wish.*
+
+video: "[YOUTUBE oKxzePCoRis]"
+buttons:
+ - Continue: continue
+ - Exit: exit
+   url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
+---
+mandatory: True
+progress: 0
+question: Requirements for NDIS Application
+subquestion: |
+ **This video provides answers to FAQs.** 
+
+
+ In order to be eligible for the NDIS you must meet the following requirements:
+
+ * Have a permanent or significant disability or developmental delay
+ * Be a certain age
+ * Live in Australia
+ * Be an Australian citizen or hold the appropriate visa
+ 
+  
+ *You may skip the videos if you wish.*
+
+video: "[YOUTUBE aF3gGRNRnkk]"
+buttons:
+ - Continue: continue
+ - Exit: exit
+   url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
+---
+# User information
+# Starting point for progress bar
+progress: 3
+question: Welcome to the NDIS Advisor!
+fields:
+  - What is your full name?: user_fullname  
+  - Are you using this app with the presence of a {carer} or support person?: user_carer
+    datatype: yesnoradio
+terms:
+  carer: |
+    A carer is an individual who provides personal care, support and assistance to other individual who needs it because that individual has a disability, mental condition, mental illness or is frail and aged. (*Carer Recognition Act 2010* (Cth), s5)
+---
+# Code block which runs the whole app
+mandatory: True
+code: |
+  # Asks for name to be put in PDF files
+  user_fullname
+  user_carer
+  
+  # Initial eligibility checks
+  if ( user_canuse == False ):
+    endpoint['austismcondition']
+  elif ( user_age_ok == False ):
+    endpoint['ineligibleduetoage']
+  elif ( user_residency == False ):
+    endpoint['ineligibleduetoresidency']
+  
+  # Ask for diagnosis but proceed regardless
+  user_diagnosedautism
+  
+  # Disability Requirements II: Functional Capacity questionnaires
+  # If one or more does not apply, user is ineligible
+  # Communication
+  comms_expression
+  comms_talking
+  comms_gettingpoint
+  comms_understanding
+  # Learning
+  learning_new
+  learning_using
+  learning_remember
+  # Mobility
+  mobility_getaround
+  mobility_bed
+  mobility_onfeet
+  mobility_limbs
+  # Self care
+  self_feed
+  self_shower
+  self_toilet
+  self_dress
+  # Self Management
+  mgmt_plans
+  mgmt_finance
+  mgmt_problem
+  mgmt_tasks
+  mgmt_schedule
+  # Social Interaction
+  socialinteraction
+  
+  
+  # Disability Requirements III: Social and Economic Participation
+  # If user select any, user is eligible
+  dr_socioecopart1
+  # If user select any, user is ineligible
+  dr_socioecopart2
+  
+  # Disability Requirements III: Permanence
+  # If none apply, user is ineligible
+  dr_permanence1
+  
+  # Disability Requirements IV: Lifetime Support
+  # If first choice is not selected, user is ineligible
+  dr_lifetimesupport
+  
+  # Goals and Aspirations
+  hasgoals
+    
+  if (( satisfy_comms or satisfy_mobility or satisfy_selfcare or satisfy_selfmgmt or satisfy_learning or satisfy_social ) and
+     ( satisfy_socecon and satisfy_lifetimesupport and satisfy_permanence == True )):
+    endpoint['eligible']
+  else:
+    endpoint['ineligible']
+---
+include:
+  - P17_appusage.yml
+  - endpoint_asd.yml
+  - P17_agereq.yml
+  - endpoint_age.yml
+  - P17_residencyreq.yml
+  - endpoint_residency.yml
+  - P17_diagnosis.yml
+  - P17_communication.yml
+  - P17_mobility.yml
+  - P17_selfcare.yml
+  - P17_selfmanagement.yml
+  - P17_learning.yml
+  - P17_socialinteraction.yml
+  - P17_socioeconomic.yml
+  - P17_permanence.yml
+  - P17_lifesupport.yml
+  - P17_goals.yml
+  - endpoint_eligible.yml
+  - endpoint_ineligible.yml
+---

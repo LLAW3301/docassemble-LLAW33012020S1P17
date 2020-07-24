@@ -1,0 +1,37 @@
+# ENDPOINT: Ineligibility due to AGE
+---
+prevent going back: True
+progress: 100
+event: endpoint['ineligibleduetoage']
+question: Unfortunately, you may not be eligible for the NDIS.
+subquestion: |
+  ${ nav_hidden }
+  To access the NDIS, you must be between 7 and 65 years old.
+  
+  You have indicated that you are **${ user_age }** years old. 
+  
+  According to **section 22** of the [*National Disability Insurance Scheme Act 2013* (Cth)](https://www.legislation.gov.au/Details/C2013A00020)
+  your answers indicate that you do not meet this requirement.
+  
+  **This means you may not be eligible to access the NDIS.**
+  
+  The National Disability Insurance Agency (NDIA) reserves the right to make the final decision about who is eligible to receive support under the NDIS. 
+  
+  
+  If you would still like to discuss your eligibility, you may contact CBS by clicking the button below.
+  
+  If you would like see the NDIS eligibility criteria, click 'More Information' below.
+ 
+  
+  Thank you for using the NDIS Advisor.
+  
+buttons:
+  - Contact CBS: exit
+    url: https://communitybridgingservices.org.au/contact-us/
+  - More Information: exit
+    url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible 
+---
+code: |
+  nav.hide()
+  nav_hidden=''
+---

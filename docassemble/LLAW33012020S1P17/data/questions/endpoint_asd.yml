@@ -1,0 +1,27 @@
+# Endpoint: Autism Condition
+---
+prevent going back: True
+progress: 100
+event: endpoint['austismcondition']
+question: Unfortunately, you cannot use this application.
+subquestion: |
+  ${nav_hidden}
+  
+  **The NDIS Advisor is solely for people who believe they have autism spectrum disorder.**
+  
+  If you want to check if you are eligible due to another disability, then you may contact CBS by clicking the button below.
+  
+  If you would like see the NDIS Eligibility Criteria, click 'More Information' below.
+ 
+  Thank you for using the NDIS Advisor.
+  
+buttons:
+  - Contact CBS: exit
+    url: https://communitybridgingservices.org.au/contact-us/
+  - More Information: exit
+    url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible 
+---
+code: |
+  nav.hide()
+  nav_hidden=''
+---
