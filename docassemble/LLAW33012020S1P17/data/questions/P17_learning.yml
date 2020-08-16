@@ -4,14 +4,12 @@ image sets:
     attribution: |
       Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
     images:
-      book: book-2.png
-      learning2: Learning2.png
       remember: Remembering.png
 ---
-decoration: book
+decoration: remember
 question: Learning
 subquestion: |
-  Please choose the option that best describes your level of learning.
+  Please choose the option that best describes your level of learning on a bad day.
   
   > **Learning new skills**
 field: learning_new
@@ -47,7 +45,7 @@ code: |
 decoration: remember
 question: Learning
 subquestion: |
-  Please choose the option that best describes your level of learning.
+  Please choose the option that best describes your level of learning on a bad day.
   
   > **Remebering information**
 field: learning_remember
@@ -80,10 +78,10 @@ code: |
   else:
     satisfy_learning_remember = True
 ---
-decoration: learning2
+decoration: remember
 question: Learning
 subquestion: |
-  Please choose the option that best describes your level of learning.
+  Please choose the option that best describes your level of learning on a bad day.
   
   > **Practicing new skills**
 field: learning_using

@@ -4,14 +4,12 @@ image sets:
     attribution: |
       Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
     images:
-      feet: Feet.png
       wheelchair: disabled.png
-      prosthetic: prosthesis.png
 ---
 decoration: wheelchair
 question: Mobility
 subquestion: |
-  Please choose the option that best describes your level of mobility.
+  Please choose the option that best describes your level of mobility on a bad day.
   
   > **Getting around the house or anywhere I want to go**
 field: mobility_getaround
@@ -44,10 +42,10 @@ code: |
   else:
     satisfy_mobility_getaround = True
 ---
-decoration: prosthetic
+decoration: wheelchair
 question: Mobility
 subquestion: |
-  Please choose the option that best describes your level of mobility.
+  Please choose the option that best describes your level of mobility on a bad day.
   
   > **Getting in or out of bed or a chair**
 field: mobility_bed
@@ -80,10 +78,10 @@ code: |
   else:
     satisfy_mobility_bed = True
 ---
-decoration: feet
+decoration: wheelchair
 question: Mobility
 subquestion: |
-  Please choose the option that best describes your level of mobility.
+  Please choose the option that best describes your level of mobility on a bad day.
   
   > **Being on my feet for extended periods**
 field: mobility_onfeet
@@ -116,44 +114,8 @@ code: |
   else:
     satisfy_mobility_onfeet = True
 ---
-decoration: prosthetic
-question: Mobility
-subquestion: |
-  Please choose the option that best describes your level of mobility.
-  
-  > **Doing tasks that require the use of limbs**
-field: mobility_limbs
-choices:
-  - I can do this independently: choice1
-  - I cannot do this without someone physically helping me or guiding me: choice2
-  - I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications: choice3
-    help: |
-      Assistive technology includes adaptive seating and positioning, wheelchair, transfer devices, stretchers, convertible chairs, sit-to-stand lifts, prosthetics and exoskeletons.
-      
-      Commonly used items examples are glasses, walking sticks, non-slip bath mats, bathroom grab rails, stair rails, age appropriate child safety locks, simple adapted kitchen utensils.
-  - I cannot do this even with assistive technology or someone helping me: choice4
-section: Mobility
----
 code: |
-  if mobility_limbs == 'choice1':
-    mob_limbs_text = 'I can do this independently'
-  elif mobility_limbs == 'choice2':
-    mob_limbs_text = 'I cannot do this without someone physically helping me or guiding me'
-  elif mobility_limbs == 'choice4':
-    mob_limbs_text = 'I cannot do this even with assistive technology or someone helping me'
-  elif mobility_limbs == 'choice3':
-    mob_limbs_text = 'I cannot do this on my own without assistive technology and equipment other than commonly used items and household modifications'
-  else:
-    mob_limbs_text = 'Error'
---- 
-code: |
-  if mobility_limbs == 'choice1':
-    satisfy_mobility_limbs = False
-  else:
-    satisfy_mobility_limbs = True
----
-code: |
-  if satisfy_mobility_onfeet or satisfy_mobility_bed or satisfy_mobility_getaround or satisfy_mobility_limbs:
+  if satisfy_mobility_onfeet or satisfy_mobility_bed or satisfy_mobility_getaround:
     satisfy_mobility = True
   else:
     satisfy_mobility = False

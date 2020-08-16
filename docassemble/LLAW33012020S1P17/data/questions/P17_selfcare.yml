@@ -5,19 +5,16 @@ image sets:
       Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
     images:
       shower: bathroom.png
-      feed: eat.png
-      dress: clothing.png
-      toilet: Toilet.png
 ---
 decoration: shower
 question: Self-Care
 subquestion: |
-  Please choose the option that best describes your level of self-care. Click the coloured text to view examples.
+  Please choose the option that best describes your level of self-care on a bad day. Click the coloured text to view examples.
   
   > **Showering and managing my {personal hygiene}**
 terms:
   personal hygiene: |
-    Bathing, brushing teeth, grooming
+    Bathing, brushing teeth, changing clothes, washing my clothes, personal grooming such as hair and skin care
 field: self_shower
 choices:
   - I can do this independently: choice1
@@ -48,10 +45,10 @@ code: |
   else:
     satisfy_self_shower = True
 ---
-decoration: feed
+decoration: shower
 question: Self-Care
 subquestion: |
-  Please choose the option that best describes your level of self-care.
+  Please choose the option that best describes your level of self-care on a bad day.
   
   > **Feeding myself**
 field: self_feed
@@ -84,10 +81,10 @@ code: |
   else:
     satisfy_self_feed = True
 ---
-decoration: dress
+decoration: shower
 question: Self-Care
 subquestion: |
-  Please choose the option that best describes your level of self-care.
+  Please choose the option that best describes your level of self-care on a bad day.
   
   > **Dressing myself**
 field: self_dress
@@ -120,10 +117,10 @@ code: |
   else:
     satisfy_self_dress = True
 ---
-decoration: toilet
+decoration: shower
 question: Self-Care
 subquestion: |
-  Please choose the option that best describes your level of self-care.
+  Please choose the option that best describes your level of self-care on a bad day.
   
   > **Using the toilet**
 field: self_toilet

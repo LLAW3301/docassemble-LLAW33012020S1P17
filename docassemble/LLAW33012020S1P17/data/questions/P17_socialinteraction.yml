@@ -9,7 +9,7 @@ image sets:
 decoration: social
 question: Social Interaction
 subquestion: |
-  > **Please tick the choices that best describe you.**
+  > **Please tick the choices that best describe you on a bad day.**
 fields:
   - no label: socialinteraction
     datatype: checkboxes

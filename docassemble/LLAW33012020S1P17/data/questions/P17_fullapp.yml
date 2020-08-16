@@ -90,17 +90,19 @@ question: Disclaimer
 subquestion: |
   This application is **does not** provide legal advice. 
   
-  This application does not guarantee you will receive funding for the NDIS, nor does it guarantee ineligibility. 
+  This application does not guarantee you will receive funding for the NDIS, nor does it mean you are not eligible. 
   
   This application does not provide comprehensive information on the NDIS. It will simply assist in assessing whether you are likely to be eligible or ineligible.
   
   **The National Disability Insurance Agency (NDIA) reserves the right to make any final decisions.**
  
- 
-  It is advised that you have a support person while operating the application. If you are under the age of 16, you must have a parent or caregiver present while filling out the questions. 
+  It is advised that you have a support person or {carer} while operating the application. 
  
   By clicking **CONTINUE**, you accept these terms.
- 
+
+terms:
+  carer: |
+    A carer is an individual who provides personal care, support and assistance to other individual who needs it because that individual has a disability, mental condition, mental illness or is frail and aged. (*Carer Recognition Act 2010* (Cth), s5)
 buttons:
   - Continue: continue
   - Exit: exit
@@ -110,19 +112,22 @@ buttons:
 mandatory: True
 progress: 0
 question: NDIS Advisor
-subquestion: |
-  Please make sure that you are with a {carer} or support person before you start answering any questions. 
-  
+subquestion: |  
   The NDIS Advisor will take approximately **30 minutes** to complete. 
- 
-  **Please answer all questions honestly and as accurately as possible.**
   
-  The next few pages will display information and videos about the NDIS access plan and requirements for an NDIS Application.
+  When the NDIS have a {planning meeting}, the way questions are answered are very important. When answering these questions, make sure you answer as if you were having a bad day.
+  
+  **Please answer all questions honestly and as accurately as possible.**
+    
+  The next few pages will display information and videos about the {NDIS request form} and requirements for an NDIS Application.
   
   *You may skip the videos if you wish.*
+
 terms:
-  carer: |
-    A carer is an individual who provides personal care, support and assistance to other individual who needs it because that individual has a disability, mental condition, mental illness or is frail and aged. (*Carer Recognition Act 2010* (Cth), s5)
+  NDIS request form: |
+    This is an application form to request funding from the NDIS. For more information see [this page](https://www.ndis.gov.au/how-apply-ndis/what-access-request-form).
+  planning meeting: |
+    This is a meeting or interview where you will be asked further questions about different areas of your life, to assist with your application, and in determining the best plan that is most suited to you. For more information, see [this page](https://www.ndis.gov.au/participants/creating-your-plan/preparing-your-planning-meeting).
 buttons:
  - Continue: continue
  - Exit: exit
@@ -174,6 +179,8 @@ fields:
   - What is your full name?: user_fullname  
   - Are you using this app with the presence of a {carer} or support person?: user_carer
     datatype: yesnoradio
+under: |
+  You do not need to have a carer with you to use this app. 
 terms:
   carer: |
     A carer is an individual who provides personal care, support and assistance to other individual who needs it because that individual has a disability, mental condition, mental illness or is frail and aged. (*Carer Recognition Act 2010* (Cth), s5)
@@ -211,7 +218,6 @@ code: |
   mobility_getaround
   mobility_bed
   mobility_onfeet
-  mobility_limbs
   # Self care
   self_feed
   self_shower

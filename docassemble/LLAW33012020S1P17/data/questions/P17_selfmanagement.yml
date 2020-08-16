@@ -13,7 +13,7 @@ image sets:
 decoration: calendar
 question: Self-Management
 subquestion: |
-  Please choose the option that best describes your level of self-management. Click the coloured text to view examples.
+  Please choose the option that best describes your level of self-management on a bad day. Click the coloured text to view examples.
   
   > **{Making plans and decisions}**
 terms:
@@ -52,7 +52,7 @@ code: |
 decoration: problem
 question: Self-Management
 subquestion: |
-  Please choose the option that best describes your level of self-management. Click the coloured text to view examples.
+  Please choose the option that best describes your level of self-management on a bad day. Click the coloured text to view examples.
   
   > **{Solving everyday problems}**
 terms:
@@ -91,7 +91,7 @@ code: |
 decoration: money
 question: Self-Management
 subquestion: |
-  Please choose the option that best describes your level of self-management. Click the coloured text to view examples.
+  Please choose the option that best describes your level of self-management on a bad day. Click the coloured text to view examples.
   
   > **{Managing my finances}**
 terms:
@@ -130,7 +130,7 @@ code: |
 decoration: tasks
 question: Self-Management
 subquestion: |
-  Please choose the option that best describes your level of self-management. Click the coloured text to view examples.
+  Please choose the option that best describes your level of self-management on a bad day. Click the coloured text to view examples.
   
   > **Completing {daily tasks}**
 terms:
@@ -169,9 +169,12 @@ code: |
 decoration: calendar
 question: Self-Management
 subquestion: |
-  Please choose the option that best describes your level of self-management. 
+  Please choose the option that best describes your level of self-management on a bad day. Click the coloured text to view examples.
   
-  > **Organising my schedule**
+  > **{Organising my schedule}**
+terms: 
+  Organising my schedule: |
+    This can include scheduling medical or check-up appointments, putting time aside for self-care such as eating and showering, and managing your time to account for travel (e.g. public transport), sleep, rest, etc.
 field: mgmt_schedule
 choices:
   - I can do this independently: choice1

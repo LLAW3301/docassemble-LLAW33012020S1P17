@@ -5,12 +5,11 @@ image sets:
       Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
     images:
       talking: Conversation.png
-      group: Group_Convo.png
 ---
 decoration: talking
 question: Communication
 subquestion: |
-  Please choose the option that best describes your level of communication.
+  Please choose the option that best describes your level of communication on a bad day.
   
   > **Expressing what I need or want**
 field: comms_expression
@@ -42,10 +41,10 @@ code: |
   else:
     satisfy_comms_expression = True
 ---
-decoration: group
+decoration: talking
 question: Communication
 subquestion: |
-  Please choose the option that best describes your level of communication.
+  Please choose the option that best describes your level of communication on a bad day.
   
   > **Having a conversation/talking to other people**
 field: comms_talking
@@ -77,10 +76,10 @@ code: |
   else:
     satisfy_comms_talking = True
 ---
-decoration: group
+decoration: talking
 question: Communication
 subquestion: |
-  Please choose the option that best describes your level of communication.
+  Please choose the option that best describes your level of communication on a bad day.
   
   > **Understanding what other people are saying to me**
 field: comms_understanding
@@ -116,7 +115,7 @@ code: |
 decoration: talking
 question: Communication
 subquestion: |
-  Please choose the option that best describes your level of communication.
+  Please choose the option that best describes your level of communication on a bad day.
   
   > **Getting my point across to people when I am talking**
 field: comms_gettingpoint
