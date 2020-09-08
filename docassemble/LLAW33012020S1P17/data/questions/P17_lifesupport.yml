@@ -4,18 +4,18 @@ question: |
   Please select the answer that applies to you.
 subquestion: |
   > This section of the questionnaire will ask you questions relating to **lifetime support**. Please tick the option that best describes your situation.
+  > Do you think your condition will last approximately:
 fields:
   - no label: dr_lifetimesupport
     datatype: radio
-    default: 'I only need temporary support'
     choices:
-      - I believe that I will need support for the rest of my life
-      - I believe that I will need support for most of my life, but not forever
-      - I only need temporary support
+      - A few months to less than 2 years
+      - 2-5 years
+      - More than 5 years
 section: Disability Requirement IV
 ---
 code: |
-  if dr_lifetimesupport == 'I believe that I will need support for the rest of my life':
+  if dr_lifetimesupport == 'More than 5 years':
     satisfy_lifetimesupport = True
   else:
     satisfy_lifetimesupport = False

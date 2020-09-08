@@ -3,7 +3,10 @@
 question: |
   Please select the answer that applies to you.
 subquestion: |
-  > This section of the questionnaire will ask you questions relating to **permanence**. Please tick the option that best describes your situation.
+  > This section of the questionnaire will ask you questions relating to **{permanence}**. Please tick the option that best describes your situation.
+terms: 
+  permanence: |
+    An impairment is, or is likely to be, permanent only if there are no known, available and appropriate evidence based treatments that would be likely to remedy (i.e. cure or substantially relieve) the impairment (rule 5.4 of the Becoming a Participant Rules); varies in intensity - for example, because the impairment is of a chronic episodic nature (section 24(2)); an impairment may be permanent notwithstanding that the severity of its impact on the functional impact of the person may fluctuate or potentially improve (rule 5.5 of the Becoming a Participant Rules). This is likely to be regularly reviewed.
 fields:
   - no label: dr_permanence1
     datatype: radio
@@ -36,7 +39,7 @@ code: |
 ---
 code: |
   if notreatment == 'Yes':
-    pdf_permanence_text = 'A medical professional is able to confirm that my impairment cannot be improved from treatments available or appropriate to my impairment'
+    pdf_permanence_text = 'A medical professional is able to confirm the permanence of my impairment'
   elif confirmation:
     pdf_permanence_text = 'I will seek evidence from a medical professional to confirm this'
   else:

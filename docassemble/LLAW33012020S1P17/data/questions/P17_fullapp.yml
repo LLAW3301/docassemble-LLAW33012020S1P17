@@ -29,6 +29,8 @@ features:
   progress bar: True
   hide standard menu: False
   debug: False
+  question back button: True
+  navigation back button: False
   css: CBS_1.css
 ---
 objects:
